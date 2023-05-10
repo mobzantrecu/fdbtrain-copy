@@ -31,24 +31,28 @@ export type Query = {
   __typename?: 'Query';
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
-  sectionBlock?: Maybe<SectionBlock>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+  home?: Maybe<Home>;
+  homeCollection?: Maybe<HomeCollection>;
+  metadata?: Maybe<Metadata>;
+  metadataCollection?: Maybe<MetadataCollection>;
   section?: Maybe<Section>;
   sectionCollection?: Maybe<SectionCollection>;
-  blogPost?: Maybe<BlogPost>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
+  sectionBlock?: Maybe<SectionBlock>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
   pageTemplate?: Maybe<PageTemplate>;
   pageTemplateCollection?: Maybe<PageTemplateCollection>;
+  form?: Maybe<Form>;
+  formCollection?: Maybe<FormCollection>;
   generalData?: Maybe<GeneralData>;
   generalDataCollection?: Maybe<GeneralDataCollection>;
+  blogPost?: Maybe<BlogPost>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
   features?: Maybe<Features>;
   featuresCollection?: Maybe<FeaturesCollection>;
   callToAction?: Maybe<CallToAction>;
   callToActionCollection?: Maybe<CallToActionCollection>;
   tweet?: Maybe<Tweet>;
   tweetCollection?: Maybe<TweetCollection>;
-  home?: Maybe<Home>;
-  homeCollection?: Maybe<HomeCollection>;
   customer?: Maybe<Customer>;
   customerCollection?: Maybe<CustomerCollection>;
   pageTrust?: Maybe<PageTrust>;
@@ -63,8 +67,6 @@ export type Query = {
   usageRateCollection?: Maybe<UsageRateCollection>;
   pagePricing?: Maybe<PagePricing>;
   pagePricingCollection?: Maybe<PagePricingCollection>;
-  abTesting?: Maybe<AbTesting>;
-  abTestingCollection?: Maybe<AbTestingCollection>;
   descriptionMarkdown?: Maybe<DescriptionMarkdown>;
   descriptionMarkdownCollection?: Maybe<DescriptionMarkdownCollection>;
   description?: Maybe<Description>;
@@ -103,8 +105,6 @@ export type Query = {
   redirectCollection?: Maybe<RedirectCollection>;
   mediaBlock?: Maybe<MediaBlock>;
   mediaBlockCollection?: Maybe<MediaBlockCollection>;
-  metadata?: Maybe<Metadata>;
-  metadataCollection?: Maybe<MetadataCollection>;
   pressPost?: Maybe<PressPost>;
   pressPostCollection?: Maybe<PressPostCollection>;
   socialMedia?: Maybe<SocialMedia>;
@@ -148,20 +148,37 @@ export type QueryAssetCollectionArgs = {
 };
 
 
-export type QuerySectionBlockArgs = {
+export type QueryHomeArgs = {
   id: Scalars['String'];
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-export type QuerySectionBlockCollectionArgs = {
+export type QueryHomeCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
-  where?: Maybe<SectionBlockFilter>;
-  order?: Maybe<Array<Maybe<SectionBlockOrder>>>;
+  where?: Maybe<HomeFilter>;
+  order?: Maybe<Array<Maybe<HomeOrder>>>;
+};
+
+
+export type QueryMetadataArgs = {
+  id: Scalars['String'];
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryMetadataCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+  where?: Maybe<MetadataFilter>;
+  order?: Maybe<Array<Maybe<MetadataOrder>>>;
 };
 
 
@@ -182,20 +199,20 @@ export type QuerySectionCollectionArgs = {
 };
 
 
-export type QueryBlogPostArgs = {
+export type QuerySectionBlockArgs = {
   id: Scalars['String'];
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-export type QueryBlogPostCollectionArgs = {
+export type QuerySectionBlockCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
-  where?: Maybe<BlogPostFilter>;
-  order?: Maybe<Array<Maybe<BlogPostOrder>>>;
+  where?: Maybe<SectionBlockFilter>;
+  order?: Maybe<Array<Maybe<SectionBlockOrder>>>;
 };
 
 
@@ -216,6 +233,23 @@ export type QueryPageTemplateCollectionArgs = {
 };
 
 
+export type QueryFormArgs = {
+  id: Scalars['String'];
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryFormCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+  where?: Maybe<FormFilter>;
+  order?: Maybe<Array<Maybe<FormOrder>>>;
+};
+
+
 export type QueryGeneralDataArgs = {
   id: Scalars['String'];
   preview?: Maybe<Scalars['Boolean']>;
@@ -230,6 +264,23 @@ export type QueryGeneralDataCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
   where?: Maybe<GeneralDataFilter>;
   order?: Maybe<Array<Maybe<GeneralDataOrder>>>;
+};
+
+
+export type QueryBlogPostArgs = {
+  id: Scalars['String'];
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryBlogPostCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+  where?: Maybe<BlogPostFilter>;
+  order?: Maybe<Array<Maybe<BlogPostOrder>>>;
 };
 
 
@@ -281,23 +332,6 @@ export type QueryTweetCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
   where?: Maybe<TweetFilter>;
   order?: Maybe<Array<Maybe<TweetOrder>>>;
-};
-
-
-export type QueryHomeArgs = {
-  id: Scalars['String'];
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryHomeCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-  where?: Maybe<HomeFilter>;
-  order?: Maybe<Array<Maybe<HomeOrder>>>;
 };
 
 
@@ -417,23 +451,6 @@ export type QueryPagePricingCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
   where?: Maybe<PagePricingFilter>;
   order?: Maybe<Array<Maybe<PagePricingOrder>>>;
-};
-
-
-export type QueryAbTestingArgs = {
-  id: Scalars['String'];
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryAbTestingCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-  where?: Maybe<AbTestingFilter>;
-  order?: Maybe<Array<Maybe<AbTestingOrder>>>;
 };
 
 
@@ -757,23 +774,6 @@ export type QueryMediaBlockCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
   where?: Maybe<MediaBlockFilter>;
   order?: Maybe<Array<Maybe<MediaBlockOrder>>>;
-};
-
-
-export type QueryMetadataArgs = {
-  id: Scalars['String'];
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryMetadataCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-  where?: Maybe<MetadataFilter>;
-  order?: Maybe<Array<Maybe<MetadataOrder>>>;
 };
 
 
@@ -1171,18 +1171,18 @@ export enum ImageFormat {
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+  homeCollection?: Maybe<HomeCollection>;
+  metadataCollection?: Maybe<MetadataCollection>;
   sectionCollection?: Maybe<SectionCollection>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
   pageTemplateCollection?: Maybe<PageTemplateCollection>;
   generalDataCollection?: Maybe<GeneralDataCollection>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
   featuresCollection?: Maybe<FeaturesCollection>;
-  homeCollection?: Maybe<HomeCollection>;
   partnersCardCollection?: Maybe<PartnersCardCollection>;
   blogCollection?: Maybe<BlogCollection>;
   eventCollection?: Maybe<EventCollection>;
   mediaBlockCollection?: Maybe<MediaBlockCollection>;
-  metadataCollection?: Maybe<MetadataCollection>;
   pressPostCollection?: Maybe<PressPostCollection>;
   personCollection?: Maybe<PersonCollection>;
   logoCollection?: Maybe<LogoCollection>;
@@ -1198,7 +1198,15 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type AssetLinkingCollectionsSectionBlockCollectionArgs = {
+export type AssetLinkingCollectionsHomeCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type AssetLinkingCollectionsMetadataCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1214,7 +1222,7 @@ export type AssetLinkingCollectionsSectionCollectionArgs = {
 };
 
 
-export type AssetLinkingCollectionsBlogPostCollectionArgs = {
+export type AssetLinkingCollectionsSectionBlockCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1238,7 +1246,7 @@ export type AssetLinkingCollectionsGeneralDataCollectionArgs = {
 };
 
 
-export type AssetLinkingCollectionsFeaturesCollectionArgs = {
+export type AssetLinkingCollectionsBlogPostCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1246,7 +1254,7 @@ export type AssetLinkingCollectionsFeaturesCollectionArgs = {
 };
 
 
-export type AssetLinkingCollectionsHomeCollectionArgs = {
+export type AssetLinkingCollectionsFeaturesCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1279,14 +1287,6 @@ export type AssetLinkingCollectionsEventCollectionArgs = {
 
 
 export type AssetLinkingCollectionsMediaBlockCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type AssetLinkingCollectionsMetadataCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1338,498 +1338,66 @@ export type Entry = {
   contentfulMetadata: ContentfulMetadata;
 };
 
-export type SectionBlockCollection = {
-  __typename?: 'SectionBlockCollection';
+export type HomeCollection = {
+  __typename?: 'HomeCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
-  items: Array<Maybe<SectionBlock>>;
+  items: Array<Maybe<Home>>;
 };
 
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlock = Entry & {
-  __typename?: 'SectionBlock';
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type Home = Entry & {
+  __typename?: 'Home';
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<SectionBlockLinkingCollections>;
-  objectName?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<SectionBlockSubtitle>;
-  actionsCollection?: Maybe<SectionBlockActionsCollection>;
-  media?: Maybe<Asset>;
-  icon?: Maybe<Scalars['String']>;
-  backgroundImage?: Maybe<Asset>;
-  anchorLinkId?: Maybe<Scalars['String']>;
-  customerProof?: Maybe<SectionBlockCustomerProof>;
-  additionalTitle?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockObjectNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockActionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockMediaArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockIconArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockBackgroundImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockAnchorLinkIdArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockCustomerProofArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
-export type SectionBlockAdditionalTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type SectionBlockLinkingCollections = {
-  __typename?: 'SectionBlockLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-  generalDataCollection?: Maybe<GeneralDataCollection>;
-  pagePricingCollection?: Maybe<PagePricingCollection>;
-  pagePressCollection?: Maybe<PagePressCollection>;
-  blogCollection?: Maybe<BlogCollection>;
-};
-
-
-export type SectionBlockLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionBlockLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionBlockLinkingCollectionsGeneralDataCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionBlockLinkingCollectionsPagePricingCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionBlockLinkingCollectionsPagePressCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionBlockLinkingCollectionsBlogCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type SectionCollection = {
-  __typename?: 'SectionCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type Section = Entry & {
-  __typename?: 'Section';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<SectionLinkingCollections>;
-  sectionName?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  anchorLinkId?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<SectionSubtitle>;
-  actionsCollection?: Maybe<SectionActionsCollection>;
-  blocksCollection?: Maybe<SectionBlocksCollection>;
-  markdownBody?: Maybe<Scalars['String']>;
-  logosCollection?: Maybe<LogosCollection>;
-  type?: Maybe<Scalars['String']>;
-  image?: Maybe<Asset>;
-  hasLinearBackground?: Maybe<Scalars['Boolean']>;
-  backgroundImage?: Maybe<Asset>;
-  compactMode?: Maybe<Scalars['Boolean']>;
-  textBelowSection?: Maybe<Scalars['String']>;
-  additionalTitle?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionSectionNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionAnchorLinkIdArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionActionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionBlocksCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionMarkdownBodyArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionLogosCollectionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionTypeArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionHasLinearBackgroundArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionBackgroundImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionCompactModeArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionTextBelowSectionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
-export type SectionAdditionalTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type SectionLinkingCollections = {
-  __typename?: 'SectionLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pageTemplateCollection?: Maybe<PageTemplateCollection>;
-  featuresCollection?: Maybe<FeaturesCollection>;
-  homeCollection?: Maybe<HomeCollection>;
-  pageTrustCollection?: Maybe<PageTrustCollection>;
-  pagePartnersCollection?: Maybe<PagePartnersCollection>;
-  pagePricingCollection?: Maybe<PagePricingCollection>;
-  learnCollection?: Maybe<LearnCollection>;
-  pageEventsCollection?: Maybe<PageEventsCollection>;
-  pageCustomersCollection?: Maybe<PageCustomersCollection>;
-  communityCollection?: Maybe<CommunityCollection>;
-  pageClientServerlessCollection?: Maybe<PageClientServerlessCollection>;
-  pageCareersCollection?: Maybe<PageCareersCollection>;
-  companyCollection?: Maybe<CompanyCollection>;
-};
-
-
-export type SectionLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageTemplateCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsFeaturesCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsHomeCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageTrustCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPagePartnersCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPagePricingCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsLearnCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageEventsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageCustomersCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsCommunityCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageClientServerlessCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsPageCareersCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SectionLinkingCollectionsCompanyCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageTemplateCollection = {
-  __typename?: 'PageTemplateCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PageTemplate>>;
-};
-
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplate = Entry & {
-  __typename?: 'PageTemplate';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PageTemplateLinkingCollections>;
+  linkedFrom?: Maybe<HomeLinkingCollections>;
   metadata?: Maybe<Metadata>;
   pageName?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
   heroTitle?: Maybe<Scalars['String']>;
-  heroSubtitle?: Maybe<PageTemplateHeroSubtitle>;
-  heroActionsCollection?: Maybe<PageTemplateHeroActionsCollection>;
-  heroSlider?: Maybe<LogosCollection>;
-  linesInHero?: Maybe<Scalars['Boolean']>;
-  sectionsCollection?: Maybe<PageTemplateSectionsCollection>;
+  heroSubtitle?: Maybe<HomeHeroSubtitle>;
+  heroActionsCollection?: Maybe<HomeHeroActionsCollection>;
+  companies?: Maybe<LogosCollection>;
+  sectionsCollection?: Maybe<HomeSectionsCollection>;
   hideFromSitemap?: Maybe<Scalars['Boolean']>;
-  noIndex?: Maybe<Scalars['Boolean']>;
   heroImage?: Maybe<Asset>;
-  heroImageStacked?: Maybe<Scalars['Boolean']>;
-  heroSignUpForm?: Maybe<Scalars['Boolean']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateLinkedFromArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateMetadataArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeMetadataArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplatePageNameArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomePageNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateSlugArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeHeroTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroTitleArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeHeroSubtitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroActionsCollectionArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeHeroActionsCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1837,21 +1405,15 @@ export type PageTemplateHeroActionsCollectionArgs = {
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroSliderArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeCompaniesArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateLinesInHeroArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateSectionsCollectionArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeSectionsCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1859,43 +1421,31 @@ export type PageTemplateSectionsCollectionArgs = {
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHideFromSitemapArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeHideFromSitemapArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateNoIndexArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroImageArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeHeroImageArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroImageStackedArgs = {
+/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
+export type HomeVersionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
-/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
-export type PageTemplateHeroSignUpFormArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageTemplateLinkingCollections = {
-  __typename?: 'PageTemplateLinkingCollections';
+export type HomeLinkingCollections = {
+  __typename?: 'HomeLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
 
 
-export type PageTemplateLinkingCollectionsEntryCollectionArgs = {
+export type HomeLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -1948,11 +1498,11 @@ export type MetadataUrlArgs = {
 export type MetadataLinkingCollections = {
   __typename?: 'MetadataLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
+  homeCollection?: Maybe<HomeCollection>;
   pageTemplateCollection?: Maybe<PageTemplateCollection>;
   generalDataCollection?: Maybe<GeneralDataCollection>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
   featuresCollection?: Maybe<FeaturesCollection>;
-  homeCollection?: Maybe<HomeCollection>;
   pageTrustCollection?: Maybe<PageTrustCollection>;
   pagePartnersCollection?: Maybe<PagePartnersCollection>;
   pagePricingCollection?: Maybe<PagePricingCollection>;
@@ -1977,7 +1527,7 @@ export type MetadataLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type MetadataLinkingCollectionsBlogPostCollectionArgs = {
+export type MetadataLinkingCollectionsHomeCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -2001,7 +1551,7 @@ export type MetadataLinkingCollectionsGeneralDataCollectionArgs = {
 };
 
 
-export type MetadataLinkingCollectionsFeaturesCollectionArgs = {
+export type MetadataLinkingCollectionsBlogPostCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -2009,7 +1559,7 @@ export type MetadataLinkingCollectionsFeaturesCollectionArgs = {
 };
 
 
-export type MetadataLinkingCollectionsHomeCollectionArgs = {
+export type MetadataLinkingCollectionsFeaturesCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -2120,719 +1670,186 @@ export type MetadataLinkingCollectionsCompanyCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-export type BlogPostCollection = {
-  __typename?: 'BlogPostCollection';
+export type PageTemplateCollection = {
+  __typename?: 'PageTemplateCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
-  items: Array<Maybe<BlogPost>>;
+  items: Array<Maybe<PageTemplate>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPost = Entry & {
-  __typename?: 'BlogPost';
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplate = Entry & {
+  __typename?: 'PageTemplate';
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<BlogPostLinkingCollections>;
+  linkedFrom?: Maybe<PageTemplateLinkingCollections>;
   metadata?: Maybe<Metadata>;
-  title?: Maybe<Scalars['String']>;
+  pageName?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  additionalSlugs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  date?: Maybe<Scalars['DateTime']>;
-  coverImage?: Maybe<Asset>;
-  thumbnailImage?: Maybe<Asset>;
-  categoriesCollection?: Maybe<BlogPostCategoriesCollection>;
-  isCommunityPost?: Maybe<Scalars['Boolean']>;
-  authorsCollection?: Maybe<BlogPostAuthorsCollection>;
-  excerpt?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
-  body2?: Maybe<Scalars['String']>;
-  lastUpdated?: Maybe<Scalars['DateTime']>;
-  relatedPostsCollection?: Maybe<BlogPostRelatedPostsCollection>;
-  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
-  canonicalLink?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostSlugArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostAdditionalSlugsArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostDateArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostCoverImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostThumbnailImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostCategoriesCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostIsCommunityPostArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostAuthorsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostExcerptArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostBodyArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostBody2Args = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostLastUpdatedArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostRelatedPostsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostHideFromRelatedPostsArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
-export type BlogPostCanonicalLinkArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type BlogPostLinkingCollections = {
-  __typename?: 'BlogPostLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
-  blogCollection?: Maybe<BlogCollection>;
-};
-
-
-export type BlogPostLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type BlogPostLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type BlogPostLinkingCollectionsBlogPostCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type BlogPostLinkingCollectionsBlogCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type BlogCollection = {
-  __typename?: 'BlogCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Blog>>;
-};
-
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type Blog = Entry & {
-  __typename?: 'Blog';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<BlogLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  title?: Maybe<Scalars['String']>;
-  featuredPost?: Maybe<BlogPost>;
-  featuredPostImage?: Maybe<Asset>;
-  heroCardBlock?: Maybe<SectionBlock>;
-  newsletterCardBlock?: Maybe<SectionBlock>;
+  heroTitle?: Maybe<Scalars['String']>;
+  heroSubtitle?: Maybe<PageTemplateHeroSubtitle>;
+  heroActionsCollection?: Maybe<PageTemplateHeroActionsCollection>;
+  heroSlider?: Maybe<LogosCollection>;
+  linesInHero?: Maybe<Scalars['Boolean']>;
+  sectionsCollection?: Maybe<PageTemplateSectionsCollection>;
   hideFromSitemap?: Maybe<Scalars['Boolean']>;
+  noIndex?: Maybe<Scalars['Boolean']>;
+  heroImage?: Maybe<Asset>;
+  heroImageStacked?: Maybe<Scalars['Boolean']>;
+  heroSignUpForm?: Maybe<Scalars['Boolean']>;
+  eventsCollection?: Maybe<PageTemplateEventsCollection>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogLinkedFromArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogMetadataArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateMetadataArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogTitleArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplatePageNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogFeaturedPostArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateSlugArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroActionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogFeaturedPostImageArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroSliderArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogHeroCardBlockArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateLinesInHeroArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateSectionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogNewsletterCardBlockArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateNoIndexArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroImageArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
-export type BlogHideFromSitemapArgs = {
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroImageStackedArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-export type BlogLinkingCollections = {
-  __typename?: 'BlogLinkingCollections';
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateHeroSignUpFormArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Template for standard looking pages. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTemplate) */
+export type PageTemplateEventsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageTemplateLinkingCollections = {
+  __typename?: 'PageTemplateLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
 
 
-export type BlogLinkingCollectionsEntryCollectionArgs = {
+export type PageTemplateLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type BlogPostCategoriesCollection = {
-  __typename?: 'BlogPostCategoriesCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<BlogCategory>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
-export type BlogCategory = Entry & {
-  __typename?: 'BlogCategory';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<BlogCategoryLinkingCollections>;
-  title?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
-export type BlogCategoryLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
-export type BlogCategoryTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
-export type BlogCategorySlugArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type BlogCategoryLinkingCollections = {
-  __typename?: 'BlogCategoryLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
-};
-
-
-export type BlogCategoryLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type BlogCategoryLinkingCollectionsBlogPostCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type BlogPostAuthorsCollection = {
-  __typename?: 'BlogPostAuthorsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Person>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type Person = Entry & {
-  __typename?: 'Person';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PersonLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  position?: Maybe<Scalars['String']>;
-  bio?: Maybe<Scalars['String']>;
-  avatar?: Maybe<Asset>;
-  socialMedia?: Maybe<SocialMedia>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonPositionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonBioArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonAvatarArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
-export type PersonSocialMediaArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PersonLinkingCollections = {
-  __typename?: 'PersonLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
-  quote2Collection?: Maybe<Quote2Collection>;
-};
-
-
-export type PersonLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PersonLinkingCollectionsSectionBlockCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PersonLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PersonLinkingCollectionsBlogPostCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PersonLinkingCollectionsQuote2CollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type Quote2Collection = {
-  __typename?: 'Quote2Collection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Quote2>>;
-};
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2 = Entry & {
-  __typename?: 'Quote2';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<Quote2LinkingCollections>;
-  quote?: Maybe<Scalars['String']>;
-  logo?: Maybe<Logo>;
-  person?: Maybe<Person>;
-  action?: Maybe<CallToAction>;
-};
-
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2LinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2QuoteArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2LogoArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2PersonArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
-export type Quote2ActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type Quote2LinkingCollections = {
-  __typename?: 'Quote2LinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type Quote2LinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type Quote2LinkingCollectionsSectionBlockCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type Quote2LinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
-export type Logo = Entry & {
-  __typename?: 'Logo';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<LogoLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  image?: Maybe<Asset>;
-  action?: Maybe<CallToAction>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
-export type LogoLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
-export type LogoNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
-export type LogoImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
-export type LogoActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type LogoLinkingCollections = {
-  __typename?: 'LogoLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  customerCollection?: Maybe<CustomerCollection>;
-  logosCollectionCollection?: Maybe<LogosCollectionCollection>;
-  quote2Collection?: Maybe<Quote2Collection>;
-};
-
-
-export type LogoLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogoLinkingCollectionsCustomerCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogoLinkingCollectionsLogosCollectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogoLinkingCollectionsQuote2CollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type CustomerCollection = {
-  __typename?: 'CustomerCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Customer>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type Customer = Entry & {
-  __typename?: 'Customer';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<CustomerLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  description?: Maybe<CustomerDescription>;
-  actionsCollection?: Maybe<CustomerActionsCollection>;
-  logo?: Maybe<Logo>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type CustomerLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type CustomerNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type CustomerDescriptionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type CustomerActionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
-export type CustomerLogoArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type CustomerLinkingCollections = {
-  __typename?: 'CustomerLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type CustomerLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type CustomerLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type CustomerDescription = {
-  __typename?: 'CustomerDescription';
+export type PageTemplateHeroSubtitle = {
+  __typename?: 'PageTemplateHeroSubtitle';
   json: Scalars['JSON'];
-  links: CustomerDescriptionLinks;
+  links: PageTemplateHeroSubtitleLinks;
 };
 
 
-export type CustomerDescriptionLinks = {
-  __typename?: 'CustomerDescriptionLinks';
-  entries: CustomerDescriptionEntries;
-  assets: CustomerDescriptionAssets;
+export type PageTemplateHeroSubtitleLinks = {
+  __typename?: 'PageTemplateHeroSubtitleLinks';
+  entries: PageTemplateHeroSubtitleEntries;
+  assets: PageTemplateHeroSubtitleAssets;
 };
 
-export type CustomerDescriptionEntries = {
-  __typename?: 'CustomerDescriptionEntries';
+export type PageTemplateHeroSubtitleEntries = {
+  __typename?: 'PageTemplateHeroSubtitleEntries';
   inline: Array<Maybe<Entry>>;
   hyperlink: Array<Maybe<Entry>>;
   block: Array<Maybe<Entry>>;
 };
 
-export type CustomerDescriptionAssets = {
-  __typename?: 'CustomerDescriptionAssets';
+export type PageTemplateHeroSubtitleAssets = {
+  __typename?: 'PageTemplateHeroSubtitleAssets';
   hyperlink: Array<Maybe<Asset>>;
   block: Array<Maybe<Asset>>;
 };
 
-export type CustomerActionsCollection = {
-  __typename?: 'CustomerActionsCollection';
+export type PageTemplateHeroActionsCollection = {
+  __typename?: 'PageTemplateHeroActionsCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
@@ -2898,11 +1915,11 @@ export type CallToActionMenuCategoryArgs = {
 export type CallToActionLinkingCollections = {
   __typename?: 'CallToActionLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+  homeCollection?: Maybe<HomeCollection>;
   sectionCollection?: Maybe<SectionCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
   pageTemplateCollection?: Maybe<PageTemplateCollection>;
   generalDataCollection?: Maybe<GeneralDataCollection>;
-  homeCollection?: Maybe<HomeCollection>;
   customerCollection?: Maybe<CustomerCollection>;
   pageTrustCollection?: Maybe<PageTrustCollection>;
   partnersCardCollection?: Maybe<PartnersCardCollection>;
@@ -2933,7 +1950,7 @@ export type CallToActionLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type CallToActionLinkingCollectionsSectionBlockCollectionArgs = {
+export type CallToActionLinkingCollectionsHomeCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -2942,6 +1959,14 @@ export type CallToActionLinkingCollectionsSectionBlockCollectionArgs = {
 
 
 export type CallToActionLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type CallToActionLinkingCollectionsSectionBlockCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -2958,14 +1983,6 @@ export type CallToActionLinkingCollectionsPageTemplateCollectionArgs = {
 
 
 export type CallToActionLinkingCollectionsGeneralDataCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type CallToActionLinkingCollectionsHomeCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -3118,6 +2135,582 @@ export type CallToActionLinkingCollectionsNavLinkCollectionArgs = {
 
 
 export type CallToActionLinkingCollectionsTopNotificationCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type SectionCollection = {
+  __typename?: 'SectionCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type Section = Entry & {
+  __typename?: 'Section';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<SectionLinkingCollections>;
+  sectionName?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  anchorLinkId?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<SectionSubtitle>;
+  actionsCollection?: Maybe<SectionActionsCollection>;
+  blocksCollection?: Maybe<SectionBlocksCollection>;
+  markdownBody?: Maybe<Scalars['String']>;
+  logosCollection?: Maybe<LogosCollection>;
+  type?: Maybe<Scalars['String']>;
+  image?: Maybe<Asset>;
+  hasLinearBackground?: Maybe<Scalars['Boolean']>;
+  backgroundImage?: Maybe<Asset>;
+  compactMode?: Maybe<Scalars['Boolean']>;
+  textBelowSection?: Maybe<Scalars['String']>;
+  additionalTitle?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionSectionNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionAnchorLinkIdArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionActionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionBlocksCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionMarkdownBodyArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionLogosCollectionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionTypeArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionHasLinearBackgroundArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionBackgroundImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionCompactModeArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionTextBelowSectionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A module inside a page. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/section) */
+export type SectionAdditionalTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type SectionLinkingCollections = {
+  __typename?: 'SectionLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  homeCollection?: Maybe<HomeCollection>;
+  pageTemplateCollection?: Maybe<PageTemplateCollection>;
+  featuresCollection?: Maybe<FeaturesCollection>;
+  pageTrustCollection?: Maybe<PageTrustCollection>;
+  pagePartnersCollection?: Maybe<PagePartnersCollection>;
+  pagePricingCollection?: Maybe<PagePricingCollection>;
+  learnCollection?: Maybe<LearnCollection>;
+  pageEventsCollection?: Maybe<PageEventsCollection>;
+  pageCustomersCollection?: Maybe<PageCustomersCollection>;
+  communityCollection?: Maybe<CommunityCollection>;
+  pageClientServerlessCollection?: Maybe<PageClientServerlessCollection>;
+  pageCareersCollection?: Maybe<PageCareersCollection>;
+  companyCollection?: Maybe<CompanyCollection>;
+};
+
+
+export type SectionLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsHomeCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageTemplateCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsFeaturesCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageTrustCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPagePartnersCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPagePricingCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsLearnCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageEventsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageCustomersCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsCommunityCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageClientServerlessCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsPageCareersCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SectionLinkingCollectionsCompanyCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type FeaturesCollection = {
+  __typename?: 'FeaturesCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Features>>;
+};
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type Features = Entry & {
+  __typename?: 'Features';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<FeaturesLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  heroTitle?: Maybe<Scalars['String']>;
+  heroSubtitle?: Maybe<FeaturesHeroSubtitle>;
+  heroImage?: Maybe<Asset>;
+  sectionsCollection?: Maybe<FeaturesSectionsCollection>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+  subId?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesHeroTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesHeroSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesHeroImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesSectionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
+export type FeaturesSubIdArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type FeaturesLinkingCollections = {
+  __typename?: 'FeaturesLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type FeaturesLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type FeaturesHeroSubtitle = {
+  __typename?: 'FeaturesHeroSubtitle';
+  json: Scalars['JSON'];
+  links: FeaturesHeroSubtitleLinks;
+};
+
+export type FeaturesHeroSubtitleLinks = {
+  __typename?: 'FeaturesHeroSubtitleLinks';
+  entries: FeaturesHeroSubtitleEntries;
+  assets: FeaturesHeroSubtitleAssets;
+};
+
+export type FeaturesHeroSubtitleEntries = {
+  __typename?: 'FeaturesHeroSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type FeaturesHeroSubtitleAssets = {
+  __typename?: 'FeaturesHeroSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type FeaturesSectionsCollection = {
+  __typename?: 'FeaturesSectionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
+export type PageTrustCollection = {
+  __typename?: 'PageTrustCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PageTrust>>;
+};
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrust = Entry & {
+  __typename?: 'PageTrust';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PageTrustLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  pageName?: Maybe<Scalars['String']>;
+  heroTitle?: Maybe<Scalars['String']>;
+  sectionsCollection?: Maybe<PageTrustSectionsCollection>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+  navLogoLink?: Maybe<CallToAction>;
+  navLinksCollection?: Maybe<PageTrustNavLinksCollection>;
+  footerLinksCollection?: Maybe<PageTrustFooterLinksCollection>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustPageNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustHeroTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustSectionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustNavLogoLinkArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustNavLinksCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
+export type PageTrustFooterLinksCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageTrustLinkingCollections = {
+  __typename?: 'PageTrustLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PageTrustLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageTrustSectionsCollection = {
+  __typename?: 'PageTrustSectionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
+export type PageTrustNavLinksCollection = {
+  __typename?: 'PageTrustNavLinksCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<CallToAction>>;
+};
+
+export type PageTrustFooterLinksCollection = {
+  __typename?: 'PageTrustFooterLinksCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<NavLink>>;
+};
+
+/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
+export type NavLink = Entry & {
+  __typename?: 'NavLink';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<NavLinkLinkingCollections>;
+  children?: Maybe<Scalars['String']>;
+  dropdownLinksCollection?: Maybe<NavLinkDropdownLinksCollection>;
+};
+
+
+/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
+export type NavLinkLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
+export type NavLinkChildrenArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
+export type NavLinkDropdownLinksCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type NavLinkLinkingCollections = {
+  __typename?: 'NavLinkLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  generalDataCollection?: Maybe<GeneralDataCollection>;
+  pageTrustCollection?: Maybe<PageTrustCollection>;
+};
+
+
+export type NavLinkLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type NavLinkLinkingCollectionsGeneralDataCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type NavLinkLinkingCollectionsPageTrustCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -3393,202 +2986,6 @@ export type GeneralDataNavCenterLinksCollection = {
 
 export type GeneralDataNavCenterLinksItem = NavLink | CallToAction;
 
-/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
-export type NavLink = Entry & {
-  __typename?: 'NavLink';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<NavLinkLinkingCollections>;
-  children?: Maybe<Scalars['String']>;
-  dropdownLinksCollection?: Maybe<NavLinkDropdownLinksCollection>;
-};
-
-
-/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
-export type NavLinkLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
-export type NavLinkChildrenArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** A dropdown containing links, for the header navigation menu. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/navLink) */
-export type NavLinkDropdownLinksCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type NavLinkLinkingCollections = {
-  __typename?: 'NavLinkLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  generalDataCollection?: Maybe<GeneralDataCollection>;
-  pageTrustCollection?: Maybe<PageTrustCollection>;
-};
-
-
-export type NavLinkLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type NavLinkLinkingCollectionsGeneralDataCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type NavLinkLinkingCollectionsPageTrustCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageTrustCollection = {
-  __typename?: 'PageTrustCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PageTrust>>;
-};
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrust = Entry & {
-  __typename?: 'PageTrust';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PageTrustLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  pageName?: Maybe<Scalars['String']>;
-  heroTitle?: Maybe<Scalars['String']>;
-  sectionsCollection?: Maybe<PageTrustSectionsCollection>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-  navLogoLink?: Maybe<CallToAction>;
-  navLinksCollection?: Maybe<PageTrustNavLinksCollection>;
-  footerLinksCollection?: Maybe<PageTrustFooterLinksCollection>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustPageNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustHeroTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustSectionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustHideFromSitemapArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustNavLogoLinkArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustNavLinksCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://trust.fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageTrust) */
-export type PageTrustFooterLinksCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageTrustLinkingCollections = {
-  __typename?: 'PageTrustLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PageTrustLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageTrustSectionsCollection = {
-  __typename?: 'PageTrustSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
-export type PageTrustNavLinksCollection = {
-  __typename?: 'PageTrustNavLinksCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<CallToAction>>;
-};
-
-export type PageTrustFooterLinksCollection = {
-  __typename?: 'PageTrustFooterLinksCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<NavLink>>;
-};
-
-export type NavLinkDropdownLinksCollection = {
-  __typename?: 'NavLinkDropdownLinksCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<CallToAction>>;
-};
-
 export type GeneralDataNavRightLinksCollection = {
   __typename?: 'GeneralDataNavRightLinksCollection';
   total: Scalars['Int'];
@@ -3768,343 +3165,224 @@ export type PersonCollection = {
   items: Array<Maybe<Person>>;
 };
 
-export type GeneralDataBlogPostFooterText = {
-  __typename?: 'GeneralDataBlogPostFooterText';
-  json: Scalars['JSON'];
-  links: GeneralDataBlogPostFooterTextLinks;
-};
-
-export type GeneralDataBlogPostFooterTextLinks = {
-  __typename?: 'GeneralDataBlogPostFooterTextLinks';
-  entries: GeneralDataBlogPostFooterTextEntries;
-  assets: GeneralDataBlogPostFooterTextAssets;
-};
-
-export type GeneralDataBlogPostFooterTextEntries = {
-  __typename?: 'GeneralDataBlogPostFooterTextEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type GeneralDataBlogPostFooterTextAssets = {
-  __typename?: 'GeneralDataBlogPostFooterTextAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type GeneralDataNavMenuLinksCollection = {
-  __typename?: 'GeneralDataNavMenuLinksCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<GeneralDataNavMenuLinksItem>>;
-};
-
-export type GeneralDataNavMenuLinksItem = NavLink | CallToAction;
-
-export type HomeCollection = {
-  __typename?: 'HomeCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Home>>;
-};
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type Home = Entry & {
-  __typename?: 'Home';
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type Person = Entry & {
+  __typename?: 'Person';
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<HomeLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  pageName?: Maybe<Scalars['String']>;
-  heroTitle?: Maybe<Scalars['String']>;
-  heroSubtitle?: Maybe<HomeHeroSubtitle>;
-  heroActionsCollection?: Maybe<HomeHeroActionsCollection>;
-  companies?: Maybe<LogosCollection>;
-  sectionsCollection?: Maybe<HomeSectionsCollection>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-  heroImage?: Maybe<Asset>;
+  linkedFrom?: Maybe<PersonLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  position?: Maybe<Scalars['String']>;
+  bio?: Maybe<Scalars['String']>;
+  avatar?: Maybe<Asset>;
+  socialMedia?: Maybe<SocialMedia>;
 };
 
 
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeLinkedFromArgs = {
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeMetadataArgs = {
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonPositionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonBioArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonAvatarArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomePageNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeHeroTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeHeroSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeHeroActionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/person) */
+export type PersonSocialMediaArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeCompaniesArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeSectionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeHideFromSitemapArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/home) */
-export type HomeHeroImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type HomeLinkingCollections = {
-  __typename?: 'HomeLinkingCollections';
+export type PersonLinkingCollections = {
+  __typename?: 'PersonLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
+  quote2Collection?: Maybe<Quote2Collection>;
 };
 
 
-export type HomeLinkingCollectionsEntryCollectionArgs = {
+export type PersonLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type HomeHeroSubtitle = {
-  __typename?: 'HomeHeroSubtitle';
-  json: Scalars['JSON'];
-  links: HomeHeroSubtitleLinks;
+
+export type PersonLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
-export type HomeHeroSubtitleLinks = {
-  __typename?: 'HomeHeroSubtitleLinks';
-  entries: HomeHeroSubtitleEntries;
-  assets: HomeHeroSubtitleAssets;
+
+export type PersonLinkingCollectionsSectionBlockCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
-export type HomeHeroSubtitleEntries = {
-  __typename?: 'HomeHeroSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
+
+export type PersonLinkingCollectionsBlogPostCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
-export type HomeHeroSubtitleAssets = {
-  __typename?: 'HomeHeroSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
+
+export type PersonLinkingCollectionsQuote2CollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
-export type HomeHeroActionsCollection = {
-  __typename?: 'HomeHeroActionsCollection';
+export type SectionBlockCollection = {
+  __typename?: 'SectionBlockCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
-  items: Array<Maybe<CallToAction>>;
+  items: Array<Maybe<SectionBlock>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollection = Entry & {
-  __typename?: 'LogosCollection';
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlock = Entry & {
+  __typename?: 'SectionBlock';
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<LogosCollectionLinkingCollections>;
+  linkedFrom?: Maybe<SectionBlockLinkingCollections>;
   objectName?: Maybe<Scalars['String']>;
-  tagline?: Maybe<Scalars['String']>;
-  logosCollection?: Maybe<LogosCollectionLogosCollection>;
-  action?: Maybe<CallToAction>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollectionLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollectionObjectNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollectionTaglineArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollectionLogosCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
-export type LogosCollectionActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type LogosCollectionLinkingCollections = {
-  __typename?: 'LogosCollectionLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-  pageTemplateCollection?: Maybe<PageTemplateCollection>;
-  homeCollection?: Maybe<HomeCollection>;
-};
-
-
-export type LogosCollectionLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogosCollectionLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogosCollectionLinkingCollectionsPageTemplateCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type LogosCollectionLinkingCollectionsHomeCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type LogosCollectionLogosCollection = {
-  __typename?: 'LogosCollectionLogosCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Logo>>;
-};
-
-export type HomeSectionsCollection = {
-  __typename?: 'HomeSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
-export type PartnersCardCollection = {
-  __typename?: 'PartnersCardCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PartnersCard>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCard = Entry & {
-  __typename?: 'PartnersCard';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PartnersCardLinkingCollections>;
   title?: Maybe<Scalars['String']>;
-  description?: Maybe<PartnersCardDescription>;
-  action?: Maybe<CallToAction>;
-  image?: Maybe<Asset>;
+  subtitle?: Maybe<SectionBlockSubtitle>;
+  actionsCollection?: Maybe<SectionBlockActionsCollection>;
+  media?: Maybe<Asset>;
+  icon?: Maybe<Scalars['String']>;
+  backgroundImage?: Maybe<Asset>;
+  anchorLinkId?: Maybe<Scalars['String']>;
+  customerProof?: Maybe<SectionBlockCustomerProof>;
+  form?: Maybe<Form>;
+  additionalTitle?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCardLinkedFromArgs = {
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCardTitleArgs = {
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockObjectNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCardDescriptionArgs = {
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCardActionArgs = {
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockActionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
-export type PartnersCardImageArgs = {
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockMediaArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type PartnersCardLinkingCollections = {
-  __typename?: 'PartnersCardLinkingCollections';
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockIconArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockBackgroundImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockAnchorLinkIdArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockCustomerProofArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockFormArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A title, a subtitle and some CTAs. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/sectionBlock) */
+export type SectionBlockAdditionalTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type SectionBlockLinkingCollections = {
+  __typename?: 'SectionBlockLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
   sectionCollection?: Maybe<SectionCollection>;
+  generalDataCollection?: Maybe<GeneralDataCollection>;
+  pagePricingCollection?: Maybe<PagePricingCollection>;
+  pagePressCollection?: Maybe<PagePressCollection>;
+  blogCollection?: Maybe<BlogCollection>;
 };
 
 
-export type PartnersCardLinkingCollectionsEntryCollectionArgs = {
+export type SectionBlockLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -4112,150 +3390,7 @@ export type PartnersCardLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type PartnersCardLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PartnersCardDescription = {
-  __typename?: 'PartnersCardDescription';
-  json: Scalars['JSON'];
-  links: PartnersCardDescriptionLinks;
-};
-
-export type PartnersCardDescriptionLinks = {
-  __typename?: 'PartnersCardDescriptionLinks';
-  entries: PartnersCardDescriptionEntries;
-  assets: PartnersCardDescriptionAssets;
-};
-
-export type PartnersCardDescriptionEntries = {
-  __typename?: 'PartnersCardDescriptionEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type PartnersCardDescriptionAssets = {
-  __typename?: 'PartnersCardDescriptionAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PricingPlanV2Collection = {
-  __typename?: 'PricingPlanV2Collection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PricingPlanV2>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2 = Entry & {
-  __typename?: 'PricingPlanV2';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PricingPlanV2LinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  planDescription?: Maybe<Scalars['String']>;
-  priceLabel?: Maybe<Scalars['String']>;
-  annualPriceLabel?: Maybe<Scalars['String']>;
-  creditsPerMonth?: Maybe<Scalars['Int']>;
-  body?: Maybe<Scalars['String']>;
-  annualBody?: Maybe<Scalars['String']>;
-  action?: Maybe<CallToAction>;
-  isFeatured?: Maybe<Scalars['Boolean']>;
-  usageRate?: Maybe<UsageRate>;
-  usageRatesCollection?: Maybe<PricingPlanV2UsageRatesCollection>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2LinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2NameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2PlanDescriptionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2PriceLabelArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2AnnualPriceLabelArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2CreditsPerMonthArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2BodyArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2AnnualBodyArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2ActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2IsFeaturedArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2UsageRateArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
-export type PricingPlanV2UsageRatesCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PricingPlanV2LinkingCollections = {
-  __typename?: 'PricingPlanV2LinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type PricingPlanV2LinkingCollectionsEntryCollectionArgs = {
+export type SectionBlockLinkingCollectionsSectionCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -4263,78 +3398,7 @@ export type PricingPlanV2LinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type PricingPlanV2LinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRate = Entry & {
-  __typename?: 'UsageRate';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<UsageRateLinkingCollections>;
-  id?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-  readOperationsMillion?: Maybe<Scalars['Float']>;
-  writeOperationsMillion?: Maybe<Scalars['Float']>;
-  transactionalComputeOperationsMillion?: Maybe<Scalars['Float']>;
-  storageGb?: Maybe<Scalars['Float']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateIdArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateLabelArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateReadOperationsMillionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateWriteOperationsMillionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateTransactionalComputeOperationsMillionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
-export type UsageRateStorageGbArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type UsageRateLinkingCollections = {
-  __typename?: 'UsageRateLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pricingPlanV2Collection?: Maybe<PricingPlanV2Collection>;
-  pricingPlanCollection?: Maybe<PricingPlanCollection>;
-};
-
-
-export type UsageRateLinkingCollectionsEntryCollectionArgs = {
+export type SectionBlockLinkingCollectionsGeneralDataCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -4342,7 +3406,7 @@ export type UsageRateLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type UsageRateLinkingCollectionsPricingPlanV2CollectionArgs = {
+export type SectionBlockLinkingCollectionsPagePricingCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -4350,70 +3414,7 @@ export type UsageRateLinkingCollectionsPricingPlanV2CollectionArgs = {
 };
 
 
-export type UsageRateLinkingCollectionsPricingPlanCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PricingPlanCollection = {
-  __typename?: 'PricingPlanCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PricingPlan>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlan = Entry & {
-  __typename?: 'PricingPlan';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PricingPlanLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  description?: Maybe<PricingPlanDescription>;
-  priceLabel?: Maybe<Scalars['String']>;
-  creditsPerMonth?: Maybe<Scalars['Int']>;
-  listItemsCollection?: Maybe<PricingPlanListItemsCollection>;
-  action?: Maybe<CallToAction>;
-  isFeatured?: Maybe<Scalars['Boolean']>;
-  usageRate?: Maybe<UsageRate>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanDescriptionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanPriceLabelArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanCreditsPerMonthArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanListItemsCollectionArgs = {
+export type SectionBlockLinkingCollectionsPagePressCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -4421,136 +3422,11 @@ export type PricingPlanListItemsCollectionArgs = {
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanIsFeaturedArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
-export type PricingPlanUsageRateArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PricingPlanLinkingCollections = {
-  __typename?: 'PricingPlanLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type PricingPlanLinkingCollectionsEntryCollectionArgs = {
+export type SectionBlockLinkingCollectionsBlogCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PricingPlanLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PricingPlanDescription = {
-  __typename?: 'PricingPlanDescription';
-  json: Scalars['JSON'];
-  links: PricingPlanDescriptionLinks;
-};
-
-export type PricingPlanDescriptionLinks = {
-  __typename?: 'PricingPlanDescriptionLinks';
-  entries: PricingPlanDescriptionEntries;
-  assets: PricingPlanDescriptionAssets;
-};
-
-export type PricingPlanDescriptionEntries = {
-  __typename?: 'PricingPlanDescriptionEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type PricingPlanDescriptionAssets = {
-  __typename?: 'PricingPlanDescriptionAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PricingPlanListItemsCollection = {
-  __typename?: 'PricingPlanListItemsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<List>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
-export type List = Entry & {
-  __typename?: 'List';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<ListLinkingCollections>;
-  title?: Maybe<Scalars['String']>;
-  items?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
-export type ListLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
-export type ListTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
-export type ListItemsArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ListLinkingCollections = {
-  __typename?: 'ListLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pricingPlanCollection?: Maybe<PricingPlanCollection>;
-};
-
-
-export type ListLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ListLinkingCollectionsPricingPlanCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PricingPlanV2UsageRatesCollection = {
-  __typename?: 'PricingPlanV2UsageRatesCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<UsageRate>>;
 };
 
 export type PagePricingCollection = {
@@ -4665,7 +3541,6 @@ export type PagePricingNoIndexArgs = {
 export type PagePricingLinkingCollections = {
   __typename?: 'PagePricingLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
-  abTestingCollection?: Maybe<AbTestingCollection>;
 };
 
 
@@ -4674,74 +3549,6 @@ export type PagePricingLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PagePricingLinkingCollectionsAbTestingCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type AbTestingCollection = {
-  __typename?: 'AbTestingCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<AbTesting>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/abTesting) */
-export type AbTesting = Entry & {
-  __typename?: 'AbTesting';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<AbTestingLinkingCollections>;
-  objectName?: Maybe<Scalars['String']>;
-  pricingPageCollection?: Maybe<AbTestingPricingPageCollection>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/abTesting) */
-export type AbTestingLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/abTesting) */
-export type AbTestingObjectNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/abTesting) */
-export type AbTestingPricingPageCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type AbTestingLinkingCollections = {
-  __typename?: 'AbTestingLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type AbTestingLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type AbTestingPricingPageCollection = {
-  __typename?: 'AbTestingPricingPageCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PagePricing>>;
 };
 
 export type PagePricingHeroSubtitle = {
@@ -4787,6 +3594,1218 @@ export type PagePricingHeroActionsCollection = {
 
 export type PagePricingSectionsCollection = {
   __typename?: 'PagePricingSectionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
+export type PagePressCollection = {
+  __typename?: 'PagePressCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PagePress>>;
+};
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePress = Entry & {
+  __typename?: 'PagePress';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PagePressLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  title?: Maybe<Scalars['String']>;
+  featuredPost?: Maybe<PressPost>;
+  pressKitBlock?: Maybe<SectionBlock>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressFeaturedPostArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressPressKitBlockArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
+export type PagePressHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PagePressLinkingCollections = {
+  __typename?: 'PagePressLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PagePressLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPost = Entry & {
+  __typename?: 'PressPost';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PressPostLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['DateTime']>;
+  publicationName?: Maybe<Scalars['String']>;
+  coverImage?: Maybe<Asset>;
+  action?: Maybe<CallToAction>;
+  excerpt?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostDateArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostPublicationNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostCoverImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
+export type PressPostExcerptArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PressPostLinkingCollections = {
+  __typename?: 'PressPostLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  pagePressCollection?: Maybe<PagePressCollection>;
+};
+
+
+export type PressPostLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PressPostLinkingCollectionsPagePressCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogCollection = {
+  __typename?: 'BlogCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Blog>>;
+};
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type Blog = Entry & {
+  __typename?: 'Blog';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<BlogLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  title?: Maybe<Scalars['String']>;
+  featuredPost?: Maybe<BlogPost>;
+  featuredPostImage?: Maybe<Asset>;
+  heroCardBlock?: Maybe<SectionBlock>;
+  newsletterCardBlock?: Maybe<SectionBlock>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogFeaturedPostArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogFeaturedPostImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogHeroCardBlockArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogNewsletterCardBlockArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/blog [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blog) */
+export type BlogHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogLinkingCollections = {
+  __typename?: 'BlogLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type BlogLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPost = Entry & {
+  __typename?: 'BlogPost';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<BlogPostLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  title?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  additionalSlugs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  date?: Maybe<Scalars['DateTime']>;
+  coverImage?: Maybe<Asset>;
+  thumbnailImage?: Maybe<Asset>;
+  categoriesCollection?: Maybe<BlogPostCategoriesCollection>;
+  isCommunityPost?: Maybe<Scalars['Boolean']>;
+  authorsCollection?: Maybe<BlogPostAuthorsCollection>;
+  excerpt?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+  body2?: Maybe<Scalars['String']>;
+  lastUpdated?: Maybe<Scalars['DateTime']>;
+  relatedPostsCollection?: Maybe<BlogPostRelatedPostsCollection>;
+  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
+  canonicalLink?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostSlugArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostAdditionalSlugsArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostDateArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostCoverImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostThumbnailImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostCategoriesCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostIsCommunityPostArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostAuthorsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostExcerptArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostBodyArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostBody2Args = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostLastUpdatedArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostRelatedPostsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostHideFromRelatedPostsArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogPost) */
+export type BlogPostCanonicalLinkArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogPostLinkingCollections = {
+  __typename?: 'BlogPostLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
+  blogCollection?: Maybe<BlogCollection>;
+};
+
+
+export type BlogPostLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type BlogPostLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type BlogPostLinkingCollectionsBlogPostCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type BlogPostLinkingCollectionsBlogCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogPostCollection = {
+  __typename?: 'BlogPostCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<BlogPost>>;
+};
+
+export type BlogPostCategoriesCollection = {
+  __typename?: 'BlogPostCategoriesCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<BlogCategory>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
+export type BlogCategory = Entry & {
+  __typename?: 'BlogCategory';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<BlogCategoryLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
+export type BlogCategoryLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
+export type BlogCategoryTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/blogCategory) */
+export type BlogCategorySlugArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogCategoryLinkingCollections = {
+  __typename?: 'BlogCategoryLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  blogPostCollection?: Maybe<BlogPostCollection>;
+};
+
+
+export type BlogCategoryLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type BlogCategoryLinkingCollectionsBlogPostCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type BlogPostAuthorsCollection = {
+  __typename?: 'BlogPostAuthorsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Person>>;
+};
+
+export type BlogPostRelatedPostsCollection = {
+  __typename?: 'BlogPostRelatedPostsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<BlogPost>>;
+};
+
+export type SectionBlockSubtitle = {
+  __typename?: 'SectionBlockSubtitle';
+  json: Scalars['JSON'];
+  links: SectionBlockSubtitleLinks;
+};
+
+export type SectionBlockSubtitleLinks = {
+  __typename?: 'SectionBlockSubtitleLinks';
+  entries: SectionBlockSubtitleEntries;
+  assets: SectionBlockSubtitleAssets;
+};
+
+export type SectionBlockSubtitleEntries = {
+  __typename?: 'SectionBlockSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type SectionBlockSubtitleAssets = {
+  __typename?: 'SectionBlockSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type SectionBlockActionsCollection = {
+  __typename?: 'SectionBlockActionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<CallToAction>>;
+};
+
+export type SectionBlockCustomerProof = Person | Quote2 | Tweet;
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2 = Entry & {
+  __typename?: 'Quote2';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<Quote2LinkingCollections>;
+  quote?: Maybe<Scalars['String']>;
+  logo?: Maybe<Logo>;
+  person?: Maybe<Person>;
+  action?: Maybe<CallToAction>;
+};
+
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2LinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2QuoteArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2LogoArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2PersonArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A quote/review. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/quote2) */
+export type Quote2ActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type Quote2LinkingCollections = {
+  __typename?: 'Quote2LinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+};
+
+
+export type Quote2LinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type Quote2LinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type Quote2LinkingCollectionsSectionBlockCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
+export type Logo = Entry & {
+  __typename?: 'Logo';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<LogoLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  image?: Maybe<Asset>;
+  action?: Maybe<CallToAction>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
+export type LogoLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
+export type LogoNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
+export type LogoImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logo) */
+export type LogoActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type LogoLinkingCollections = {
+  __typename?: 'LogoLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  customerCollection?: Maybe<CustomerCollection>;
+  logosCollectionCollection?: Maybe<LogosCollectionCollection>;
+  quote2Collection?: Maybe<Quote2Collection>;
+};
+
+
+export type LogoLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogoLinkingCollectionsCustomerCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogoLinkingCollectionsLogosCollectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogoLinkingCollectionsQuote2CollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type CustomerCollection = {
+  __typename?: 'CustomerCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Customer>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type Customer = Entry & {
+  __typename?: 'Customer';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<CustomerLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<CustomerDescription>;
+  actionsCollection?: Maybe<CustomerActionsCollection>;
+  logo?: Maybe<Logo>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type CustomerLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type CustomerNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type CustomerDescriptionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type CustomerActionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/customer) */
+export type CustomerLogoArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type CustomerLinkingCollections = {
+  __typename?: 'CustomerLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+};
+
+
+export type CustomerLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type CustomerLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type CustomerDescription = {
+  __typename?: 'CustomerDescription';
+  json: Scalars['JSON'];
+  links: CustomerDescriptionLinks;
+};
+
+export type CustomerDescriptionLinks = {
+  __typename?: 'CustomerDescriptionLinks';
+  entries: CustomerDescriptionEntries;
+  assets: CustomerDescriptionAssets;
+};
+
+export type CustomerDescriptionEntries = {
+  __typename?: 'CustomerDescriptionEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type CustomerDescriptionAssets = {
+  __typename?: 'CustomerDescriptionAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type CustomerActionsCollection = {
+  __typename?: 'CustomerActionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<CallToAction>>;
+};
+
+export type LogosCollectionCollection = {
+  __typename?: 'LogosCollectionCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<LogosCollection>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollection = Entry & {
+  __typename?: 'LogosCollection';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<LogosCollectionLinkingCollections>;
+  objectName?: Maybe<Scalars['String']>;
+  tagline?: Maybe<Scalars['String']>;
+  logosCollection?: Maybe<LogosCollectionLogosCollection>;
+  action?: Maybe<CallToAction>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollectionLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollectionObjectNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollectionTaglineArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollectionLogosCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/logosCollection) */
+export type LogosCollectionActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type LogosCollectionLinkingCollections = {
+  __typename?: 'LogosCollectionLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  homeCollection?: Maybe<HomeCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  pageTemplateCollection?: Maybe<PageTemplateCollection>;
+};
+
+
+export type LogosCollectionLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogosCollectionLinkingCollectionsHomeCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogosCollectionLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type LogosCollectionLinkingCollectionsPageTemplateCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type LogosCollectionLogosCollection = {
+  __typename?: 'LogosCollectionLogosCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Logo>>;
+};
+
+export type Quote2Collection = {
+  __typename?: 'Quote2Collection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Quote2>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type Tweet = Entry & {
+  __typename?: 'Tweet';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<TweetLinkingCollections>;
+  text?: Maybe<Scalars['String']>;
+  userName?: Maybe<Scalars['String']>;
+  userTag?: Maybe<Scalars['String']>;
+  publicationDate?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type TweetLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type TweetTextArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type TweetUserNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type TweetUserTagArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
+export type TweetPublicationDateArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type TweetLinkingCollections = {
+  __typename?: 'TweetLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+};
+
+
+export type TweetLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type TweetLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type TweetLinkingCollectionsSectionBlockCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type Form = Entry & {
+  __typename?: 'Form';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<FormLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  actionUrl?: Maybe<Scalars['String']>;
+  fields?: Maybe<Scalars['JSON']>;
+  buttonLabel?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type FormLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type FormTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type FormActionUrlArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type FormFieldsArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/form) */
+export type FormButtonLabelArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type FormLinkingCollections = {
+  __typename?: 'FormLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+  sectionBlockCollection?: Maybe<SectionBlockCollection>;
+};
+
+
+export type FormLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type FormLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type FormLinkingCollectionsSectionBlockCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type GeneralDataBlogPostFooterText = {
+  __typename?: 'GeneralDataBlogPostFooterText';
+  json: Scalars['JSON'];
+  links: GeneralDataBlogPostFooterTextLinks;
+};
+
+export type GeneralDataBlogPostFooterTextLinks = {
+  __typename?: 'GeneralDataBlogPostFooterTextLinks';
+  entries: GeneralDataBlogPostFooterTextEntries;
+  assets: GeneralDataBlogPostFooterTextAssets;
+};
+
+export type GeneralDataBlogPostFooterTextEntries = {
+  __typename?: 'GeneralDataBlogPostFooterTextEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type GeneralDataBlogPostFooterTextAssets = {
+  __typename?: 'GeneralDataBlogPostFooterTextAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type GeneralDataNavMenuLinksCollection = {
+  __typename?: 'GeneralDataNavMenuLinksCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<GeneralDataNavMenuLinksItem>>;
+};
+
+export type GeneralDataNavMenuLinksItem = NavLink | CallToAction;
+
+export type NavLinkDropdownLinksCollection = {
+  __typename?: 'NavLinkDropdownLinksCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<CallToAction>>;
+};
+
+export type PagePartnersCollection = {
+  __typename?: 'PagePartnersCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PagePartners>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartners = Entry & {
+  __typename?: 'PagePartners';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PagePartnersLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  pageName?: Maybe<Scalars['String']>;
+  heroTitle?: Maybe<Scalars['String']>;
+  heroSubtitle?: Maybe<PagePartnersHeroSubtitle>;
+  sectionsCollection?: Maybe<PagePartnersSectionsCollection>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersPageNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersHeroTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersHeroSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
+export type PagePartnersSectionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PagePartnersLinkingCollections = {
+  __typename?: 'PagePartnersLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PagePartnersLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PagePartnersHeroSubtitle = {
+  __typename?: 'PagePartnersHeroSubtitle';
+  json: Scalars['JSON'];
+  links: PagePartnersHeroSubtitleLinks;
+};
+
+export type PagePartnersHeroSubtitleLinks = {
+  __typename?: 'PagePartnersHeroSubtitleLinks';
+  entries: PagePartnersHeroSubtitleEntries;
+  assets: PagePartnersHeroSubtitleAssets;
+};
+
+export type PagePartnersHeroSubtitleEntries = {
+  __typename?: 'PagePartnersHeroSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type PagePartnersHeroSubtitleAssets = {
+  __typename?: 'PagePartnersHeroSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type PagePartnersSectionsCollection = {
+  __typename?: 'PagePartnersSectionsCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
@@ -5321,6 +5340,88 @@ export type CommunitySectionsCollection = {
   items: Array<Maybe<Section>>;
 };
 
+export type PageClientServerlessCollection = {
+  __typename?: 'PageClientServerlessCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PageClientServerless>>;
+};
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerless = Entry & {
+  __typename?: 'PageClientServerless';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PageClientServerlessLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  title?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+  sectionsCollection?: Maybe<PageClientServerlessSectionsCollection>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessBodyArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessSectionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
+export type PageClientServerlessHideFromSitemapArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageClientServerlessLinkingCollections = {
+  __typename?: 'PageClientServerlessLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PageClientServerlessLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageClientServerlessSectionsCollection = {
+  __typename?: 'PageClientServerlessSectionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
 export type PageCareersCollection = {
   __typename?: 'PageCareersCollection';
   total: Scalars['Int'];
@@ -5453,836 +5554,6 @@ export type PageCareersSectionsCollection = {
   items: Array<Maybe<Section>>;
 };
 
-export type LogosCollectionCollection = {
-  __typename?: 'LogosCollectionCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<LogosCollection>>;
-};
-
-export type MediaBlockCollection = {
-  __typename?: 'MediaBlockCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<MediaBlock>>;
-};
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlock = Entry & {
-  __typename?: 'MediaBlock';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<MediaBlockLinkingCollections>;
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<MediaBlockDescription>;
-  action?: Maybe<CallToAction>;
-  image?: Maybe<Asset>;
-  type?: Maybe<Scalars['String']>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockDescriptionArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
-export type MediaBlockTypeArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type MediaBlockLinkingCollections = {
-  __typename?: 'MediaBlockLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type MediaBlockLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type MediaBlockLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type MediaBlockDescription = {
-  __typename?: 'MediaBlockDescription';
-  json: Scalars['JSON'];
-  links: MediaBlockDescriptionLinks;
-};
-
-export type MediaBlockDescriptionLinks = {
-  __typename?: 'MediaBlockDescriptionLinks';
-  entries: MediaBlockDescriptionEntries;
-  assets: MediaBlockDescriptionAssets;
-};
-
-export type MediaBlockDescriptionEntries = {
-  __typename?: 'MediaBlockDescriptionEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type MediaBlockDescriptionAssets = {
-  __typename?: 'MediaBlockDescriptionAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PressPostCollection = {
-  __typename?: 'PressPostCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PressPost>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPost = Entry & {
-  __typename?: 'PressPost';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PressPostLinkingCollections>;
-  title?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['DateTime']>;
-  publicationName?: Maybe<Scalars['String']>;
-  coverImage?: Maybe<Asset>;
-  action?: Maybe<CallToAction>;
-  excerpt?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostDateArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostPublicationNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostCoverImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostActionArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pressPost) */
-export type PressPostExcerptArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PressPostLinkingCollections = {
-  __typename?: 'PressPostLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pagePressCollection?: Maybe<PagePressCollection>;
-};
-
-
-export type PressPostLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type PressPostLinkingCollectionsPagePressCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PagePressCollection = {
-  __typename?: 'PagePressCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PagePress>>;
-};
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePress = Entry & {
-  __typename?: 'PagePress';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PagePressLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  title?: Maybe<Scalars['String']>;
-  featuredPost?: Maybe<PressPost>;
-  pressKitBlock?: Maybe<SectionBlock>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressFeaturedPostArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressPressKitBlockArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/press [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePress) */
-export type PagePressHideFromSitemapArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PagePressLinkingCollections = {
-  __typename?: 'PagePressLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PagePressLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type LogoCollection = {
-  __typename?: 'LogoCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Logo>>;
-};
-
-export type ListBlockCollection = {
-  __typename?: 'ListBlockCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<ListBlock>>;
-};
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlock = Entry & {
-  __typename?: 'ListBlock';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<ListBlockLinkingCollections>;
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<ListBlockSubtitle>;
-  listItems?: Maybe<Array<Maybe<Scalars['String']>>>;
-  actionsCollection?: Maybe<ListBlockActionsCollection>;
-  media?: Maybe<Asset>;
-  icon?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockListItemsArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockActionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockMediaArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
-export type ListBlockIconArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ListBlockLinkingCollections = {
-  __typename?: 'ListBlockLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  sectionCollection?: Maybe<SectionCollection>;
-};
-
-
-export type ListBlockLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ListBlockLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ListBlockSubtitle = {
-  __typename?: 'ListBlockSubtitle';
-  json: Scalars['JSON'];
-  links: ListBlockSubtitleLinks;
-};
-
-export type ListBlockSubtitleLinks = {
-  __typename?: 'ListBlockSubtitleLinks';
-  entries: ListBlockSubtitleEntries;
-  assets: ListBlockSubtitleAssets;
-};
-
-export type ListBlockSubtitleEntries = {
-  __typename?: 'ListBlockSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type ListBlockSubtitleAssets = {
-  __typename?: 'ListBlockSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type ListBlockActionsCollection = {
-  __typename?: 'ListBlockActionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<CallToAction>>;
-};
-
-export type NavLinkCollection = {
-  __typename?: 'NavLinkCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<NavLink>>;
-};
-
-export type TopNotificationCollection = {
-  __typename?: 'TopNotificationCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<TopNotification>>;
-};
-
-export type BlogPostRelatedPostsCollection = {
-  __typename?: 'BlogPostRelatedPostsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<BlogPost>>;
-};
-
-export type FeaturesCollection = {
-  __typename?: 'FeaturesCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Features>>;
-};
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type Features = Entry & {
-  __typename?: 'Features';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<FeaturesLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  heroTitle?: Maybe<Scalars['String']>;
-  heroSubtitle?: Maybe<FeaturesHeroSubtitle>;
-  heroImage?: Maybe<Asset>;
-  sectionsCollection?: Maybe<FeaturesSectionsCollection>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-  subId?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesHeroTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesHeroSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesHeroImageArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesSectionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesHideFromSitemapArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/features [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/features) */
-export type FeaturesSubIdArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type FeaturesLinkingCollections = {
-  __typename?: 'FeaturesLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type FeaturesLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type FeaturesHeroSubtitle = {
-  __typename?: 'FeaturesHeroSubtitle';
-  json: Scalars['JSON'];
-  links: FeaturesHeroSubtitleLinks;
-};
-
-export type FeaturesHeroSubtitleLinks = {
-  __typename?: 'FeaturesHeroSubtitleLinks';
-  entries: FeaturesHeroSubtitleEntries;
-  assets: FeaturesHeroSubtitleAssets;
-};
-
-export type FeaturesHeroSubtitleEntries = {
-  __typename?: 'FeaturesHeroSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type FeaturesHeroSubtitleAssets = {
-  __typename?: 'FeaturesHeroSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type FeaturesSectionsCollection = {
-  __typename?: 'FeaturesSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
-export type PagePartnersCollection = {
-  __typename?: 'PagePartnersCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PagePartners>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartners = Entry & {
-  __typename?: 'PagePartners';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PagePartnersLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  pageName?: Maybe<Scalars['String']>;
-  heroTitle?: Maybe<Scalars['String']>;
-  heroSubtitle?: Maybe<PagePartnersHeroSubtitle>;
-  sectionsCollection?: Maybe<PagePartnersSectionsCollection>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersPageNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersHeroTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersHeroSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pagePartners) */
-export type PagePartnersSectionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PagePartnersLinkingCollections = {
-  __typename?: 'PagePartnersLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PagePartnersLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PagePartnersHeroSubtitle = {
-  __typename?: 'PagePartnersHeroSubtitle';
-  json: Scalars['JSON'];
-  links: PagePartnersHeroSubtitleLinks;
-};
-
-export type PagePartnersHeroSubtitleLinks = {
-  __typename?: 'PagePartnersHeroSubtitleLinks';
-  entries: PagePartnersHeroSubtitleEntries;
-  assets: PagePartnersHeroSubtitleAssets;
-};
-
-export type PagePartnersHeroSubtitleEntries = {
-  __typename?: 'PagePartnersHeroSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type PagePartnersHeroSubtitleAssets = {
-  __typename?: 'PagePartnersHeroSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PagePartnersSectionsCollection = {
-  __typename?: 'PagePartnersSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
-export type PageSitemapCollection = {
-  __typename?: 'PageSitemapCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PageSitemap>>;
-};
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemap = Entry & {
-  __typename?: 'PageSitemap';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PageSitemapLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  pageName?: Maybe<Scalars['String']>;
-  heroTitle?: Maybe<Scalars['String']>;
-  heroSubtitle?: Maybe<PageSitemapHeroSubtitle>;
-};
-
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemapLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemapMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemapPageNameArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemapHeroTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
-export type PageSitemapHeroSubtitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageSitemapLinkingCollections = {
-  __typename?: 'PageSitemapLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PageSitemapLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageSitemapHeroSubtitle = {
-  __typename?: 'PageSitemapHeroSubtitle';
-  json: Scalars['JSON'];
-  links: PageSitemapHeroSubtitleLinks;
-};
-
-export type PageSitemapHeroSubtitleLinks = {
-  __typename?: 'PageSitemapHeroSubtitleLinks';
-  entries: PageSitemapHeroSubtitleEntries;
-  assets: PageSitemapHeroSubtitleAssets;
-};
-
-export type PageSitemapHeroSubtitleEntries = {
-  __typename?: 'PageSitemapHeroSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type PageSitemapHeroSubtitleAssets = {
-  __typename?: 'PageSitemapHeroSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PageClientServerlessCollection = {
-  __typename?: 'PageClientServerlessCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<PageClientServerless>>;
-};
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerless = Entry & {
-  __typename?: 'PageClientServerless';
-  sys: Sys;
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<PageClientServerlessLinkingCollections>;
-  metadata?: Maybe<Metadata>;
-  title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
-  sectionsCollection?: Maybe<PageClientServerlessSectionsCollection>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessMetadataArgs = {
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessTitleArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessBodyArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessSectionsCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-/** https://fauna.com/client-serverless [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageClientServerless) */
-export type PageClientServerlessHideFromSitemapArgs = {
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageClientServerlessLinkingCollections = {
-  __typename?: 'PageClientServerlessLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PageClientServerlessLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type PageClientServerlessSectionsCollection = {
-  __typename?: 'PageClientServerlessSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
 export type CompanyCollection = {
   __typename?: 'CompanyCollection';
   total: Scalars['Int'];
@@ -6397,47 +5668,6 @@ export type CompanySectionsCollection = {
   items: Array<Maybe<Section>>;
 };
 
-export type PageTemplateHeroSubtitle = {
-  __typename?: 'PageTemplateHeroSubtitle';
-  json: Scalars['JSON'];
-  links: PageTemplateHeroSubtitleLinks;
-};
-
-export type PageTemplateHeroSubtitleLinks = {
-  __typename?: 'PageTemplateHeroSubtitleLinks';
-  entries: PageTemplateHeroSubtitleEntries;
-  assets: PageTemplateHeroSubtitleAssets;
-};
-
-export type PageTemplateHeroSubtitleEntries = {
-  __typename?: 'PageTemplateHeroSubtitleEntries';
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type PageTemplateHeroSubtitleAssets = {
-  __typename?: 'PageTemplateHeroSubtitleAssets';
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type PageTemplateHeroActionsCollection = {
-  __typename?: 'PageTemplateHeroActionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<CallToAction>>;
-};
-
-export type PageTemplateSectionsCollection = {
-  __typename?: 'PageTemplateSectionsCollection';
-  total: Scalars['Int'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-  items: Array<Maybe<Section>>;
-};
-
 export type SectionSubtitle = {
   __typename?: 'SectionSubtitle';
   json: Scalars['JSON'];
@@ -6479,7 +5709,7 @@ export type SectionBlocksCollection = {
   items: Array<Maybe<SectionBlocksItem>>;
 };
 
-export type SectionBlocksItem = BlogPost | Column | Customer | Event | CallToAction | ListBlock | MarkdownBody | MediaBlock | PartnersCard | Person | PricingPlan | PricingPlanV2 | Quote2 | SectionBlock | Tweet;
+export type SectionBlocksItem = BlogPost | Column | Customer | Event | CallToAction | ListBlock | MarkdownBody | MediaBlock | PartnersCard | Person | PricingPlan | PricingPlanV2 | Quote2 | SectionBlock | Tweet | Form;
 
 /** A column for a table. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/column) */
 export type Column = Entry & {
@@ -6752,6 +5982,7 @@ export type EventLinkingCollections = {
   __typename?: 'EventLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
   sectionCollection?: Maybe<SectionCollection>;
+  pageTemplateCollection?: Maybe<PageTemplateCollection>;
 };
 
 
@@ -6764,6 +5995,14 @@ export type EventLinkingCollectionsEntryCollectionArgs = {
 
 
 export type EventLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type EventLinkingCollectionsPageTemplateCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -6793,6 +6032,121 @@ export type EventEventDescriptionAssets = {
   __typename?: 'EventEventDescriptionAssets';
   hyperlink: Array<Maybe<Asset>>;
   block: Array<Maybe<Asset>>;
+};
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlock = Entry & {
+  __typename?: 'ListBlock';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<ListBlockLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<ListBlockSubtitle>;
+  listItems?: Maybe<Array<Maybe<Scalars['String']>>>;
+  actionsCollection?: Maybe<ListBlockActionsCollection>;
+  media?: Maybe<Asset>;
+  icon?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockListItemsArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockActionsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockMediaArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Like a Section Block, but with a field for list items. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/listBlock) */
+export type ListBlockIconArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ListBlockLinkingCollections = {
+  __typename?: 'ListBlockLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+};
+
+
+export type ListBlockLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ListBlockLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ListBlockSubtitle = {
+  __typename?: 'ListBlockSubtitle';
+  json: Scalars['JSON'];
+  links: ListBlockSubtitleLinks;
+};
+
+export type ListBlockSubtitleLinks = {
+  __typename?: 'ListBlockSubtitleLinks';
+  entries: ListBlockSubtitleEntries;
+  assets: ListBlockSubtitleAssets;
+};
+
+export type ListBlockSubtitleEntries = {
+  __typename?: 'ListBlockSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type ListBlockSubtitleAssets = {
+  __typename?: 'ListBlockSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type ListBlockActionsCollection = {
+  __typename?: 'ListBlockActionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<CallToAction>>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/markdownBody) */
@@ -6845,57 +6199,65 @@ export type MarkdownBodyLinkingCollectionsSectionCollectionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type Tweet = Entry & {
-  __typename?: 'Tweet';
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlock = Entry & {
+  __typename?: 'MediaBlock';
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<TweetLinkingCollections>;
-  text?: Maybe<Scalars['String']>;
-  userName?: Maybe<Scalars['String']>;
-  userTag?: Maybe<Scalars['String']>;
-  publicationDate?: Maybe<Scalars['String']>;
+  linkedFrom?: Maybe<MediaBlockLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<MediaBlockDescription>;
+  action?: Maybe<CallToAction>;
+  image?: Maybe<Asset>;
+  type?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type TweetLinkedFromArgs = {
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type TweetTextArgs = {
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type TweetUserNameArgs = {
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockDescriptionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type TweetUserTagArgs = {
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/tweet) */
-export type TweetPublicationDateArgs = {
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type TweetLinkingCollections = {
-  __typename?: 'TweetLinkingCollections';
+
+/** For linking to other resources: podcasts, documentation, articles, etc... [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/mediaBlock) */
+export type MediaBlockTypeArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MediaBlockLinkingCollections = {
+  __typename?: 'MediaBlockLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
-  sectionBlockCollection?: Maybe<SectionBlockCollection>;
   sectionCollection?: Maybe<SectionCollection>;
 };
 
 
-export type TweetLinkingCollectionsEntryCollectionArgs = {
+export type MediaBlockLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -6903,62 +6265,738 @@ export type TweetLinkingCollectionsEntryCollectionArgs = {
 };
 
 
-export type TweetLinkingCollectionsSectionBlockCollectionArgs = {
+export type MediaBlockLinkingCollectionsSectionCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   preview?: Maybe<Scalars['Boolean']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-
-export type TweetLinkingCollectionsSectionCollectionArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  preview?: Maybe<Scalars['Boolean']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type SectionBlockSubtitle = {
-  __typename?: 'SectionBlockSubtitle';
+export type MediaBlockDescription = {
+  __typename?: 'MediaBlockDescription';
   json: Scalars['JSON'];
-  links: SectionBlockSubtitleLinks;
+  links: MediaBlockDescriptionLinks;
 };
 
-export type SectionBlockSubtitleLinks = {
-  __typename?: 'SectionBlockSubtitleLinks';
-  entries: SectionBlockSubtitleEntries;
-  assets: SectionBlockSubtitleAssets;
+export type MediaBlockDescriptionLinks = {
+  __typename?: 'MediaBlockDescriptionLinks';
+  entries: MediaBlockDescriptionEntries;
+  assets: MediaBlockDescriptionAssets;
 };
 
-export type SectionBlockSubtitleEntries = {
-  __typename?: 'SectionBlockSubtitleEntries';
+export type MediaBlockDescriptionEntries = {
+  __typename?: 'MediaBlockDescriptionEntries';
   inline: Array<Maybe<Entry>>;
   hyperlink: Array<Maybe<Entry>>;
   block: Array<Maybe<Entry>>;
 };
 
-export type SectionBlockSubtitleAssets = {
-  __typename?: 'SectionBlockSubtitleAssets';
+export type MediaBlockDescriptionAssets = {
+  __typename?: 'MediaBlockDescriptionAssets';
   hyperlink: Array<Maybe<Asset>>;
   block: Array<Maybe<Asset>>;
 };
 
-export type SectionBlockActionsCollection = {
-  __typename?: 'SectionBlockActionsCollection';
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCard = Entry & {
+  __typename?: 'PartnersCard';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PartnersCardLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<PartnersCardDescription>;
+  action?: Maybe<CallToAction>;
+  image?: Maybe<Asset>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCardLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCardTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCardDescriptionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCardActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/partnersCard) */
+export type PartnersCardImageArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PartnersCardLinkingCollections = {
+  __typename?: 'PartnersCardLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+};
+
+
+export type PartnersCardLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PartnersCardLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PartnersCardDescription = {
+  __typename?: 'PartnersCardDescription';
+  json: Scalars['JSON'];
+  links: PartnersCardDescriptionLinks;
+};
+
+export type PartnersCardDescriptionLinks = {
+  __typename?: 'PartnersCardDescriptionLinks';
+  entries: PartnersCardDescriptionEntries;
+  assets: PartnersCardDescriptionAssets;
+};
+
+export type PartnersCardDescriptionEntries = {
+  __typename?: 'PartnersCardDescriptionEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type PartnersCardDescriptionAssets = {
+  __typename?: 'PartnersCardDescriptionAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlan = Entry & {
+  __typename?: 'PricingPlan';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PricingPlanLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<PricingPlanDescription>;
+  priceLabel?: Maybe<Scalars['String']>;
+  creditsPerMonth?: Maybe<Scalars['Int']>;
+  listItemsCollection?: Maybe<PricingPlanListItemsCollection>;
+  action?: Maybe<CallToAction>;
+  isFeatured?: Maybe<Scalars['Boolean']>;
+  usageRate?: Maybe<UsageRate>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanDescriptionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanPriceLabelArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanCreditsPerMonthArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanListItemsCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanIsFeaturedArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlan) */
+export type PricingPlanUsageRateArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanLinkingCollections = {
+  __typename?: 'PricingPlanLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+};
+
+
+export type PricingPlanLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PricingPlanLinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanDescription = {
+  __typename?: 'PricingPlanDescription';
+  json: Scalars['JSON'];
+  links: PricingPlanDescriptionLinks;
+};
+
+export type PricingPlanDescriptionLinks = {
+  __typename?: 'PricingPlanDescriptionLinks';
+  entries: PricingPlanDescriptionEntries;
+  assets: PricingPlanDescriptionAssets;
+};
+
+export type PricingPlanDescriptionEntries = {
+  __typename?: 'PricingPlanDescriptionEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type PricingPlanDescriptionAssets = {
+  __typename?: 'PricingPlanDescriptionAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type PricingPlanListItemsCollection = {
+  __typename?: 'PricingPlanListItemsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<List>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
+export type List = Entry & {
+  __typename?: 'List';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<ListLinkingCollections>;
+  title?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
+export type ListLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
+export type ListTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/list) */
+export type ListItemsArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ListLinkingCollections = {
+  __typename?: 'ListLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  pricingPlanCollection?: Maybe<PricingPlanCollection>;
+};
+
+
+export type ListLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ListLinkingCollectionsPricingPlanCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanCollection = {
+  __typename?: 'PricingPlanCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PricingPlan>>;
+};
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRate = Entry & {
+  __typename?: 'UsageRate';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<UsageRateLinkingCollections>;
+  id?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  readOperationsMillion?: Maybe<Scalars['Float']>;
+  writeOperationsMillion?: Maybe<Scalars['Float']>;
+  transactionalComputeOperationsMillion?: Maybe<Scalars['Float']>;
+  storageGb?: Maybe<Scalars['Float']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateIdArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateLabelArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateReadOperationsMillionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateWriteOperationsMillionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateTransactionalComputeOperationsMillionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Contains read ops, write ops, compute ops, and storage rates. [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/usageRate) */
+export type UsageRateStorageGbArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type UsageRateLinkingCollections = {
+  __typename?: 'UsageRateLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  pricingPlanV2Collection?: Maybe<PricingPlanV2Collection>;
+  pricingPlanCollection?: Maybe<PricingPlanCollection>;
+};
+
+
+export type UsageRateLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type UsageRateLinkingCollectionsPricingPlanV2CollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type UsageRateLinkingCollectionsPricingPlanCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanV2Collection = {
+  __typename?: 'PricingPlanV2Collection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PricingPlanV2>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2 = Entry & {
+  __typename?: 'PricingPlanV2';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PricingPlanV2LinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  planDescription?: Maybe<Scalars['String']>;
+  priceLabel?: Maybe<Scalars['String']>;
+  annualPriceLabel?: Maybe<Scalars['String']>;
+  creditsPerMonth?: Maybe<Scalars['Int']>;
+  body?: Maybe<Scalars['String']>;
+  annualBody?: Maybe<Scalars['String']>;
+  action?: Maybe<CallToAction>;
+  isFeatured?: Maybe<Scalars['Boolean']>;
+  usageRate?: Maybe<UsageRate>;
+  usageRatesCollection?: Maybe<PricingPlanV2UsageRatesCollection>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2LinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2NameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2PlanDescriptionArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2PriceLabelArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2AnnualPriceLabelArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2CreditsPerMonthArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2BodyArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2AnnualBodyArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2ActionArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2IsFeaturedArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2UsageRateArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pricingPlanV2) */
+export type PricingPlanV2UsageRatesCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanV2LinkingCollections = {
+  __typename?: 'PricingPlanV2LinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  sectionCollection?: Maybe<SectionCollection>;
+};
+
+
+export type PricingPlanV2LinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PricingPlanV2LinkingCollectionsSectionCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PricingPlanV2UsageRatesCollection = {
+  __typename?: 'PricingPlanV2UsageRatesCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<UsageRate>>;
+};
+
+export type PartnersCardCollection = {
+  __typename?: 'PartnersCardCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PartnersCard>>;
+};
+
+export type MediaBlockCollection = {
+  __typename?: 'MediaBlockCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<MediaBlock>>;
+};
+
+export type PressPostCollection = {
+  __typename?: 'PressPostCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PressPost>>;
+};
+
+export type LogoCollection = {
+  __typename?: 'LogoCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Logo>>;
+};
+
+export type ListBlockCollection = {
+  __typename?: 'ListBlockCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<ListBlock>>;
+};
+
+export type NavLinkCollection = {
+  __typename?: 'NavLinkCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<NavLink>>;
+};
+
+export type TopNotificationCollection = {
+  __typename?: 'TopNotificationCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<TopNotification>>;
+};
+
+export type PageTemplateSectionsCollection = {
+  __typename?: 'PageTemplateSectionsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Section>>;
+};
+
+export type PageTemplateEventsCollection = {
+  __typename?: 'PageTemplateEventsCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Event>>;
+};
+
+export type PageSitemapCollection = {
+  __typename?: 'PageSitemapCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<PageSitemap>>;
+};
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemap = Entry & {
+  __typename?: 'PageSitemap';
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PageSitemapLinkingCollections>;
+  metadata?: Maybe<Metadata>;
+  pageName?: Maybe<Scalars['String']>;
+  heroTitle?: Maybe<Scalars['String']>;
+  heroSubtitle?: Maybe<PageSitemapHeroSubtitle>;
+};
+
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemapLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemapMetadataArgs = {
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemapPageNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemapHeroTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** https://fauna.com/sitemap [See type definition](https://app.contentful.com/spaces/po4qc9xpmpuh/content_types/pageSitemap) */
+export type PageSitemapHeroSubtitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageSitemapLinkingCollections = {
+  __typename?: 'PageSitemapLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PageSitemapLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PageSitemapHeroSubtitle = {
+  __typename?: 'PageSitemapHeroSubtitle';
+  json: Scalars['JSON'];
+  links: PageSitemapHeroSubtitleLinks;
+};
+
+export type PageSitemapHeroSubtitleLinks = {
+  __typename?: 'PageSitemapHeroSubtitleLinks';
+  entries: PageSitemapHeroSubtitleEntries;
+  assets: PageSitemapHeroSubtitleAssets;
+};
+
+export type PageSitemapHeroSubtitleEntries = {
+  __typename?: 'PageSitemapHeroSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type PageSitemapHeroSubtitleAssets = {
+  __typename?: 'PageSitemapHeroSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type HomeHeroSubtitle = {
+  __typename?: 'HomeHeroSubtitle';
+  json: Scalars['JSON'];
+  links: HomeHeroSubtitleLinks;
+};
+
+export type HomeHeroSubtitleLinks = {
+  __typename?: 'HomeHeroSubtitleLinks';
+  entries: HomeHeroSubtitleEntries;
+  assets: HomeHeroSubtitleAssets;
+};
+
+export type HomeHeroSubtitleEntries = {
+  __typename?: 'HomeHeroSubtitleEntries';
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type HomeHeroSubtitleAssets = {
+  __typename?: 'HomeHeroSubtitleAssets';
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type HomeHeroActionsCollection = {
+  __typename?: 'HomeHeroActionsCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
   items: Array<Maybe<CallToAction>>;
 };
 
-export type SectionBlockCustomerProof = Person | Quote2 | Tweet;
-
-export type EventCollection = {
-  __typename?: 'EventCollection';
+export type HomeSectionsCollection = {
+  __typename?: 'HomeSectionsCollection';
   total: Scalars['Int'];
   skip: Scalars['Int'];
   limit: Scalars['Int'];
-  items: Array<Maybe<Event>>;
+  items: Array<Maybe<Section>>;
 };
 
 export type MetadataCollection = {
@@ -6967,6 +7005,14 @@ export type MetadataCollection = {
   skip: Scalars['Int'];
   limit: Scalars['Int'];
   items: Array<Maybe<Metadata>>;
+};
+
+export type EventCollection = {
+  __typename?: 'EventCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Event>>;
 };
 
 export type AssetCollection = {
@@ -7117,7 +7163,79 @@ export enum AssetOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-export type SectionBlockFilter = {
+export type HomeFilter = {
+  metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  companies?: Maybe<CfLogosCollectionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  metadata_exists?: Maybe<Scalars['Boolean']>;
+  pageName_exists?: Maybe<Scalars['Boolean']>;
+  pageName?: Maybe<Scalars['String']>;
+  pageName_not?: Maybe<Scalars['String']>;
+  pageName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  pageName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  pageName_contains?: Maybe<Scalars['String']>;
+  pageName_not_contains?: Maybe<Scalars['String']>;
+  heroTitle_exists?: Maybe<Scalars['Boolean']>;
+  heroTitle?: Maybe<Scalars['String']>;
+  heroTitle_not?: Maybe<Scalars['String']>;
+  heroTitle_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  heroTitle_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  heroTitle_contains?: Maybe<Scalars['String']>;
+  heroTitle_not_contains?: Maybe<Scalars['String']>;
+  heroSubtitle_exists?: Maybe<Scalars['Boolean']>;
+  heroSubtitle_contains?: Maybe<Scalars['String']>;
+  heroSubtitle_not_contains?: Maybe<Scalars['String']>;
+  heroActionsCollection_exists?: Maybe<Scalars['Boolean']>;
+  companies_exists?: Maybe<Scalars['Boolean']>;
+  sectionsCollection_exists?: Maybe<Scalars['Boolean']>;
+  hideFromSitemap_exists?: Maybe<Scalars['Boolean']>;
+  hideFromSitemap?: Maybe<Scalars['Boolean']>;
+  hideFromSitemap_not?: Maybe<Scalars['Boolean']>;
+  heroImage_exists?: Maybe<Scalars['Boolean']>;
+  version_exists?: Maybe<Scalars['Boolean']>;
+  version?: Maybe<Scalars['String']>;
+  version_not?: Maybe<Scalars['String']>;
+  version_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  version_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  version_contains?: Maybe<Scalars['String']>;
+  version_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<HomeFilter>>>;
+  AND?: Maybe<Array<Maybe<HomeFilter>>>;
+};
+
+export type CfMetadataNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  description_exists?: Maybe<Scalars['Boolean']>;
+  description?: Maybe<Scalars['String']>;
+  description_not?: Maybe<Scalars['String']>;
+  description_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description_contains?: Maybe<Scalars['String']>;
+  description_not_contains?: Maybe<Scalars['String']>;
+  image_exists?: Maybe<Scalars['Boolean']>;
+  url_exists?: Maybe<Scalars['Boolean']>;
+  url?: Maybe<Scalars['String']>;
+  url_not?: Maybe<Scalars['String']>;
+  url_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  url_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  url_contains?: Maybe<Scalars['String']>;
+  url_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfMetadataNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfMetadataNestedFilter>>>;
+};
+
+export type CfCallToActionNestedFilter = {
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   objectName_exists?: Maybe<Scalars['Boolean']>;
@@ -7127,18 +7245,20 @@ export type SectionBlockFilter = {
   objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   objectName_contains?: Maybe<Scalars['String']>;
   objectName_not_contains?: Maybe<Scalars['String']>;
-  title_exists?: Maybe<Scalars['Boolean']>;
-  title?: Maybe<Scalars['String']>;
-  title_not?: Maybe<Scalars['String']>;
-  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_contains?: Maybe<Scalars['String']>;
-  title_not_contains?: Maybe<Scalars['String']>;
-  subtitle_exists?: Maybe<Scalars['Boolean']>;
-  subtitle_contains?: Maybe<Scalars['String']>;
-  subtitle_not_contains?: Maybe<Scalars['String']>;
-  actionsCollection_exists?: Maybe<Scalars['Boolean']>;
-  media_exists?: Maybe<Scalars['Boolean']>;
+  children_exists?: Maybe<Scalars['Boolean']>;
+  children?: Maybe<Scalars['String']>;
+  children_not?: Maybe<Scalars['String']>;
+  children_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  children_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  children_contains?: Maybe<Scalars['String']>;
+  children_not_contains?: Maybe<Scalars['String']>;
+  href_exists?: Maybe<Scalars['Boolean']>;
+  href?: Maybe<Scalars['String']>;
+  href_not?: Maybe<Scalars['String']>;
+  href_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  href_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  href_contains?: Maybe<Scalars['String']>;
+  href_not_contains?: Maybe<Scalars['String']>;
   icon_exists?: Maybe<Scalars['Boolean']>;
   icon?: Maybe<Scalars['String']>;
   icon_not?: Maybe<Scalars['String']>;
@@ -7146,7 +7266,64 @@ export type SectionBlockFilter = {
   icon_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   icon_contains?: Maybe<Scalars['String']>;
   icon_not_contains?: Maybe<Scalars['String']>;
-  backgroundImage_exists?: Maybe<Scalars['Boolean']>;
+  labelDescription_exists?: Maybe<Scalars['Boolean']>;
+  labelDescription?: Maybe<Scalars['String']>;
+  labelDescription_not?: Maybe<Scalars['String']>;
+  labelDescription_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  labelDescription_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  labelDescription_contains?: Maybe<Scalars['String']>;
+  labelDescription_not_contains?: Maybe<Scalars['String']>;
+  menuCategory_exists?: Maybe<Scalars['Boolean']>;
+  menuCategory?: Maybe<Scalars['String']>;
+  menuCategory_not?: Maybe<Scalars['String']>;
+  menuCategory_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  menuCategory_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  menuCategory_contains?: Maybe<Scalars['String']>;
+  menuCategory_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfCallToActionNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfCallToActionNestedFilter>>>;
+};
+
+export type CfLogosCollectionNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  objectName_exists?: Maybe<Scalars['Boolean']>;
+  objectName?: Maybe<Scalars['String']>;
+  objectName_not?: Maybe<Scalars['String']>;
+  objectName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  objectName_contains?: Maybe<Scalars['String']>;
+  objectName_not_contains?: Maybe<Scalars['String']>;
+  tagline_exists?: Maybe<Scalars['Boolean']>;
+  tagline?: Maybe<Scalars['String']>;
+  tagline_not?: Maybe<Scalars['String']>;
+  tagline_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  tagline_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  tagline_contains?: Maybe<Scalars['String']>;
+  tagline_not_contains?: Maybe<Scalars['String']>;
+  logosCollection_exists?: Maybe<Scalars['Boolean']>;
+  action_exists?: Maybe<Scalars['Boolean']>;
+  OR?: Maybe<Array<Maybe<CfLogosCollectionNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfLogosCollectionNestedFilter>>>;
+};
+
+export type CfSectionNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  sectionName_exists?: Maybe<Scalars['Boolean']>;
+  sectionName?: Maybe<Scalars['String']>;
+  sectionName_not?: Maybe<Scalars['String']>;
+  sectionName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  sectionName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  sectionName_contains?: Maybe<Scalars['String']>;
+  sectionName_not_contains?: Maybe<Scalars['String']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
   anchorLinkId_exists?: Maybe<Scalars['Boolean']>;
   anchorLinkId?: Maybe<Scalars['String']>;
   anchorLinkId_not?: Maybe<Scalars['String']>;
@@ -7154,7 +7331,41 @@ export type SectionBlockFilter = {
   anchorLinkId_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   anchorLinkId_contains?: Maybe<Scalars['String']>;
   anchorLinkId_not_contains?: Maybe<Scalars['String']>;
-  customerProof_exists?: Maybe<Scalars['Boolean']>;
+  subtitle_exists?: Maybe<Scalars['Boolean']>;
+  subtitle_contains?: Maybe<Scalars['String']>;
+  subtitle_not_contains?: Maybe<Scalars['String']>;
+  actionsCollection_exists?: Maybe<Scalars['Boolean']>;
+  blocksCollection_exists?: Maybe<Scalars['Boolean']>;
+  markdownBody_exists?: Maybe<Scalars['Boolean']>;
+  markdownBody?: Maybe<Scalars['String']>;
+  markdownBody_not?: Maybe<Scalars['String']>;
+  markdownBody_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  markdownBody_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  markdownBody_contains?: Maybe<Scalars['String']>;
+  markdownBody_not_contains?: Maybe<Scalars['String']>;
+  logosCollection_exists?: Maybe<Scalars['Boolean']>;
+  type_exists?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Scalars['String']>;
+  type_not?: Maybe<Scalars['String']>;
+  type_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  type_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  type_contains?: Maybe<Scalars['String']>;
+  type_not_contains?: Maybe<Scalars['String']>;
+  image_exists?: Maybe<Scalars['Boolean']>;
+  hasLinearBackground_exists?: Maybe<Scalars['Boolean']>;
+  hasLinearBackground?: Maybe<Scalars['Boolean']>;
+  hasLinearBackground_not?: Maybe<Scalars['Boolean']>;
+  backgroundImage_exists?: Maybe<Scalars['Boolean']>;
+  compactMode_exists?: Maybe<Scalars['Boolean']>;
+  compactMode?: Maybe<Scalars['Boolean']>;
+  compactMode_not?: Maybe<Scalars['Boolean']>;
+  textBelowSection_exists?: Maybe<Scalars['Boolean']>;
+  textBelowSection?: Maybe<Scalars['String']>;
+  textBelowSection_not?: Maybe<Scalars['String']>;
+  textBelowSection_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  textBelowSection_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  textBelowSection_contains?: Maybe<Scalars['String']>;
+  textBelowSection_not_contains?: Maybe<Scalars['String']>;
   additionalTitle_exists?: Maybe<Scalars['Boolean']>;
   additionalTitle?: Maybe<Scalars['String']>;
   additionalTitle_not?: Maybe<Scalars['String']>;
@@ -7162,21 +7373,65 @@ export type SectionBlockFilter = {
   additionalTitle_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   additionalTitle_contains?: Maybe<Scalars['String']>;
   additionalTitle_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<SectionBlockFilter>>>;
-  AND?: Maybe<Array<Maybe<SectionBlockFilter>>>;
+  OR?: Maybe<Array<Maybe<CfSectionNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfSectionNestedFilter>>>;
 };
 
-export enum SectionBlockOrder {
-  ObjectNameAsc = 'objectName_ASC',
-  ObjectNameDesc = 'objectName_DESC',
+export enum HomeOrder {
+  PageNameAsc = 'pageName_ASC',
+  PageNameDesc = 'pageName_DESC',
+  HeroTitleAsc = 'heroTitle_ASC',
+  HeroTitleDesc = 'heroTitle_DESC',
+  HideFromSitemapAsc = 'hideFromSitemap_ASC',
+  HideFromSitemapDesc = 'hideFromSitemap_DESC',
+  VersionAsc = 'version_ASC',
+  VersionDesc = 'version_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export type MetadataFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  description_exists?: Maybe<Scalars['Boolean']>;
+  description?: Maybe<Scalars['String']>;
+  description_not?: Maybe<Scalars['String']>;
+  description_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description_contains?: Maybe<Scalars['String']>;
+  description_not_contains?: Maybe<Scalars['String']>;
+  image_exists?: Maybe<Scalars['Boolean']>;
+  url_exists?: Maybe<Scalars['Boolean']>;
+  url?: Maybe<Scalars['String']>;
+  url_not?: Maybe<Scalars['String']>;
+  url_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  url_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  url_contains?: Maybe<Scalars['String']>;
+  url_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<MetadataFilter>>>;
+  AND?: Maybe<Array<Maybe<MetadataFilter>>>;
+};
+
+export enum MetadataOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
-  IconAsc = 'icon_ASC',
-  IconDesc = 'icon_DESC',
-  AnchorLinkIdAsc = 'anchorLinkId_ASC',
-  AnchorLinkIdDesc = 'anchorLinkId_DESC',
-  AdditionalTitleAsc = 'additionalTitle_ASC',
-  AdditionalTitleDesc = 'additionalTitle_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC',
   SysIdAsc = 'sys_id_ASC',
   SysIdDesc = 'sys_id_DESC',
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
@@ -7188,6 +7443,7 @@ export enum SectionBlockOrder {
 }
 
 export type SectionFilter = {
+  actions?: Maybe<CfCallToActionNestedFilter>;
   logosCollection?: Maybe<CfLogosCollectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
@@ -7258,29 +7514,6 @@ export type SectionFilter = {
   AND?: Maybe<Array<Maybe<SectionFilter>>>;
 };
 
-export type CfLogosCollectionNestedFilter = {
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  objectName_exists?: Maybe<Scalars['Boolean']>;
-  objectName?: Maybe<Scalars['String']>;
-  objectName_not?: Maybe<Scalars['String']>;
-  objectName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_contains?: Maybe<Scalars['String']>;
-  objectName_not_contains?: Maybe<Scalars['String']>;
-  tagline_exists?: Maybe<Scalars['Boolean']>;
-  tagline?: Maybe<Scalars['String']>;
-  tagline_not?: Maybe<Scalars['String']>;
-  tagline_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  tagline_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  tagline_contains?: Maybe<Scalars['String']>;
-  tagline_not_contains?: Maybe<Scalars['String']>;
-  logosCollection_exists?: Maybe<Scalars['Boolean']>;
-  action_exists?: Maybe<Scalars['Boolean']>;
-  OR?: Maybe<Array<Maybe<CfLogosCollectionNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfLogosCollectionNestedFilter>>>;
-};
-
 export enum SectionOrder {
   SectionNameAsc = 'sectionName_ASC',
   SectionNameDesc = 'sectionName_DESC',
@@ -7306,11 +7539,18 @@ export enum SectionOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-export type BlogPostFilter = {
-  metadata?: Maybe<CfMetadataNestedFilter>;
+export type SectionBlockFilter = {
+  actions?: Maybe<CfCallToActionNestedFilter>;
+  form?: Maybe<CfFormNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  metadata_exists?: Maybe<Scalars['Boolean']>;
+  objectName_exists?: Maybe<Scalars['Boolean']>;
+  objectName?: Maybe<Scalars['String']>;
+  objectName_not?: Maybe<Scalars['String']>;
+  objectName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  objectName_contains?: Maybe<Scalars['String']>;
+  objectName_not_contains?: Maybe<Scalars['String']>;
   title_exists?: Maybe<Scalars['Boolean']>;
   title?: Maybe<Scalars['String']>;
   title_not?: Maybe<Scalars['String']>;
@@ -7318,79 +7558,40 @@ export type BlogPostFilter = {
   title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   title_contains?: Maybe<Scalars['String']>;
   title_not_contains?: Maybe<Scalars['String']>;
-  slug_exists?: Maybe<Scalars['Boolean']>;
-  slug?: Maybe<Scalars['String']>;
-  slug_not?: Maybe<Scalars['String']>;
-  slug_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  slug_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  slug_contains?: Maybe<Scalars['String']>;
-  slug_not_contains?: Maybe<Scalars['String']>;
-  additionalSlugs_exists?: Maybe<Scalars['Boolean']>;
-  additionalSlugs_contains_all?: Maybe<Array<Maybe<Scalars['String']>>>;
-  additionalSlugs_contains_some?: Maybe<Array<Maybe<Scalars['String']>>>;
-  additionalSlugs_contains_none?: Maybe<Array<Maybe<Scalars['String']>>>;
-  date_exists?: Maybe<Scalars['Boolean']>;
-  date?: Maybe<Scalars['DateTime']>;
-  date_not?: Maybe<Scalars['DateTime']>;
-  date_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  date_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  date_gt?: Maybe<Scalars['DateTime']>;
-  date_gte?: Maybe<Scalars['DateTime']>;
-  date_lt?: Maybe<Scalars['DateTime']>;
-  date_lte?: Maybe<Scalars['DateTime']>;
-  coverImage_exists?: Maybe<Scalars['Boolean']>;
-  thumbnailImage_exists?: Maybe<Scalars['Boolean']>;
-  categoriesCollection_exists?: Maybe<Scalars['Boolean']>;
-  isCommunityPost_exists?: Maybe<Scalars['Boolean']>;
-  isCommunityPost?: Maybe<Scalars['Boolean']>;
-  isCommunityPost_not?: Maybe<Scalars['Boolean']>;
-  authorsCollection_exists?: Maybe<Scalars['Boolean']>;
-  excerpt_exists?: Maybe<Scalars['Boolean']>;
-  excerpt?: Maybe<Scalars['String']>;
-  excerpt_not?: Maybe<Scalars['String']>;
-  excerpt_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  excerpt_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  excerpt_contains?: Maybe<Scalars['String']>;
-  excerpt_not_contains?: Maybe<Scalars['String']>;
-  body_exists?: Maybe<Scalars['Boolean']>;
-  body?: Maybe<Scalars['String']>;
-  body_not?: Maybe<Scalars['String']>;
-  body_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body_contains?: Maybe<Scalars['String']>;
-  body_not_contains?: Maybe<Scalars['String']>;
-  body2_exists?: Maybe<Scalars['Boolean']>;
-  body2?: Maybe<Scalars['String']>;
-  body2_not?: Maybe<Scalars['String']>;
-  body2_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body2_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body2_contains?: Maybe<Scalars['String']>;
-  body2_not_contains?: Maybe<Scalars['String']>;
-  lastUpdated_exists?: Maybe<Scalars['Boolean']>;
-  lastUpdated?: Maybe<Scalars['DateTime']>;
-  lastUpdated_not?: Maybe<Scalars['DateTime']>;
-  lastUpdated_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  lastUpdated_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  lastUpdated_gt?: Maybe<Scalars['DateTime']>;
-  lastUpdated_gte?: Maybe<Scalars['DateTime']>;
-  lastUpdated_lt?: Maybe<Scalars['DateTime']>;
-  lastUpdated_lte?: Maybe<Scalars['DateTime']>;
-  relatedPostsCollection_exists?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts_exists?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts_not?: Maybe<Scalars['Boolean']>;
-  canonicalLink_exists?: Maybe<Scalars['Boolean']>;
-  canonicalLink?: Maybe<Scalars['String']>;
-  canonicalLink_not?: Maybe<Scalars['String']>;
-  canonicalLink_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  canonicalLink_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  canonicalLink_contains?: Maybe<Scalars['String']>;
-  canonicalLink_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<BlogPostFilter>>>;
-  AND?: Maybe<Array<Maybe<BlogPostFilter>>>;
+  subtitle_exists?: Maybe<Scalars['Boolean']>;
+  subtitle_contains?: Maybe<Scalars['String']>;
+  subtitle_not_contains?: Maybe<Scalars['String']>;
+  actionsCollection_exists?: Maybe<Scalars['Boolean']>;
+  media_exists?: Maybe<Scalars['Boolean']>;
+  icon_exists?: Maybe<Scalars['Boolean']>;
+  icon?: Maybe<Scalars['String']>;
+  icon_not?: Maybe<Scalars['String']>;
+  icon_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  icon_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  icon_contains?: Maybe<Scalars['String']>;
+  icon_not_contains?: Maybe<Scalars['String']>;
+  backgroundImage_exists?: Maybe<Scalars['Boolean']>;
+  anchorLinkId_exists?: Maybe<Scalars['Boolean']>;
+  anchorLinkId?: Maybe<Scalars['String']>;
+  anchorLinkId_not?: Maybe<Scalars['String']>;
+  anchorLinkId_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  anchorLinkId_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  anchorLinkId_contains?: Maybe<Scalars['String']>;
+  anchorLinkId_not_contains?: Maybe<Scalars['String']>;
+  customerProof_exists?: Maybe<Scalars['Boolean']>;
+  form_exists?: Maybe<Scalars['Boolean']>;
+  additionalTitle_exists?: Maybe<Scalars['Boolean']>;
+  additionalTitle?: Maybe<Scalars['String']>;
+  additionalTitle_not?: Maybe<Scalars['String']>;
+  additionalTitle_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalTitle_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalTitle_contains?: Maybe<Scalars['String']>;
+  additionalTitle_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<SectionBlockFilter>>>;
+  AND?: Maybe<Array<Maybe<SectionBlockFilter>>>;
 };
 
-export type CfMetadataNestedFilter = {
+export type CfFormNestedFilter = {
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   title_exists?: Maybe<Scalars['Boolean']>;
@@ -7400,42 +7601,36 @@ export type CfMetadataNestedFilter = {
   title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   title_contains?: Maybe<Scalars['String']>;
   title_not_contains?: Maybe<Scalars['String']>;
-  description_exists?: Maybe<Scalars['Boolean']>;
-  description?: Maybe<Scalars['String']>;
-  description_not?: Maybe<Scalars['String']>;
-  description_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  description_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  description_contains?: Maybe<Scalars['String']>;
-  description_not_contains?: Maybe<Scalars['String']>;
-  image_exists?: Maybe<Scalars['Boolean']>;
-  url_exists?: Maybe<Scalars['Boolean']>;
-  url?: Maybe<Scalars['String']>;
-  url_not?: Maybe<Scalars['String']>;
-  url_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  url_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  url_contains?: Maybe<Scalars['String']>;
-  url_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<CfMetadataNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfMetadataNestedFilter>>>;
+  actionUrl_exists?: Maybe<Scalars['Boolean']>;
+  actionUrl?: Maybe<Scalars['String']>;
+  actionUrl_not?: Maybe<Scalars['String']>;
+  actionUrl_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  actionUrl_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  actionUrl_contains?: Maybe<Scalars['String']>;
+  actionUrl_not_contains?: Maybe<Scalars['String']>;
+  fields_exists?: Maybe<Scalars['Boolean']>;
+  buttonLabel_exists?: Maybe<Scalars['Boolean']>;
+  buttonLabel?: Maybe<Scalars['String']>;
+  buttonLabel_not?: Maybe<Scalars['String']>;
+  buttonLabel_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  buttonLabel_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  buttonLabel_contains?: Maybe<Scalars['String']>;
+  buttonLabel_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfFormNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfFormNestedFilter>>>;
 };
 
-export enum BlogPostOrder {
+export enum SectionBlockOrder {
+  ObjectNameAsc = 'objectName_ASC',
+  ObjectNameDesc = 'objectName_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  DateAsc = 'date_ASC',
-  DateDesc = 'date_DESC',
-  IsCommunityPostAsc = 'isCommunityPost_ASC',
-  IsCommunityPostDesc = 'isCommunityPost_DESC',
-  ExcerptAsc = 'excerpt_ASC',
-  ExcerptDesc = 'excerpt_DESC',
-  LastUpdatedAsc = 'lastUpdated_ASC',
-  LastUpdatedDesc = 'lastUpdated_DESC',
-  HideFromRelatedPostsAsc = 'hideFromRelatedPosts_ASC',
-  HideFromRelatedPostsDesc = 'hideFromRelatedPosts_DESC',
-  CanonicalLinkAsc = 'canonicalLink_ASC',
-  CanonicalLinkDesc = 'canonicalLink_DESC',
+  IconAsc = 'icon_ASC',
+  IconDesc = 'icon_DESC',
+  AnchorLinkIdAsc = 'anchorLinkId_ASC',
+  AnchorLinkIdDesc = 'anchorLinkId_DESC',
+  AdditionalTitleAsc = 'additionalTitle_ASC',
+  AdditionalTitleDesc = 'additionalTitle_DESC',
   SysIdAsc = 'sys_id_ASC',
   SysIdDesc = 'sys_id_DESC',
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
@@ -7448,7 +7643,10 @@ export enum BlogPostOrder {
 
 export type PageTemplateFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
   heroSlider?: Maybe<CfLogosCollectionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
+  events?: Maybe<CfEventNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -7495,8 +7693,59 @@ export type PageTemplateFilter = {
   heroSignUpForm_exists?: Maybe<Scalars['Boolean']>;
   heroSignUpForm?: Maybe<Scalars['Boolean']>;
   heroSignUpForm_not?: Maybe<Scalars['Boolean']>;
+  eventsCollection_exists?: Maybe<Scalars['Boolean']>;
   OR?: Maybe<Array<Maybe<PageTemplateFilter>>>;
   AND?: Maybe<Array<Maybe<PageTemplateFilter>>>;
+};
+
+export type CfEventNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  eventTitle_exists?: Maybe<Scalars['Boolean']>;
+  eventTitle?: Maybe<Scalars['String']>;
+  eventTitle_not?: Maybe<Scalars['String']>;
+  eventTitle_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventTitle_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventTitle_contains?: Maybe<Scalars['String']>;
+  eventTitle_not_contains?: Maybe<Scalars['String']>;
+  eventDescription_exists?: Maybe<Scalars['Boolean']>;
+  eventDescription_contains?: Maybe<Scalars['String']>;
+  eventDescription_not_contains?: Maybe<Scalars['String']>;
+  featuredImage_exists?: Maybe<Scalars['Boolean']>;
+  eventStartDate_exists?: Maybe<Scalars['Boolean']>;
+  eventStartDate?: Maybe<Scalars['DateTime']>;
+  eventStartDate_not?: Maybe<Scalars['DateTime']>;
+  eventStartDate_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  eventStartDate_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  eventStartDate_gt?: Maybe<Scalars['DateTime']>;
+  eventStartDate_gte?: Maybe<Scalars['DateTime']>;
+  eventStartDate_lt?: Maybe<Scalars['DateTime']>;
+  eventStartDate_lte?: Maybe<Scalars['DateTime']>;
+  eventEndDate_exists?: Maybe<Scalars['Boolean']>;
+  eventEndDate?: Maybe<Scalars['DateTime']>;
+  eventEndDate_not?: Maybe<Scalars['DateTime']>;
+  eventEndDate_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  eventEndDate_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  eventEndDate_gt?: Maybe<Scalars['DateTime']>;
+  eventEndDate_gte?: Maybe<Scalars['DateTime']>;
+  eventEndDate_lt?: Maybe<Scalars['DateTime']>;
+  eventEndDate_lte?: Maybe<Scalars['DateTime']>;
+  eventUrl_exists?: Maybe<Scalars['Boolean']>;
+  eventUrl?: Maybe<Scalars['String']>;
+  eventUrl_not?: Maybe<Scalars['String']>;
+  eventUrl_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventUrl_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventUrl_contains?: Maybe<Scalars['String']>;
+  eventUrl_not_contains?: Maybe<Scalars['String']>;
+  eventLocation_exists?: Maybe<Scalars['Boolean']>;
+  eventLocation?: Maybe<Scalars['String']>;
+  eventLocation_not?: Maybe<Scalars['String']>;
+  eventLocation_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventLocation_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  eventLocation_contains?: Maybe<Scalars['String']>;
+  eventLocation_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfEventNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfEventNestedFilter>>>;
 };
 
 export enum PageTemplateOrder {
@@ -7526,10 +7775,66 @@ export enum PageTemplateOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+export type FormCollection = {
+  __typename?: 'FormCollection';
+  total: Scalars['Int'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  items: Array<Maybe<Form>>;
+};
+
+export type FormFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  actionUrl_exists?: Maybe<Scalars['Boolean']>;
+  actionUrl?: Maybe<Scalars['String']>;
+  actionUrl_not?: Maybe<Scalars['String']>;
+  actionUrl_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  actionUrl_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  actionUrl_contains?: Maybe<Scalars['String']>;
+  actionUrl_not_contains?: Maybe<Scalars['String']>;
+  fields_exists?: Maybe<Scalars['Boolean']>;
+  buttonLabel_exists?: Maybe<Scalars['Boolean']>;
+  buttonLabel?: Maybe<Scalars['String']>;
+  buttonLabel_not?: Maybe<Scalars['String']>;
+  buttonLabel_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  buttonLabel_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  buttonLabel_contains?: Maybe<Scalars['String']>;
+  buttonLabel_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<FormFilter>>>;
+  AND?: Maybe<Array<Maybe<FormFilter>>>;
+};
+
+export enum FormOrder {
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  ActionUrlAsc = 'actionUrl_ASC',
+  ActionUrlDesc = 'actionUrl_DESC',
+  ButtonLabelAsc = 'buttonLabel_ASC',
+  ButtonLabelDesc = 'buttonLabel_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type GeneralDataFilter = {
   defaultMetadata?: Maybe<CfMetadataNestedFilter>;
   topNotification?: Maybe<CfTopNotificationNestedFilter>;
+  footerLinksLists?: Maybe<CfNavLinkNestedFilter>;
   statusLink?: Maybe<CfCallToActionNestedFilter>;
+  footerRightSideLinks?: Maybe<CfCallToActionNestedFilter>;
   socialMedia?: Maybe<CfSocialMediaNestedFilter>;
   blogPostNewsletterBlock?: Maybe<CfSectionBlockNestedFilter>;
   blogSignUpCardLink?: Maybe<CfCallToActionNestedFilter>;
@@ -7639,16 +7944,9 @@ export type CfTopNotificationNestedFilter = {
   AND?: Maybe<Array<Maybe<CfTopNotificationNestedFilter>>>;
 };
 
-export type CfCallToActionNestedFilter = {
+export type CfNavLinkNestedFilter = {
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  objectName_exists?: Maybe<Scalars['Boolean']>;
-  objectName?: Maybe<Scalars['String']>;
-  objectName_not?: Maybe<Scalars['String']>;
-  objectName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_contains?: Maybe<Scalars['String']>;
-  objectName_not_contains?: Maybe<Scalars['String']>;
   children_exists?: Maybe<Scalars['Boolean']>;
   children?: Maybe<Scalars['String']>;
   children_not?: Maybe<Scalars['String']>;
@@ -7656,36 +7954,9 @@ export type CfCallToActionNestedFilter = {
   children_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
   children_contains?: Maybe<Scalars['String']>;
   children_not_contains?: Maybe<Scalars['String']>;
-  href_exists?: Maybe<Scalars['Boolean']>;
-  href?: Maybe<Scalars['String']>;
-  href_not?: Maybe<Scalars['String']>;
-  href_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  href_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  href_contains?: Maybe<Scalars['String']>;
-  href_not_contains?: Maybe<Scalars['String']>;
-  icon_exists?: Maybe<Scalars['Boolean']>;
-  icon?: Maybe<Scalars['String']>;
-  icon_not?: Maybe<Scalars['String']>;
-  icon_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  icon_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  icon_contains?: Maybe<Scalars['String']>;
-  icon_not_contains?: Maybe<Scalars['String']>;
-  labelDescription_exists?: Maybe<Scalars['Boolean']>;
-  labelDescription?: Maybe<Scalars['String']>;
-  labelDescription_not?: Maybe<Scalars['String']>;
-  labelDescription_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  labelDescription_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  labelDescription_contains?: Maybe<Scalars['String']>;
-  labelDescription_not_contains?: Maybe<Scalars['String']>;
-  menuCategory_exists?: Maybe<Scalars['Boolean']>;
-  menuCategory?: Maybe<Scalars['String']>;
-  menuCategory_not?: Maybe<Scalars['String']>;
-  menuCategory_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  menuCategory_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  menuCategory_contains?: Maybe<Scalars['String']>;
-  menuCategory_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<CfCallToActionNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfCallToActionNestedFilter>>>;
+  dropdownLinksCollection_exists?: Maybe<Scalars['Boolean']>;
+  OR?: Maybe<Array<Maybe<CfNavLinkNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfNavLinkNestedFilter>>>;
 };
 
 export type CfSocialMediaNestedFilter = {
@@ -7782,6 +8053,7 @@ export type CfSectionBlockNestedFilter = {
   anchorLinkId_contains?: Maybe<Scalars['String']>;
   anchorLinkId_not_contains?: Maybe<Scalars['String']>;
   customerProof_exists?: Maybe<Scalars['Boolean']>;
+  form_exists?: Maybe<Scalars['Boolean']>;
   additionalTitle_exists?: Maybe<Scalars['Boolean']>;
   additionalTitle?: Maybe<Scalars['String']>;
   additionalTitle_not?: Maybe<Scalars['String']>;
@@ -7822,8 +8094,257 @@ export enum GeneralDataOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+export type BlogPostFilter = {
+  metadata?: Maybe<CfMetadataNestedFilter>;
+  categories?: Maybe<CfBlogCategoryNestedFilter>;
+  authors?: Maybe<CfPersonNestedFilter>;
+  relatedPosts?: Maybe<CfBlogPostNestedFilter>;
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  metadata_exists?: Maybe<Scalars['Boolean']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  slug_exists?: Maybe<Scalars['Boolean']>;
+  slug?: Maybe<Scalars['String']>;
+  slug_not?: Maybe<Scalars['String']>;
+  slug_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_contains?: Maybe<Scalars['String']>;
+  slug_not_contains?: Maybe<Scalars['String']>;
+  additionalSlugs_exists?: Maybe<Scalars['Boolean']>;
+  additionalSlugs_contains_all?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalSlugs_contains_some?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalSlugs_contains_none?: Maybe<Array<Maybe<Scalars['String']>>>;
+  date_exists?: Maybe<Scalars['Boolean']>;
+  date?: Maybe<Scalars['DateTime']>;
+  date_not?: Maybe<Scalars['DateTime']>;
+  date_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  date_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  date_gt?: Maybe<Scalars['DateTime']>;
+  date_gte?: Maybe<Scalars['DateTime']>;
+  date_lt?: Maybe<Scalars['DateTime']>;
+  date_lte?: Maybe<Scalars['DateTime']>;
+  coverImage_exists?: Maybe<Scalars['Boolean']>;
+  thumbnailImage_exists?: Maybe<Scalars['Boolean']>;
+  categoriesCollection_exists?: Maybe<Scalars['Boolean']>;
+  isCommunityPost_exists?: Maybe<Scalars['Boolean']>;
+  isCommunityPost?: Maybe<Scalars['Boolean']>;
+  isCommunityPost_not?: Maybe<Scalars['Boolean']>;
+  authorsCollection_exists?: Maybe<Scalars['Boolean']>;
+  excerpt_exists?: Maybe<Scalars['Boolean']>;
+  excerpt?: Maybe<Scalars['String']>;
+  excerpt_not?: Maybe<Scalars['String']>;
+  excerpt_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  excerpt_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  excerpt_contains?: Maybe<Scalars['String']>;
+  excerpt_not_contains?: Maybe<Scalars['String']>;
+  body_exists?: Maybe<Scalars['Boolean']>;
+  body?: Maybe<Scalars['String']>;
+  body_not?: Maybe<Scalars['String']>;
+  body_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body_contains?: Maybe<Scalars['String']>;
+  body_not_contains?: Maybe<Scalars['String']>;
+  body2_exists?: Maybe<Scalars['Boolean']>;
+  body2?: Maybe<Scalars['String']>;
+  body2_not?: Maybe<Scalars['String']>;
+  body2_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body2_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body2_contains?: Maybe<Scalars['String']>;
+  body2_not_contains?: Maybe<Scalars['String']>;
+  lastUpdated_exists?: Maybe<Scalars['Boolean']>;
+  lastUpdated?: Maybe<Scalars['DateTime']>;
+  lastUpdated_not?: Maybe<Scalars['DateTime']>;
+  lastUpdated_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  lastUpdated_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  lastUpdated_gt?: Maybe<Scalars['DateTime']>;
+  lastUpdated_gte?: Maybe<Scalars['DateTime']>;
+  lastUpdated_lt?: Maybe<Scalars['DateTime']>;
+  lastUpdated_lte?: Maybe<Scalars['DateTime']>;
+  relatedPostsCollection_exists?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts_exists?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts_not?: Maybe<Scalars['Boolean']>;
+  canonicalLink_exists?: Maybe<Scalars['Boolean']>;
+  canonicalLink?: Maybe<Scalars['String']>;
+  canonicalLink_not?: Maybe<Scalars['String']>;
+  canonicalLink_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  canonicalLink_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  canonicalLink_contains?: Maybe<Scalars['String']>;
+  canonicalLink_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<BlogPostFilter>>>;
+  AND?: Maybe<Array<Maybe<BlogPostFilter>>>;
+};
+
+export type CfBlogCategoryNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  slug_exists?: Maybe<Scalars['Boolean']>;
+  slug?: Maybe<Scalars['String']>;
+  slug_not?: Maybe<Scalars['String']>;
+  slug_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_contains?: Maybe<Scalars['String']>;
+  slug_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfBlogCategoryNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfBlogCategoryNestedFilter>>>;
+};
+
+export type CfPersonNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  name_exists?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
+  name_not?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  position_exists?: Maybe<Scalars['Boolean']>;
+  position?: Maybe<Scalars['String']>;
+  position_not?: Maybe<Scalars['String']>;
+  position_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  position_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  position_contains?: Maybe<Scalars['String']>;
+  position_not_contains?: Maybe<Scalars['String']>;
+  bio_exists?: Maybe<Scalars['Boolean']>;
+  bio?: Maybe<Scalars['String']>;
+  bio_not?: Maybe<Scalars['String']>;
+  bio_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  bio_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  bio_contains?: Maybe<Scalars['String']>;
+  bio_not_contains?: Maybe<Scalars['String']>;
+  avatar_exists?: Maybe<Scalars['Boolean']>;
+  socialMedia_exists?: Maybe<Scalars['Boolean']>;
+  OR?: Maybe<Array<Maybe<CfPersonNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfPersonNestedFilter>>>;
+};
+
+export type CfBlogPostNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  metadata_exists?: Maybe<Scalars['Boolean']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  slug_exists?: Maybe<Scalars['Boolean']>;
+  slug?: Maybe<Scalars['String']>;
+  slug_not?: Maybe<Scalars['String']>;
+  slug_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  slug_contains?: Maybe<Scalars['String']>;
+  slug_not_contains?: Maybe<Scalars['String']>;
+  additionalSlugs_exists?: Maybe<Scalars['Boolean']>;
+  additionalSlugs_contains_all?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalSlugs_contains_some?: Maybe<Array<Maybe<Scalars['String']>>>;
+  additionalSlugs_contains_none?: Maybe<Array<Maybe<Scalars['String']>>>;
+  date_exists?: Maybe<Scalars['Boolean']>;
+  date?: Maybe<Scalars['DateTime']>;
+  date_not?: Maybe<Scalars['DateTime']>;
+  date_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  date_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  date_gt?: Maybe<Scalars['DateTime']>;
+  date_gte?: Maybe<Scalars['DateTime']>;
+  date_lt?: Maybe<Scalars['DateTime']>;
+  date_lte?: Maybe<Scalars['DateTime']>;
+  coverImage_exists?: Maybe<Scalars['Boolean']>;
+  thumbnailImage_exists?: Maybe<Scalars['Boolean']>;
+  categoriesCollection_exists?: Maybe<Scalars['Boolean']>;
+  isCommunityPost_exists?: Maybe<Scalars['Boolean']>;
+  isCommunityPost?: Maybe<Scalars['Boolean']>;
+  isCommunityPost_not?: Maybe<Scalars['Boolean']>;
+  authorsCollection_exists?: Maybe<Scalars['Boolean']>;
+  excerpt_exists?: Maybe<Scalars['Boolean']>;
+  excerpt?: Maybe<Scalars['String']>;
+  excerpt_not?: Maybe<Scalars['String']>;
+  excerpt_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  excerpt_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  excerpt_contains?: Maybe<Scalars['String']>;
+  excerpt_not_contains?: Maybe<Scalars['String']>;
+  body_exists?: Maybe<Scalars['Boolean']>;
+  body?: Maybe<Scalars['String']>;
+  body_not?: Maybe<Scalars['String']>;
+  body_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body_contains?: Maybe<Scalars['String']>;
+  body_not_contains?: Maybe<Scalars['String']>;
+  body2_exists?: Maybe<Scalars['Boolean']>;
+  body2?: Maybe<Scalars['String']>;
+  body2_not?: Maybe<Scalars['String']>;
+  body2_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body2_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body2_contains?: Maybe<Scalars['String']>;
+  body2_not_contains?: Maybe<Scalars['String']>;
+  lastUpdated_exists?: Maybe<Scalars['Boolean']>;
+  lastUpdated?: Maybe<Scalars['DateTime']>;
+  lastUpdated_not?: Maybe<Scalars['DateTime']>;
+  lastUpdated_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  lastUpdated_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  lastUpdated_gt?: Maybe<Scalars['DateTime']>;
+  lastUpdated_gte?: Maybe<Scalars['DateTime']>;
+  lastUpdated_lt?: Maybe<Scalars['DateTime']>;
+  lastUpdated_lte?: Maybe<Scalars['DateTime']>;
+  relatedPostsCollection_exists?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts_exists?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
+  hideFromRelatedPosts_not?: Maybe<Scalars['Boolean']>;
+  canonicalLink_exists?: Maybe<Scalars['Boolean']>;
+  canonicalLink?: Maybe<Scalars['String']>;
+  canonicalLink_not?: Maybe<Scalars['String']>;
+  canonicalLink_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  canonicalLink_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  canonicalLink_contains?: Maybe<Scalars['String']>;
+  canonicalLink_not_contains?: Maybe<Scalars['String']>;
+  OR?: Maybe<Array<Maybe<CfBlogPostNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfBlogPostNestedFilter>>>;
+};
+
+export enum BlogPostOrder {
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  DateAsc = 'date_ASC',
+  DateDesc = 'date_DESC',
+  IsCommunityPostAsc = 'isCommunityPost_ASC',
+  IsCommunityPostDesc = 'isCommunityPost_DESC',
+  ExcerptAsc = 'excerpt_ASC',
+  ExcerptDesc = 'excerpt_DESC',
+  LastUpdatedAsc = 'lastUpdated_ASC',
+  LastUpdatedDesc = 'lastUpdated_DESC',
+  HideFromRelatedPostsAsc = 'hideFromRelatedPosts_ASC',
+  HideFromRelatedPostsDesc = 'hideFromRelatedPosts_DESC',
+  CanonicalLinkAsc = 'canonicalLink_ASC',
+  CanonicalLinkDesc = 'canonicalLink_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type FeaturesFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8008,58 +8529,8 @@ export enum TweetOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-export type HomeFilter = {
-  metadata?: Maybe<CfMetadataNestedFilter>;
-  companies?: Maybe<CfLogosCollectionNestedFilter>;
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  metadata_exists?: Maybe<Scalars['Boolean']>;
-  pageName_exists?: Maybe<Scalars['Boolean']>;
-  pageName?: Maybe<Scalars['String']>;
-  pageName_not?: Maybe<Scalars['String']>;
-  pageName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pageName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pageName_contains?: Maybe<Scalars['String']>;
-  pageName_not_contains?: Maybe<Scalars['String']>;
-  heroTitle_exists?: Maybe<Scalars['Boolean']>;
-  heroTitle?: Maybe<Scalars['String']>;
-  heroTitle_not?: Maybe<Scalars['String']>;
-  heroTitle_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  heroTitle_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  heroTitle_contains?: Maybe<Scalars['String']>;
-  heroTitle_not_contains?: Maybe<Scalars['String']>;
-  heroSubtitle_exists?: Maybe<Scalars['Boolean']>;
-  heroSubtitle_contains?: Maybe<Scalars['String']>;
-  heroSubtitle_not_contains?: Maybe<Scalars['String']>;
-  heroActionsCollection_exists?: Maybe<Scalars['Boolean']>;
-  companies_exists?: Maybe<Scalars['Boolean']>;
-  sectionsCollection_exists?: Maybe<Scalars['Boolean']>;
-  hideFromSitemap_exists?: Maybe<Scalars['Boolean']>;
-  hideFromSitemap?: Maybe<Scalars['Boolean']>;
-  hideFromSitemap_not?: Maybe<Scalars['Boolean']>;
-  heroImage_exists?: Maybe<Scalars['Boolean']>;
-  OR?: Maybe<Array<Maybe<HomeFilter>>>;
-  AND?: Maybe<Array<Maybe<HomeFilter>>>;
-};
-
-export enum HomeOrder {
-  PageNameAsc = 'pageName_ASC',
-  PageNameDesc = 'pageName_DESC',
-  HeroTitleAsc = 'heroTitle_ASC',
-  HeroTitleDesc = 'heroTitle_DESC',
-  HideFromSitemapAsc = 'hideFromSitemap_ASC',
-  HideFromSitemapDesc = 'hideFromSitemap_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
 export type CustomerFilter = {
+  actions?: Maybe<CfCallToActionNestedFilter>;
   logo?: Maybe<CfLogoNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
@@ -8110,7 +8581,10 @@ export enum CustomerOrder {
 
 export type PageTrustFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   navLogoLink?: Maybe<CfCallToActionNestedFilter>;
+  navLinks?: Maybe<CfCallToActionNestedFilter>;
+  footerLinks?: Maybe<CfNavLinkNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8191,6 +8665,7 @@ export enum PartnersCardOrder {
 
 export type PagePartnersFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8234,6 +8709,7 @@ export enum PagePartnersOrder {
 export type PricingPlanV2Filter = {
   action?: Maybe<CfCallToActionNestedFilter>;
   usageRate?: Maybe<CfUsageRateNestedFilter>;
+  usageRates?: Maybe<CfUsageRateNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars['Boolean']>;
@@ -8465,6 +8941,9 @@ export enum UsageRateOrder {
 
 export type PagePricingFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroBlocks?: Maybe<CfSectionBlockNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8527,34 +9006,6 @@ export enum PagePricingOrder {
   HideFromSitemapDesc = 'hideFromSitemap_DESC',
   NoIndexAsc = 'noIndex_ASC',
   NoIndexDesc = 'noIndex_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-export type AbTestingFilter = {
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  objectName_exists?: Maybe<Scalars['Boolean']>;
-  objectName?: Maybe<Scalars['String']>;
-  objectName_not?: Maybe<Scalars['String']>;
-  objectName_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  objectName_contains?: Maybe<Scalars['String']>;
-  objectName_not_contains?: Maybe<Scalars['String']>;
-  pricingPageCollection_exists?: Maybe<Scalars['Boolean']>;
-  OR?: Maybe<Array<Maybe<AbTestingFilter>>>;
-  AND?: Maybe<Array<Maybe<AbTestingFilter>>>;
-};
-
-export enum AbTestingOrder {
-  ObjectNameAsc = 'objectName_ASC',
-  ObjectNameDesc = 'objectName_DESC',
   SysIdAsc = 'sys_id_ASC',
   SysIdDesc = 'sys_id_DESC',
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
@@ -8727,6 +9178,8 @@ export enum PageSitemapOrder {
 
 export type LearnFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8852,6 +9305,8 @@ export enum PagePressOrder {
 
 export type PageEventsFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8900,6 +9355,8 @@ export enum PageEventsOrder {
 
 export type PageCustomersFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8948,6 +9405,8 @@ export enum PageCustomersOrder {
 
 export type CommunityFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -8996,6 +9455,7 @@ export enum CommunityOrder {
 
 export type PageClientServerlessFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -9038,6 +9498,8 @@ export enum PageClientServerlessOrder {
 
 export type PageCareersFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  heroActions?: Maybe<CfCallToActionNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -9110,89 +9572,6 @@ export type BlogFilter = {
   AND?: Maybe<Array<Maybe<BlogFilter>>>;
 };
 
-export type CfBlogPostNestedFilter = {
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  metadata_exists?: Maybe<Scalars['Boolean']>;
-  title_exists?: Maybe<Scalars['Boolean']>;
-  title?: Maybe<Scalars['String']>;
-  title_not?: Maybe<Scalars['String']>;
-  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_contains?: Maybe<Scalars['String']>;
-  title_not_contains?: Maybe<Scalars['String']>;
-  slug_exists?: Maybe<Scalars['Boolean']>;
-  slug?: Maybe<Scalars['String']>;
-  slug_not?: Maybe<Scalars['String']>;
-  slug_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  slug_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  slug_contains?: Maybe<Scalars['String']>;
-  slug_not_contains?: Maybe<Scalars['String']>;
-  additionalSlugs_exists?: Maybe<Scalars['Boolean']>;
-  additionalSlugs_contains_all?: Maybe<Array<Maybe<Scalars['String']>>>;
-  additionalSlugs_contains_some?: Maybe<Array<Maybe<Scalars['String']>>>;
-  additionalSlugs_contains_none?: Maybe<Array<Maybe<Scalars['String']>>>;
-  date_exists?: Maybe<Scalars['Boolean']>;
-  date?: Maybe<Scalars['DateTime']>;
-  date_not?: Maybe<Scalars['DateTime']>;
-  date_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  date_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  date_gt?: Maybe<Scalars['DateTime']>;
-  date_gte?: Maybe<Scalars['DateTime']>;
-  date_lt?: Maybe<Scalars['DateTime']>;
-  date_lte?: Maybe<Scalars['DateTime']>;
-  coverImage_exists?: Maybe<Scalars['Boolean']>;
-  thumbnailImage_exists?: Maybe<Scalars['Boolean']>;
-  categoriesCollection_exists?: Maybe<Scalars['Boolean']>;
-  isCommunityPost_exists?: Maybe<Scalars['Boolean']>;
-  isCommunityPost?: Maybe<Scalars['Boolean']>;
-  isCommunityPost_not?: Maybe<Scalars['Boolean']>;
-  authorsCollection_exists?: Maybe<Scalars['Boolean']>;
-  excerpt_exists?: Maybe<Scalars['Boolean']>;
-  excerpt?: Maybe<Scalars['String']>;
-  excerpt_not?: Maybe<Scalars['String']>;
-  excerpt_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  excerpt_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  excerpt_contains?: Maybe<Scalars['String']>;
-  excerpt_not_contains?: Maybe<Scalars['String']>;
-  body_exists?: Maybe<Scalars['Boolean']>;
-  body?: Maybe<Scalars['String']>;
-  body_not?: Maybe<Scalars['String']>;
-  body_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body_contains?: Maybe<Scalars['String']>;
-  body_not_contains?: Maybe<Scalars['String']>;
-  body2_exists?: Maybe<Scalars['Boolean']>;
-  body2?: Maybe<Scalars['String']>;
-  body2_not?: Maybe<Scalars['String']>;
-  body2_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body2_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  body2_contains?: Maybe<Scalars['String']>;
-  body2_not_contains?: Maybe<Scalars['String']>;
-  lastUpdated_exists?: Maybe<Scalars['Boolean']>;
-  lastUpdated?: Maybe<Scalars['DateTime']>;
-  lastUpdated_not?: Maybe<Scalars['DateTime']>;
-  lastUpdated_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  lastUpdated_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
-  lastUpdated_gt?: Maybe<Scalars['DateTime']>;
-  lastUpdated_gte?: Maybe<Scalars['DateTime']>;
-  lastUpdated_lt?: Maybe<Scalars['DateTime']>;
-  lastUpdated_lte?: Maybe<Scalars['DateTime']>;
-  relatedPostsCollection_exists?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts_exists?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts?: Maybe<Scalars['Boolean']>;
-  hideFromRelatedPosts_not?: Maybe<Scalars['Boolean']>;
-  canonicalLink_exists?: Maybe<Scalars['Boolean']>;
-  canonicalLink?: Maybe<Scalars['String']>;
-  canonicalLink_not?: Maybe<Scalars['String']>;
-  canonicalLink_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  canonicalLink_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  canonicalLink_contains?: Maybe<Scalars['String']>;
-  canonicalLink_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<CfBlogPostNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfBlogPostNestedFilter>>>;
-};
-
 export enum BlogOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
@@ -9210,6 +9589,7 @@ export enum BlogOrder {
 
 export type CompanyFilter = {
   metadata?: Maybe<CfMetadataNestedFilter>;
+  sections?: Maybe<CfSectionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   metadata_exists?: Maybe<Scalars['Boolean']>;
@@ -9327,6 +9707,7 @@ export enum EventOrder {
 }
 
 export type LogosCollectionFilter = {
+  logos?: Maybe<CfLogoNestedFilter>;
   action?: Maybe<CfCallToActionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
@@ -9366,6 +9747,7 @@ export enum LogosCollectionOrder {
 }
 
 export type PricingPlanFilter = {
+  listItems?: Maybe<CfListNestedFilter>;
   action?: Maybe<CfCallToActionNestedFilter>;
   usageRate?: Maybe<CfUsageRateNestedFilter>;
   sys?: Maybe<SysFilter>;
@@ -9404,6 +9786,24 @@ export type PricingPlanFilter = {
   usageRate_exists?: Maybe<Scalars['Boolean']>;
   OR?: Maybe<Array<Maybe<PricingPlanFilter>>>;
   AND?: Maybe<Array<Maybe<PricingPlanFilter>>>;
+};
+
+export type CfListNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  title_not?: Maybe<Scalars['String']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  items_exists?: Maybe<Scalars['Boolean']>;
+  items_contains_all?: Maybe<Array<Maybe<Scalars['String']>>>;
+  items_contains_some?: Maybe<Array<Maybe<Scalars['String']>>>;
+  items_contains_none?: Maybe<Array<Maybe<Scalars['String']>>>;
+  OR?: Maybe<Array<Maybe<CfListNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfListNestedFilter>>>;
 };
 
 export enum PricingPlanOrder {
@@ -9543,6 +9943,7 @@ export type RedirectsCollection = {
 };
 
 export type RedirectsFilter = {
+  redirects?: Maybe<CfRedirectNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars['Boolean']>;
@@ -9555,6 +9956,30 @@ export type RedirectsFilter = {
   redirectsCollection_exists?: Maybe<Scalars['Boolean']>;
   OR?: Maybe<Array<Maybe<RedirectsFilter>>>;
   AND?: Maybe<Array<Maybe<RedirectsFilter>>>;
+};
+
+export type CfRedirectNestedFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  source_exists?: Maybe<Scalars['Boolean']>;
+  source?: Maybe<Scalars['String']>;
+  source_not?: Maybe<Scalars['String']>;
+  source_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  source_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  source_contains?: Maybe<Scalars['String']>;
+  source_not_contains?: Maybe<Scalars['String']>;
+  destination_exists?: Maybe<Scalars['Boolean']>;
+  destination?: Maybe<Scalars['String']>;
+  destination_not?: Maybe<Scalars['String']>;
+  destination_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  destination_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  destination_contains?: Maybe<Scalars['String']>;
+  destination_not_contains?: Maybe<Scalars['String']>;
+  permanent_exists?: Maybe<Scalars['Boolean']>;
+  permanent?: Maybe<Scalars['Boolean']>;
+  permanent_not?: Maybe<Scalars['Boolean']>;
+  OR?: Maybe<Array<Maybe<CfRedirectNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfRedirectNestedFilter>>>;
 };
 
 export enum RedirectsOrder {
@@ -9651,52 +10076,6 @@ export enum MediaBlockOrder {
   TitleDesc = 'title_DESC',
   TypeAsc = 'type_ASC',
   TypeDesc = 'type_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-export type MetadataFilter = {
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  title_exists?: Maybe<Scalars['Boolean']>;
-  title?: Maybe<Scalars['String']>;
-  title_not?: Maybe<Scalars['String']>;
-  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  title_contains?: Maybe<Scalars['String']>;
-  title_not_contains?: Maybe<Scalars['String']>;
-  description_exists?: Maybe<Scalars['Boolean']>;
-  description?: Maybe<Scalars['String']>;
-  description_not?: Maybe<Scalars['String']>;
-  description_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  description_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  description_contains?: Maybe<Scalars['String']>;
-  description_not_contains?: Maybe<Scalars['String']>;
-  image_exists?: Maybe<Scalars['Boolean']>;
-  url_exists?: Maybe<Scalars['Boolean']>;
-  url?: Maybe<Scalars['String']>;
-  url_not?: Maybe<Scalars['String']>;
-  url_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  url_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  url_contains?: Maybe<Scalars['String']>;
-  url_not_contains?: Maybe<Scalars['String']>;
-  OR?: Maybe<Array<Maybe<MetadataFilter>>>;
-  AND?: Maybe<Array<Maybe<MetadataFilter>>>;
-};
-
-export enum MetadataOrder {
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC',
-  DescriptionAsc = 'description_ASC',
-  DescriptionDesc = 'description_DESC',
-  UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC',
   SysIdAsc = 'sys_id_ASC',
   SysIdDesc = 'sys_id_DESC',
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
@@ -10002,36 +10381,6 @@ export type Quote2Filter = {
   AND?: Maybe<Array<Maybe<Quote2Filter>>>;
 };
 
-export type CfPersonNestedFilter = {
-  sys?: Maybe<SysFilter>;
-  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
-  name_exists?: Maybe<Scalars['Boolean']>;
-  name?: Maybe<Scalars['String']>;
-  name_not?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  name_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  position_exists?: Maybe<Scalars['Boolean']>;
-  position?: Maybe<Scalars['String']>;
-  position_not?: Maybe<Scalars['String']>;
-  position_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  position_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  position_contains?: Maybe<Scalars['String']>;
-  position_not_contains?: Maybe<Scalars['String']>;
-  bio_exists?: Maybe<Scalars['Boolean']>;
-  bio?: Maybe<Scalars['String']>;
-  bio_not?: Maybe<Scalars['String']>;
-  bio_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  bio_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  bio_contains?: Maybe<Scalars['String']>;
-  bio_not_contains?: Maybe<Scalars['String']>;
-  avatar_exists?: Maybe<Scalars['Boolean']>;
-  socialMedia_exists?: Maybe<Scalars['Boolean']>;
-  OR?: Maybe<Array<Maybe<CfPersonNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfPersonNestedFilter>>>;
-};
-
 export enum Quote2Order {
   SysIdAsc = 'sys_id_ASC',
   SysIdDesc = 'sys_id_DESC',
@@ -10074,6 +10423,7 @@ export enum LogoOrder {
 }
 
 export type ListBlockFilter = {
+  actions?: Maybe<CfCallToActionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   title_exists?: Maybe<Scalars['Boolean']>;
@@ -10163,6 +10513,7 @@ export enum BlogCategoryOrder {
 }
 
 export type NavLinkFilter = {
+  dropdownLinks?: Maybe<CfCallToActionNestedFilter>;
   sys?: Maybe<SysFilter>;
   contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   children_exists?: Maybe<Scalars['Boolean']>;
@@ -10599,7 +10950,7 @@ export type SectionFragment = (
     ) | (
       { __typename: 'Tweet' }
       & TweetFragment
-    )>> }
+    ) | { __typename: 'Form' }>> }
   )>, logosCollection?: Maybe<(
     { __typename?: 'LogosCollection' }
     & LogosCollectionFragment
