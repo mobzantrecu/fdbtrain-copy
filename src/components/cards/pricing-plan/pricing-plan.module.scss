@@ -1,0 +1,41 @@
+.marked {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+
+  li {
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+
+    &:not(:last-of-type) {
+      margin-bottom: 4px;
+    }
+    &::before {
+      content: url("/images/misc/arrow-right-solid-light.svg");
+      color: #896BFF;
+      font-weight: bold;
+      display: inline-block;
+      width: 11px;
+      margin-left: -23px;
+      margin-right: 8px;
+      font-size: 12px;
+      line-height: 0;
+    }
+  }
+
+  a {
+    color: #3f00a5;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

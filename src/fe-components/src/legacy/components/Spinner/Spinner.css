@@ -1,0 +1,18 @@
+@import "../../css/main.css";
+
+/* Spinner theme */
+.legacy.spinner.primary {
+  stroke: var(--white);
+}
+
+.legacy.spinner.secondary {
+  stroke: var(--black);
+}
+
+.legacy.spinner.netlify {
+  stroke: var(--white);
+}
+
+.legacy.spinner.github {
+  stroke: var(--white);
+}

@@ -1,0 +1,27 @@
+query FeaturesPage($preview: Boolean) {
+  featuresCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+    where: { subId: "features" }
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+      heroSubtitle {
+        json
+      }
+      heroImage {
+        ...Media
+      }
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+      subId
+    }
+  }
+}

@@ -1,0 +1,33 @@
+query BlogPage($preview: Boolean) {
+  blogCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      featuredPost {
+        ...BlogPostMeta
+      }
+      featuredPostImage {
+        ...Media
+      }
+      heroCardBlock {
+        ...SectionBlock
+      }
+      newsletterCardBlock {
+        ...SectionBlock
+      }
+    }
+  }
+  blogPostCollection(limit: 500, preview: $preview) {
+    items {
+      sys {
+        id
+      }
+      ...BlogPostMeta
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@import "../../css/main.css";
+
+/* Global Attributes */
+.legacy.sign-up-form {
+  padding: 1rem 1rem;
+
+  text-align: center;
+
+  max-width: var(--form-max-width);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: var(--border-radius);
+}
+
+.legacy.sign-up-form p {
+  font-weight: var(--font-weight-small);
+}
+
+/* Form theme */
+.legacy.sign-up-form.primary {
+  background: var(--gray);
+}
+
+.legacy.sign-up-form.secondary {
+  background: var(--white);
+}
+
+/* Form rows */
+.legacy.sign-up-form-row:nth-child(n) {
+  padding: 0.25rem 0rem;
+}
+
+.legacy.sign-up-form-row:nth-child(1) {
+  padding: 0rem 0rem 0.25rem 0rem;
+}
+
+.legacy.sign-up-form-row:nth-last-child(1) {
+  padding: 0.25rem 0rem 0rem 0rem;
+}
+
+.legacy.sign-up-form-row.extra-margin {
+  margin: 0.75rem 0rem 0rem 0rem;
+}
+
+.legacy.sign-up-form-column-50 {
+  width: 50%;
+}
+
+.legacy.sign-up-form-column-50:first-child {
+    margin-right: 0.75rem;
+}
+
+.legacy.sign-up-form-row-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.legacy.form-label.error {
+  color: var(--danger);
+  font-size: var(--font-medium);
+}
+
+.legacy.title-container {
+  margin-bottom: 0.9rem;
+}
+
+.legacy.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.legacy.button-legend {
+  font-size: var(--font-small);
+  font-weight: 400;
+}

@@ -1,0 +1,23 @@
+query BlogPostsSlugs {
+  blogPostCollection (limit: 400) {
+    items {
+      slug
+      additionalSlugs
+    }
+  }
+}
+
+query BlogPost($slug: String!, $preview: Boolean) {
+  blogPostCollection(
+    where: { OR: [{ slug: $slug }, { additionalSlugs_contains_some: [$slug] }] }
+    limit: 1
+    preview: $preview
+  ) {
+    items {
+      ...BlogPost
+      sys {
+        publishedAt
+      }
+    }
+  }
+}

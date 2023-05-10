@@ -1,0 +1,20 @@
+query ClientServerlessPage($preview: Boolean) {
+  pageClientServerlessCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      title
+      body
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+    }
+  }
+}

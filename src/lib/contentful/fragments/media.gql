@@ -1,0 +1,8 @@
+fragment Media on Asset {
+  title
+  url
+  description
+  contentType
+  width
+  height
+}

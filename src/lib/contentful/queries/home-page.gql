@@ -1,0 +1,33 @@
+query HomePage($preview: Boolean) {
+  homeCollection(
+    limit: 2
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+      heroSubtitle {
+        json
+      }
+      heroActionsCollection(limit: 2) {
+        items {
+          ...Link
+        }
+      }
+      companies {
+        ...LogosCollection
+      }
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+      heroImage {
+        ...Media
+      }
+    }
+  }
+}

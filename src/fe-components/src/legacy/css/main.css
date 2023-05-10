@@ -1,0 +1,72 @@
+/* Global styles applied to all components with the .legacy class */
+.legacy {
+  font-family: acumin-pro, Helvetica, sans-serif;
+}
+
+/* Global styles applied to all links with the .legacy class */
+.legacy a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --white: #fff;
+  --black: #000;
+  --primary: #3f00a5;
+  --secondary: #eff0f6;
+  --gray: #f4f5f9;
+  --link: #525ebc;
+  --warning: #ffd546;
+  --danger: #fc615e;
+  --netlify: #02ad9f;
+  --github: #282d34;
+
+  --font-primary: #2c3160;
+  --font-secondary: #492fb1;
+
+  --stroke: #d7d7e8;
+  --soft-stroke: #eaeaee;
+  --dark-stroke: #84899e;
+
+  --primary-gradient: #813eef;
+  --secondary-gradient: #eaeaee;
+
+  --gradient-angle: 90deg;
+
+  /* Fonts */
+  --font-small: 0.75rem;
+  --font-medium: 1rem;
+  --font-large: 1.25rem;
+
+  --font-weight-small: 300;
+  --font-weight-medium: 500;
+  --font-weight-large: 700;
+
+  --letter-spacing-small: 0.01rem;
+  --letter-spacing-medium: 0.03rem;
+  --letter-spacing-large: 0.05rem;
+
+  /* Buttons */
+  --button-padding: 0rem 1rem;
+
+  --button-small: 1.75rem;
+  --button-medium: 2.25rem;
+  --button-large: 2.75rem;
+
+  /* Inputs */
+  --input-padding: 0rem 0.6rem;
+  --input-label-padding: 0.3rem 0rem;
+
+  --input-small: 1.75rem;
+  --input-medium: 2.25rem;
+  --input-large: 2.75rem;
+
+  /* Forms */
+  --form-padding: 1rem 1rem;
+  --form-max-width: 500px;
+
+  /* Misc */
+  --border-radius: 0.25rem;
+}

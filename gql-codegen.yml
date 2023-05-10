@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - https://graphql.contentful.com/content/v1/spaces/po4qc9xpmpuh/environments/development:
+      headers:
+        Authorization: Bearer ${CONTENTFUL_ACCESS_TOKEN}
+documents: './src/**/*.gql'
+generates:
+  ./src/lib/contentful/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+  ./src/lib/contentful/graphql.schema.json:
+    plugins:
+      - 'introspection'

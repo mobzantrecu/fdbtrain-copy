@@ -1,0 +1,196 @@
+query Sitemap($preview: Boolean) {
+  pageSitemapCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+      heroSubtitle {
+        json
+      }
+    }
+  }
+  blogCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  blogPostCollection(limit: 500, preview: $preview) {
+    items {
+      sys {
+        id
+      }
+      metadata {
+        ...Metadata
+      }
+      date
+      slug
+      title
+    }
+  }
+  pageTemplateCollection(
+    limit: 6
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      slug
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  companyCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  learnCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pagePricingCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pagePressCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  homeCollection(
+    limit: 2
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  featuresCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pageCustomersCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  communityCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pageCareersCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pageTrustCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  pageClientServerlessCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      hideFromSitemap
+    }
+  }
+  generalDataCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      ...GeneralData
+    }
+  }
+}

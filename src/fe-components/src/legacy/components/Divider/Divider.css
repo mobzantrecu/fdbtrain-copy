@@ -1,0 +1,22 @@
+@import "../../css/main.css";
+
+/* Global Attributes */
+.legacy.divider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Divider bar */
+.legacy.divider.bar {
+  height: 1px;
+  width: 100%;
+  background: var(--stroke);
+}
+
+/* Divider content */
+.legacy.divider.content {
+  padding: 0rem 0.75rem;
+  color: var(--font-primary);
+}

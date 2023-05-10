@@ -1,0 +1,9 @@
+fragment SocialMedia on SocialMedia {
+  for
+  twitter
+  linkedIn
+  facebook
+  gitHub
+  devTo
+  youTube
+}

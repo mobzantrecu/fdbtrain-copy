@@ -1,0 +1,20 @@
+.base {
+  transition: bottom var(--transition-duration),
+    opacity var(--transition-duration);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: white;
+  border-top: 1px solid #d9dff1;
+}
+
+.show {
+  bottom: 0;
+  opacity: 1;
+}
+
+.hide {
+  bottom: -100px;
+  opacity: 0;
+}

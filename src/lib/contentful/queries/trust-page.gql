@@ -1,0 +1,19 @@
+query TrustPage($preview: Boolean) {
+  pageTrustCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+fragment Person on Person {
+  name
+  position
+  bio
+  avatar {
+    ...Media
+  }
+  socialMedia {
+    ...SocialMedia
+  }
+}

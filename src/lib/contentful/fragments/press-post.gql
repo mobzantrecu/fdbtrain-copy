@@ -1,0 +1,11 @@
+fragment PressPost on PressPost {
+  title
+  date
+  coverImage {
+    ...Media
+  }
+  action {
+    ...Link
+  }
+  publicationName
+}

@@ -1,0 +1,21 @@
+fragment Logo on Logo {
+  name
+  image {
+    ...Media
+  }
+  action {
+    ...Link
+  }
+}
+
+fragment LogosCollection on LogosCollection {
+  tagline
+  logosCollection(limit: 12) {
+    items {
+      ...Logo
+    }
+  }
+  action {
+    ...Link
+  }
+}

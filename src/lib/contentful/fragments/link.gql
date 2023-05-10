@@ -1,0 +1,16 @@
+fragment Link on CallToAction {
+  children
+  href
+  icon
+  labelDescription
+  menuCategory
+}
+
+fragment DropdownLink on NavLink {
+  children
+  dropdownLinksCollection(limit: 25) {
+    items {
+      ...Link
+    }
+  }
+}

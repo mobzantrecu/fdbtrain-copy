@@ -1,0 +1,27 @@
+query ResourcesPage($preview: Boolean) {
+  learnCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+      heroSubtitle {
+        json
+      }
+      heroActionsCollection(limit: 2) {
+        items {
+          ...Link
+        }
+      }
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+    }
+  }
+}

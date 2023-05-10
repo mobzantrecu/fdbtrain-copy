@@ -1,0 +1,82 @@
+.input {
+    color: #000000;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #A3BAC6;
+    height: 2rem;
+    padding: 0.5rem 0.625rem 0.5625rem;
+    width: 100%;
+}
+
+.two-inputs-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.error-label-container {
+    height: 20px;
+}
+
+.error {
+    border-color: red;
+}
+
+.label {
+    color: #37465A;
+    margin: 0.9125rem 0 0.3rem;
+    font-size: 0.81375rem;
+    padding: 0;
+    line-height: 1.1875rem;
+    font-weight: 400;
+}
+
+.error-message {
+    color: red;
+    margin: 0px;
+}
+
+.button {
+    background: #5e47f8;
+    color: #FFFFFF;
+    font-size: 0.8669rem;
+    font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
+    font-weight: 700;
+    height: 2.5625rem;
+    width: 8rem;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button--secondary {
+    border-color: #7765ed;
+    opacity: 0.8;
+}
+
+.container {
+    border: 0;
+    border-radius: 0.3125rem 0.3125rem 0.3125rem 0.3125rem;
+    background: rgb(234, 234, 238);
+    opacity: 1;
+    box-shadow: rgb(93 93 93 / 25%) 2px 0 4px 2px;
+    min-width: 20rem;
+    padding: 5px 20px 20px 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}

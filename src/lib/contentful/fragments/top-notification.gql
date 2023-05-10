@@ -1,0 +1,6 @@
+fragment TopNotification on TopNotification {
+  title
+  link {
+    ...Link
+  }
+}

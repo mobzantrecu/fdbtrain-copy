@@ -1,0 +1,66 @@
+@import "../../css/main.css";
+
+/* Global Attributes */
+.legacy.input {
+  box-sizing: border-box;
+  padding: var(--input-padding);
+
+  display: flex;
+  justify-content: center;
+
+  font-size: var(--font-medium);
+  letter-spacing: var(--letter-spacing-medium);
+
+  border: 1px solid var(--stroke);
+  border-radius: var(--border-radius);
+}
+
+.legacy.input:focus {
+  outline: none;
+  border: 1px solid var(--primary);
+}
+
+/* Input Sizes */
+.legacy.input.small {
+  height: var(--input-small);
+}
+
+.legacy.input.medium {
+  height: var(--input-medium);
+}
+
+.legacy.input.large {
+  height: var(--input-large);
+}
+
+.legacy.input.fullscreen {
+  width: 100%;
+}
+
+/* Input States */
+.legacy.input.error {
+  border: 1px solid var(--danger);
+}
+
+/* Input Labels */
+.legacy.input-label {
+  display: flex;
+  flex-direction: row;
+
+  padding: var(--input-label-padding);
+
+  opacity: 0.8; /* TODO: just adjust the color so we dont have to do this */
+  color: var(--font-primary);
+  font-size: var(--font-medium);
+}
+
+.legacy.input-label sup {
+  color: var(--danger);
+  position: unset;
+  line-height: 1;
+}
+
+.legacy.input-label.error {
+  color: var(--danger);
+  font-size: var(--font-small);
+}

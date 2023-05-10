@@ -1,0 +1,55 @@
+fragment Category on BlogCategory {
+  title
+  slug
+}
+
+fragment RelatedPost on BlogPost {
+  title,
+  slug
+}
+
+fragment BlogPostNoCategoryMeta on BlogPost {
+  title
+  slug
+  additionalSlugs
+  date
+  excerpt
+  isCommunityPost
+  coverImage {
+    ...Media
+  }
+  thumbnailImage {
+    ...Media
+  }
+  authorsCollection(limit: 3) {
+    items {
+      ...Person
+    }
+  }
+  lastUpdated
+  hideFromRelatedPosts
+  canonicalLink
+}
+
+fragment BlogPostMeta on BlogPost {
+  ...BlogPostNoCategoryMeta
+  categoriesCollection(limit: 6) {
+    items {
+      ...Category
+    }
+  }
+}
+
+fragment BlogPost on BlogPost {
+  ...BlogPostMeta
+  metadata {
+    ...Metadata
+  }
+  body
+  body2
+  relatedPostsCollection(limit: 3) {
+    items {
+      ...RelatedPost
+    }
+  }
+}

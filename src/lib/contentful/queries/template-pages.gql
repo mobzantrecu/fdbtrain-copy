@@ -1,0 +1,68 @@
+fragment TemplatePage on PageTemplate {
+  slug
+  noIndex
+  metadata {
+    ...Metadata
+  }
+  heroTitle
+  heroSubtitle {
+    json
+  }
+  heroActionsCollection(limit: 2) {
+    items {
+      ...Link
+    }
+  }
+  heroSlider {
+    ...LogosCollection
+  }
+  linesInHero
+sectionsCollection(limit: 10) {
+    items {
+      ...Section
+    }
+  }
+  hideFromSitemap
+  heroImage {
+    ...Media
+  }
+  heroImageStacked
+  heroSignUpForm
+}
+
+query TemplatePages($preview: Boolean) {
+  pageTemplateCollection(
+    limit: 6
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      ...TemplatePage
+    }
+  }
+}
+
+query TemplatePagesForPaths($preview: Boolean) {
+  pageTemplateCollection(
+    limit: 100
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      slug
+    }
+  }
+}
+
+query SingleTemplatePage($preview: Boolean, $slug: String!) {
+  pageTemplateCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+    where: { slug: $slug }
+  ) {
+    items {
+      ...TemplatePage
+    }
+  }
+}

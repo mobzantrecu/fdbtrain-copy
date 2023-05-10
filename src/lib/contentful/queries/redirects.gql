@@ -1,0 +1,17 @@
+fragment Redirect on Redirect {
+  source
+  destination
+  permanent
+}
+
+query Redirects {
+  redirectsCollection(limit: 1, order: sys_firstPublishedAt_DESC) {
+    items {
+      redirectsCollection(limit: 1000) {
+        items {
+          ...Redirect
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+fragment PricingPage on PagePricing {
+  sys {
+    id
+  }
+  metadata {
+    ...Metadata
+  }
+  heroTitle
+  heroSubtitle {
+    json
+  }
+  heroBlocksCollection(limit: 3) {
+    items {
+      ...SectionBlock
+    }
+  }
+  heroActionsCollection(limit: 2) {
+    items {
+      ...Link
+    }
+  }
+  sectionsCollection(limit: 10) {
+    items {
+      ...Section
+    }
+  }
+  comingSoonText
+  noIndex
+}
+
+query PricingPage($preview: Boolean) {
+  pagePricingCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      ...PricingPage
+    }
+  }
+}
+
+query PricingPageByID($preview: Boolean, $id: String!) {
+  pagePricing(id: $id, preview: $preview) {
+    ...PricingPage
+  }
+}

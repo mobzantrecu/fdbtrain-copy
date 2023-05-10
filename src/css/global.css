@@ -1,0 +1,11 @@
+@import './reset.css';
+@import './inter.css';
+@import './acumin-pro.css';
+@import './proxima-nova.css';
+@import 'fe-components/src/legacy/components/Button/Button.css';
+@import 'fe-components/src/legacy/components/CaptchaBranding/CaptchaBranding.css';
+@import 'fe-components/src/legacy/components/Divider/Divider.css';
+@import 'fe-components/src/legacy/components/Input/Input.css';
+@import 'fe-components/src/legacy/components/SignUpForm/SignUpForm.css';
+@import 'fe-components/src/legacy/components/Spinner/Spinner.css';
+@import "./form.styles.css";

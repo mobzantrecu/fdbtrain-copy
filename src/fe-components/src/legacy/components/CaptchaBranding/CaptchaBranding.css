@@ -1,0 +1,7 @@
+@import "../../css/main.css";
+
+/* Global Attributes */
+.legacy.captcha-branding {
+  color: var(--font-primary);
+  font-size: var(--font-small);
+}

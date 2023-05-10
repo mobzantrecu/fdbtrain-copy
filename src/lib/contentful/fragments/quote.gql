@@ -1,0 +1,12 @@
+fragment Quote on Quote2 {
+  quote
+  logo {
+    ...Logo
+  }
+  person {
+    ...Person
+  }
+  action {
+    ...Link
+  }
+}

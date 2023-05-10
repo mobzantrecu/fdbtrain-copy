@@ -1,0 +1,96 @@
+fragment GeneralData on GeneralData {
+  logo {
+    ...Media
+  }
+  logoInPng {
+    ...Media
+  }
+  favicon {
+    ...Media
+  }
+  faviconDarkMode {
+    ...Media
+  }
+  defaultMetadata {
+    ...Metadata
+  }
+  navCenterLinksCollection(limit: 6) {
+    items {
+      __typename
+      ...Link
+      ...DropdownLink
+    }
+  }
+  navRightLinksCollection(limit: 3) {
+    items {
+      __typename
+      ...Link
+      ...DropdownLink
+    }
+  }
+  footerLinksListsCollection(limit: 4) {
+    items {
+      __typename
+      ...DropdownLink
+    }
+  }
+  topNotification {
+    ...TopNotification
+  }
+  socialMedia {
+    ...SocialMedia
+  }
+  copyrightMessage
+  statusLink {
+    ...Link
+  }
+  footerRightSideLinksCollection {
+    items {
+      ...Link
+    }
+  }
+  blogPostFooterText {
+    json
+  }
+  blogPostNewsletterBlock {
+    ...SectionBlock
+  }
+  pricingPageTotalLabel
+  navMenuLinksCollection {
+    items {
+      __typename
+      ...Link
+      ...DropdownLink
+    }
+  }
+  blogSignUpCardText
+  blogSignUpCardImage {
+    ...Media
+  }
+  blogSignUpCardLink {
+    ...Link
+  }
+  blogReqADemoCardText
+  blogReqADemoCardImage {
+    ...Media
+  }
+  blogReqADemoCardLink {
+    ...Link
+  }
+  sufhCookieDomain
+  sufhApiUrl
+  sufhDashboardUrl
+  sufhCaptchaKey
+}
+
+query GeneralData($preview: Boolean) {
+  generalDataCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      ...GeneralData
+    }
+  }
+}

@@ -1,0 +1,22 @@
+query PartnersPage($preview: Boolean) {
+  pagePartnersCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      heroTitle
+      heroSubtitle {
+        json
+      }
+    sectionsCollection(limit: 10) {
+        items {
+          ...Section
+        }
+      }
+    }
+  }
+}

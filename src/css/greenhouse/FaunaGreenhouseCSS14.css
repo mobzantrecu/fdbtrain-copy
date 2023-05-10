@@ -1,0 +1,624 @@
+@import url('../nunito-sans/nunito-sans.css');
+
+@import url('https://p.typekit.net/p.css?s=1&k=lsp7qzb&ht=tk&f=139.140.173.174.175.176.25136.25137.143.144.147.148.149.150.25138.25139.156.157.161.162.163.164.25140.25141&a=87788428&app=typekit&e=css');
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/normal-700.woff2') format('woff2'),
+    url('../proxima-nova/woff/normal-400.woff') format('woff'),
+    url('../proxima-nova/opentype/normal-400.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/italic-400.woff2') format('woff2'),
+    url('../proxima-nova/woff/italic-700.woff') format('woff'),
+    url('../proxima-nova/opentype/italic-700.otf') format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/normal-600.woff2') format('woff2'),
+    url('../proxima-nova/woff/normal-600.woff') format('woff'),
+    url('../proxima-nova/opentype/normal-600.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/italic-600.woff2') format('woff2'),
+    url('../proxima-nova/woff/italic-600.woff') format('woff'),
+    url('../proxima-nova/opentype/italic-600.otf') format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/normal-400.woff2') format('woff2'),
+    url('../proxima-nova/woff/normal-400.woff') format('woff'),
+    url('../proxima-nova/opentype/normal-400.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/italic-400.woff2') format('woff2'),
+    url('../proxima-nova/woff/italic-400.woff') format('woff'),
+    url('../proxima-nova/opentype/italic-400.otf') format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/normal-500.woff2') format('woff2'),
+    url('../proxima-nova/woff/normal-500.woff') format('woff'),
+    url('../proxima-nova/opentype/normal-500.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('../proxima-nova/woff2/italic-500.woff2') format('woff2'),
+    url('../proxima-nova/woff/italic-500.woff') format('woff'),
+    url('../proxima-nova/opentype/italic-500.otf') format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/normal-700.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/no') format('woff'),
+    url('../proxima-nova/condensed/') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/italic-700.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/italic-700.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/italic-700.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/normal-400.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/normal-400.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/normal-400.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/italic-400.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/italic-400.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/italic-400.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/normal-600.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/normal-600.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/normal-600.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/italic-600.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/italic-600.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/italic-600.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/normal-500.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/normal-500.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/normal-500.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'proxima-nova-condensed';
+  src: url('../proxima-nova/condensed/woff2/italic-500.woff2') format('woff2'),
+    url('../proxima-nova/condensed/woff/italic-500.woff') format('woff'),
+    url('../proxima-nova/condensed/opentype/italic-500.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/italic-700.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/italic-700.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/italic-700.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/normal-700.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/normal-700.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/normal-700.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/italic-400.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/italic-400.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/italic-400.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/normal-400.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/normal-400.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/normal-400.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/italic-600.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/italic-600.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/italic-600.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/normal-600.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/normal-600.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/normal-600.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/normal-500.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/normal-500.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/normal-500.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'proxima-nova-extra-condensed';
+  src: url('../proxima-nova/extra-condensed/woff2/italic-500.woff2')
+      format('woff2'),
+    url('../proxima-nova/extra-condensed/woff/italic-500.woff') format('woff'),
+    url('../proxima-nova/extra-condensed/opentype/italic-500.otf')
+      format('opentype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+}
+.tk-proxima-nova {
+  font-family: 'proxima-nova', sans-serif;
+}
+.tk-proxima-nova-condensed {
+  font-family: 'proxima-nova-condensed', sans-serif;
+}
+.tk-proxima-nova-extra-condensed {
+  font-family: 'proxima-nova-extra-condensed', sans-serif;
+}
+
+:root {
+  /*
+    We recommend you change these values to match your brand.
+    The light color has an opacity of .1, do not modify that
+    */
+  --primary-brand-color: rgba(96, 75, 233, 1);
+  --light-primary-brand-color: rgba(96, 75, 233, 0.1);
+
+  /* We recommend not changing these colors */
+  --full-page-background-color: #fff;
+  --application-background-color: #fff;
+  --footer-color: #f3f3f3;
+  --main-text-color: #222222;
+  --sub-header-color: #666;
+  --link-color: #3574d6;
+  --field-border-color: #e1e1e1;
+}
+
+body {
+  background-color: var(--full-page-background-color);
+  font-family: 'proxima-nova', 'sans-serif';
+}
+
+body #wrapper {
+  background-color: white;
+  max-width: 1200spx;
+  padding: 0 48px;
+}
+
+body #wrapper > h1 {
+  display: none;
+}
+
+body #wrapper > h2 {
+  display: none;
+}
+
+body #wrapper > #content {
+  display: none;
+}
+
+/* Select Boxes */
+#main .select2-choice {
+  height: 35px;
+}
+
+#main .select2-chosen {
+  line-height: 35px;
+}
+
+#main .select2-arrow {
+  padding-top: 4px;
+  padding-right: 4px;
+}
+
+#main .filter-label {
+  color: var(--sub-header-color);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#main .location {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--sub-header-color);
+}
+
+/* Job Board Page */
+#main > h1:not(.app-title) {
+  /* Hide the company name in favor of a Logo that includes it */
+  display: none;
+}
+
+#board_title {
+  margin: 0 0 16px 0;
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+section {
+  margin-top: 16px;
+}
+
+section > h3 {
+  margin-top: 20px;
+}
+
+#logo {
+  display: inline-block;
+}
+
+body #content {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#main {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#main section h3 {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 5px;
+}
+
+#main section .location {
+  display: block;
+  margin-top: 0px;
+}
+
+#main section .opening {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+section .opening a {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--main-text-color);
+}
+
+section .opening a:hover {
+  background-color: var(--light-primary-brand-color);
+  border-radius: 3px;
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+body #footer {
+  border: none;
+  background-color: var(--footer-color);
+  height: 60px;
+  margin-top: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+body #footer .privacy-policy {
+  line-height: 19px;
+}
+
+body #footer img {
+  width: 90px;
+}
+
+h3#filter-count {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/* Job Post Page */
+div#main div#app_body {
+  padding-left: 0 !important;
+  padding-right: 0;
+}
+
+div#app_body #header {
+  display: flex;
+  flex-direction: column;
+}
+
+div#app_body #header #apply_button {
+  order: 3;
+  margin-top: 37px;
+}
+
+div#app_body #header .company-name {
+  display: none;
+}
+
+div#app_body #header > a {
+  order: 1;
+}
+
+div#app_body #header .app-title {
+  order: 2;
+}
+
+div#app_body #header .location {
+  order: 4;
+  margin-top: 2px;
+}
+
+div#main #application_form h2.heading {
+  color: var(--main-text-color);
+  font-weight: 400;
+}
+
+div#app_body .app-title {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+div#app_body div#header #apply_button {
+  background-color: var(--primary-brand-color);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+div#submit_buttons input#submit_app {
+  background-color: var(--primary-brand-color);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: 'Nunito Sans', 'sans-serif';
+  font-weight: 600;
+}
+
+div#app_body {
+  max-width: none;
+  padding-right: 20px;
+}
+
+div#content {
+  padding-bottom: 16px;
+}
+
+div#application hr:nth-last-of-type(1) {
+  display: none;
+}
+
+div#application {
+  background-color: var(--application-background-color);
+  border-top: 1px solid var(--field-border-color);
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+}
+
+div#main_fields,
+div#custom_fields {
+  font-weight: 400;
+  line-height: 26px;
+}
+
+div#application div.field label {
+  color: var(--sub-header-color);
+  display: block;
+  float: none;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+div#application div.field label span.asterisk {
+  font-size: 12px;
+}
+
+div#application #main_fields div.field textarea {
+  margin-left: 0;
+}
+
+div#application div.field input[type='text'] {
+  border: solid 1px var(--field-border-color);
+  height: 25px;
+  padding-left: 12px;
+  width: 455px;
+}
+
+@media (max-width: 640px) {
+  div#application div.field input[type='text'] {
+    width: 100%;
+  }
+}
+
+div#application div.field input[placeholder='MM'] {
+  padding-left: 10px;
+}
+
+div#application div.field input[placeholder='YYYY'] {
+  padding-left: 7px;
+}
+
+div#application legend {
+  float: none;
+}
+
+div.link-container a {
+  color: var(--link-color);
+  font-size: 14px;
+}
+
+div#application a#add_education {
+  margin-left: 0;
+}
+
+div#field {
+  margin-bottom: 10px;
+}
+
+#main_fields div.field div.field-error-msg {
+  padding-left: 0;
+}
+
+div.field div.msg-container {
+  padding-top: 5px;
+}
+
+#application .field .select2-container {
+  margin-top: 0;
+}
+
+div#application div.field a.locate-me {
+  display: block;
+}
+
+div#application div.field textarea {
+  border-color: var(--field-border-color);
+  width: 455px;
+}
+
+@media (max-width: 640px) {
+  div#application div.field textarea {
+    width: 100%;
+  }
+}
+
+div#application div.field div.select2-container {
+  width: 455px !important;
+}
+
+@media (max-width: 640px) {
+  div#application div.field div.select2-container {
+    width: 100% !important;
+  }
+}
+
+div.s3-upload-form {
+  display: none;
+}
+
+/* Confirmation Page */
+#main #view-more {
+  text-align: left;
+  padding-top: 0;
+}
+
+#main strong > a {
+  color: var(--link-color);
+  font-weight: 400;
+}

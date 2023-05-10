@@ -1,0 +1,25 @@
+{
+  "name": "contentful-migration",
+  "version": "1.0.0",
+  "author": "Julián Benegas",
+  "license": "MIT",
+  "scripts": {
+    "blog": "ts-node ./blog/index.ts",
+    "press": "ts-node ./press/index.ts",
+    "loop-posts": "ts-node ./loop-posts.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.0",
+    "@types/remove-markdown": "^0.1.1",
+    "@types/turndown": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "contentful-management": "^6.1.2",
+    "remove-markdown": "^0.3.0",
+    "turndown": "^7.0.0",
+    "turndown-plugin-gfm": "^1.0.2"
+  }
+}

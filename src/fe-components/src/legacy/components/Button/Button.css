@@ -1,0 +1,89 @@
+@import "../../css/main.css";
+
+/* Global Attributes */
+.legacy.button {
+  cursor: pointer;
+
+  padding: var(--button-padding);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-transform: uppercase;
+  font-size: var(--font-small);
+  letter-spacing: var(--letter-spacing-medium);
+
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+}
+
+/* Button Themes */
+.legacy.button.primary {
+  color: var(--white);
+  background: var(--primary);
+}
+
+.legacy.button.primary.gradient {
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--primary),
+    var(--primary-gradient)
+  );
+}
+
+.legacy.button.secondary {
+  color: var(--black);
+  background: var(--secondary);
+}
+
+.legacy.button.secondary.gradient {
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--secondary),
+    var(--secondary-gradient)
+  );
+}
+
+.legacy.button.netlify {
+  color: var(--white);
+  background: var(--netlify);
+}
+
+.legacy.button.github {
+  color: var(--white);
+  background: var(--github);
+}
+
+/* Button Sizes */
+.legacy.button.small {
+  height: var(--button-small);
+}
+
+.legacy.button.medium {
+  height: var(--button-medium);
+}
+
+.legacy.button.large {
+  height: var(--button-large);
+}
+
+.legacy.button.fullscreen {
+  width: 100%;
+}
+
+/* Button States */
+.legacy.button.loading {
+  cursor: default;
+}
+
+.legacy.button.disabled {
+  cursor: default;
+  background: var(--secondary);
+}
+
+/* Button Icon/Image */
+.legacy.button img {
+  max-height: 16px;
+  padding: 0rem 0.5rem;
+}

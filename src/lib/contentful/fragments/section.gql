@@ -1,0 +1,199 @@
+fragment SectionBlock on SectionBlock {
+  title
+  subtitle {
+    json
+  }
+  actionsCollection(limit: 2) {
+    items {
+      ...Link
+    }
+  }
+  media {
+    ...Media
+  }
+  icon
+  backgroundImage {
+    ...Media
+  }
+  additionalTitle
+  anchorLinkId
+  customerProof {
+    __typename
+    ...Tweet
+    ...Person
+    ...Quote
+  }
+}
+
+fragment ListBlock on ListBlock {
+  title
+  subtitle {
+    json
+  }
+  actionsCollection(limit: 2) {
+    items {
+      ...Link
+    }
+  }
+  media {
+    ...Media
+  }
+  icon
+  listItems
+}
+
+fragment MediaBlock on MediaBlock {
+  title
+  description {
+    json
+  }
+  action {
+    ...Link
+  }
+  image {
+    ...Media
+  }
+  type
+}
+
+fragment Tweet on Tweet {
+  text
+  userName
+  userTag
+  publicationDate
+}
+
+fragment Customer on Customer {
+  name
+  description {
+    json
+  }
+  actionsCollection(limit: 2) {
+    items {
+      ...Link
+    }
+  }
+  logo {
+    ...Logo
+  }
+}
+
+fragment MarkdownBody on MarkdownBody {
+  body
+}
+
+fragment UsageRate on UsageRate {
+  label
+  readOperationsMillion
+  writeOperationsMillion
+  transactionalComputeOperationsMillion
+  storageGb
+}
+
+fragment PricingPlan on PricingPlan {
+  name
+  description {
+    json
+  }
+  priceLabel
+  listItemsCollection(limit: 6) {
+    items {
+      title
+      items
+    }
+  }
+  isFeatured
+  action {
+    ...Link
+  }
+  creditsPerMonth
+  usageRate {
+    ...UsageRate
+  }
+}
+
+fragment PricingPlanV2 on PricingPlanV2 {
+  name
+  planDescription
+  priceLabel
+  annualPriceLabel
+  body
+  annualBody
+  isFeatured
+  action {
+    ...Link
+  }
+  creditsPerMonth
+  usageRate {
+    ...UsageRate
+  }
+  usageRatesCollection(limit: 6) {
+    items {
+      ...UsageRate
+    }
+  }
+}
+
+fragment Column on Column {
+  head
+  widthPercentage
+  rowsCollection(limit: 20) {
+    items {
+      __typename
+      ... on Description {
+        text {
+          json
+        }
+      }
+      ... on DescriptionMarkdown {
+        description
+      }
+    }
+  }
+}
+
+fragment Section on Section {
+  type
+  title
+  additionalTitle
+  anchorLinkId
+  subtitle {
+    json
+  }
+  image {
+    ...Media
+  }
+  actionsCollection(limit: 3) {
+    items {
+      ...Link
+    }
+  }
+  blocksCollection(limit: 20) {
+    items {
+      __typename
+      ...SectionBlock
+      ...Quote
+      ...BlogPostNoCategoryMeta
+      ...ListBlock
+      ...Person
+      ...MediaBlock
+      ...Tweet
+      ...Customer
+      ...MarkdownBody
+      ...PricingPlan
+      ...PricingPlanV2
+      ...Column
+      ...Link
+    }
+  }
+  logosCollection {
+    ...LogosCollection
+  }
+  markdownBody
+  hasLinearBackground
+  textBelowSection
+  backgroundImage {
+    ...Media
+  }
+  compactMode
+}

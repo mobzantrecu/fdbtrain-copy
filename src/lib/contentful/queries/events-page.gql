@@ -1,0 +1,42 @@
+ query EventsPage($preview: Boolean) {
+   pageEventsCollection(
+     limit: 1
+     order: sys_firstPublishedAt_DESC
+     preview: $preview
+   ) {
+     items {
+       heroTitle
+       heroSubtitle {
+         json
+       }
+       metadata {
+         ...Metadata
+       }
+     sectionsCollection(limit: 10) {
+         items {
+           ...Section
+         }
+       }
+     }
+   }
+   eventCollection(order: eventStartDate_ASC, preview: $preview) {
+     items {
+       ...Event
+     }
+   }
+ }
+
+ fragment Event on Event {
+   eventTitle
+   eventDescription {
+     json
+   }
+   featuredImage {
+     ...Media
+   }
+   eventStartDate
+   eventEndDate
+   eventUrl
+   eventLocation
+ }
+

@@ -1,0 +1,27 @@
+query PressPage($preview: Boolean) {
+  pagePressCollection(
+    limit: 1
+    order: sys_firstPublishedAt_DESC
+    preview: $preview
+  ) {
+    items {
+      metadata {
+        ...Metadata
+      }
+      featuredPost {
+        ...PressPost
+      }
+      pressKitBlock {
+        ...SectionBlock
+      }
+    }
+  }
+  pressPostCollection(limit: 500) {
+    items {
+      sys {
+        id
+      }
+      ...PressPost
+    }
+  }
+}
