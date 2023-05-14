@@ -232,7 +232,7 @@ const HeroSignupForm = ({
             captchaEnabled={isDev ? false : true}
             captchaSiteKey={captchaSiteKey ? captchaSiteKey : ''}
             githubSignUpEnabled={true}
-            netlifySignUpEnabled={true}
+            netlifySignUpEnabled={false}
             showFormError={showError}
           />
         </Box>

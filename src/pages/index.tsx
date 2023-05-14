@@ -4,7 +4,6 @@ import HeroHome from 'components/layouts/hero-home'
 import PageLayout from 'components/layouts/page'
 import Section from 'components/sections'
 import contentfulSdk from 'lib/contentful'
-import AntiFlickeringBody from 'lib/scripts/anti-flicker'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 const HomePage = ({
@@ -13,7 +12,6 @@ const HomePage = ({
   preview
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
-    <AntiFlickeringBody />
     <PageLayout
       noindex={false}
       navProps={{

@@ -49,6 +49,10 @@
   width: 50%;
 }
 
+.legacy.sign-up-form-column-100 {
+  width: 100%;
+}
+
 .legacy.sign-up-form-column-50:first-child {
     margin-right: 0.75rem;
 }

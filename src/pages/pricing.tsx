@@ -2,7 +2,6 @@ import PageLayout from 'components/layouts/page'
 import Section from 'components/sections'
 import contentfulSdk from 'lib/contentful'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
 import HeroHome from '../components/layouts/hero-home'
 
 const FeaturesPage = ({
@@ -11,14 +10,6 @@ const FeaturesPage = ({
   preview
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
-    <Head>
-      <script
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'optimize.pricing-activate-1'});`
-        }}
-      />
-    </Head>
     <PageLayout
       navProps={{
         topNotification: generalData?.topNotification,

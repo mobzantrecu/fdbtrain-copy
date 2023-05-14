@@ -44,7 +44,7 @@ const SignUpForm: FC<PropTypes> = ({
   captchaSiteKey = '',
   captchaEnabled = true,
   githubSignUpEnabled = true,
-  netlifySignUpEnabled = true,
+  netlifySignUpEnabled = false,
   backgroundTheme = 'primary',
   showFormError = false
 }) => {
@@ -63,6 +63,8 @@ const SignUpForm: FC<PropTypes> = ({
   const buttonLegendClass = cn(defaultClassName, 'button-legend')
 
   const formColumn50 = cn(defaultClassName, 'sign-up-form-column-50')
+
+  const formColumn100 = cn(defaultClassName, 'sign-up-form-column-100')
 
   // Captcha ref
   const captchaRef = useRef<ReCAPTCHA>(null)
@@ -187,7 +189,7 @@ const SignUpForm: FC<PropTypes> = ({
       </div>
       <div className={formRowColumnsClass}>
         {githubSignUpEnabled && (
-          <div className={formColumn50}>
+          <div className={netlifySignUpEnabled ? formColumn50 : formColumn100}>
             <Button
               size="large"
               theme="github"
@@ -203,7 +205,7 @@ const SignUpForm: FC<PropTypes> = ({
           </div>
         )}
         {netlifySignUpEnabled && (
-          <div className={formColumn50}>
+          <div className={githubSignUpEnabled ? formColumn50 : formColumn100}>
             <Button
               size="large"
               theme="netlify"

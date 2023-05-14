@@ -1,9 +1,6 @@
-import GoDlGlobal from 'lib/scripts/google-optimize/go-dl-global'
-import GoogleOptimizeScript from 'lib/scripts/google-optimize/go-script'
 import ZendeskSnippetScript from 'lib/scripts/zendesk-snippet'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import dynamic from 'next/dynamic'
-import { vwoScript } from '../lib/constants'
 
 const GAScript = dynamic(() => import('lib/scripts/ga'))
 const FontAwesomeScript = dynamic(() => import('lib/scripts/fontawesome'))
@@ -22,14 +19,9 @@ export default class MyDocument extends Document {
             crossOrigin="true"
           />
           <script
-            type="text/javascript"
+            src="https://dev.visualwebsiteoptimizer.com/lib/685475.js"
             id="vwoCode"
-            dangerouslySetInnerHTML={{
-              __html: vwoScript
-            }}
           />
-          <GoogleOptimizeScript />
-          <GoDlGlobal />
         </Head>
         <body>
           <PardotScript />
