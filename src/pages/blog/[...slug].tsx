@@ -3,8 +3,8 @@ import MarkdownBody from 'components/compound/markdown-body'
 import PageLayout from 'components/layouts/page'
 import Link from 'components/primitives/link'
 import Loader from 'components/primitives/loader'
-import NextImageMedia from 'components/primitives/next-image-media'
 import BlogPostFooter from 'components/sections/blog/post/footer'
+// import NextImageMedia from 'components/primitives/next-image-media'
 import contentfulSdk from 'lib/contentful'
 import { Maybe } from 'lib/contentful/generated'
 import ROUTES from 'lib/routes'
@@ -24,7 +24,7 @@ import 'simplebar-react/dist/simplebar.min.css'
 import strip from 'strip-markdown'
 import { Badge, Box, Card, Container, Heading, jsx, Text } from 'theme-ui'
 import Arrow from 'components/primitives/arrow'
-import NextImageMediaContain from 'components/primitives/next-image-media-contain'
+// import NextImageMediaContain from 'components/primitives/next-image-media-contain'
 
 function cleanTOCText(text: RegExpMatchArray | null) {
   return text
@@ -264,13 +264,13 @@ const BlogPostPage = ({
                   <Text sx={{ color: 'background', mb: 24 }}>
                     {generalData?.blogSignUpCardText}
                   </Text>
-                  {generalData?.blogSignUpCardImage && (
+                  {/* {generalData?.blogSignUpCardImage && (
                     <NextImageMediaContain
                       {...generalData?.blogSignUpCardImage}
                       width={1200}
                       height={630}
                     />
-                  )}
+                  )} */}
                 </Card>
               </Link>
             )}
@@ -311,13 +311,13 @@ const BlogPostPage = ({
                   <Text sx={{ color: 'background', mb: 24 }}>
                     {generalData?.blogReqADemoCardText}
                   </Text>
-                  {generalData?.blogReqADemoCardImage && (
+                  {/* {generalData?.blogReqADemoCardImage && (
                     <NextImageMediaContain
                       {...generalData?.blogReqADemoCardImage}
                       width={1200}
                       height={630}
                     />
-                  )}
+                  )} */}
                 </Card>
               </Link>
             )}
@@ -463,12 +463,12 @@ const BlogPostPage = ({
                     <Badge variant="secondary">Community Contribution</Badge>
                   )}
                 </div>
-                <NextImageMedia
+                {/* <NextImageMedia
                   {...post?.coverImage}
                   width={1200}
                   height={630}
                   sx={{ objectFit: 'cover' }}
-                />
+                /> */}
               </div>
             )}
             <div sx={{ px: '24px' }}>
