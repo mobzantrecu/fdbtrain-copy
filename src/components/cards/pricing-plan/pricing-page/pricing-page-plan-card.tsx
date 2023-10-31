@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import Marked from 'components/compound/marked'
 import Link from 'components/primitives/link'
 import { PricingPlanV2Fragment } from 'lib/contentful/generated'
@@ -78,14 +83,16 @@ const PricingPagePlanCard = ({
         }}
       />
       <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          zIndex: 'general',
-          position: 'relative',
-          height: '100%',
-          textAlign: 'center'
-        }}
+        sx={
+          {
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            zIndex: 'general',
+            position: 'relative',
+            height: '100%',
+            textAlign: 'center'
+          } as any
+        }
       >
         <div>
           <Heading

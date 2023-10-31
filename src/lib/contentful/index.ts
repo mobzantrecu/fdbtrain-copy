@@ -1,8 +1,13 @@
 import { GraphQLClient } from 'graphql-request'
 import { getSdk } from './generated'
 
-type Environments = 'master' | 'sandbox' | 'backup' | 'redesign' | 'development'
-let environment: Environments = 'master'
+export type Environments =
+  | 'master'
+  | 'sandbox'
+  | 'backup'
+  | 'redesign'
+  | 'development'
+export let environment: Environments = 'development'
 switch (process.env.VERCEL_GIT_COMMIT_REF) {
   case 'sandbox':
     environment = 'sandbox'

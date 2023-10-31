@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Flex } from 'theme-ui'
 import { getAsPath } from 'lib/util/router'
 import { useRouter } from 'next/router'
@@ -38,23 +43,25 @@ const Paginator = ({ pages, currentPage, isInPage, totalPosts }: Props) => {
 
   return (
     <Flex
-      sx={{
-        width: '100%',
-        alignItems: 'center',
-        fontSize: 1,
-        button: { transition: 'color .2s', p: 1, mx: 1 },
-        'button:not(:disabled)': { ':hover': { color: 'primary' } },
-        '@media screen and (max-width: 639px)': {
-          mt: '5px'
-        },
-        transition: 'opacity .2s',
-        ...(isNaN(pages) || pages <= 0
-          ? {
-              opacity: 0,
-              visibility: 'hidden'
-            }
-          : {})
-      }}
+      sx={
+        {
+          width: '100%',
+          alignItems: 'center',
+          fontSize: 1,
+          button: { transition: 'color .2s', p: 1, mx: 1 },
+          'button:not(:disabled)': { ':hover': { color: 'primary' } },
+          '@media screen and (max-width: 639px)': {
+            mt: '5px'
+          },
+          transition: 'opacity .2s',
+          ...(isNaN(pages) || pages <= 0
+            ? {
+                opacity: 0,
+                visibility: 'hidden'
+              }
+            : {})
+        } as any
+      }
     >
       <div>
         <p>

@@ -28,12 +28,14 @@ const PrefooterWithLinks = ({
   blocksCollection
 }: SectionFragment) => (
   <Box
-    sx={{
-      zIndex: 'general2',
-      position: 'relative',
-      background: 'linear-gradient(147deg,#300391 45%,#886AFD 100%)',
-      height: '387px'
-    }}
+    sx={
+      {
+        zIndex: 'general2',
+        position: 'relative',
+        background: 'linear-gradient(147deg,#300391 45%,#886AFD 100%)',
+        height: '387px'
+      } as any
+    }
   >
     <Container
       sx={{

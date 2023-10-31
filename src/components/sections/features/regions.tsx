@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Grid, jsx, Text } from 'theme-ui'
 import SectionLayout from 'components/layouts/section'
 import { SectionFragment } from 'lib/contentful/generated'
@@ -59,7 +64,7 @@ const RegionsSection = ({
           {action && (
             <Link
               {...action}
-              key={action?.href}
+              key={action?.href as any}
               sx={{
                 ':not(:last-of-type)': { mr: 3 },
                 fontWeight: '600',
@@ -105,7 +110,7 @@ const RegionsSection = ({
           {action && (
             <Link
               {...action}
-              key={action?.href}
+              key={action?.href as any}
               sx={{
                 ':not(:last-of-type)': { mr: 3 },
                 fontWeight: '600',

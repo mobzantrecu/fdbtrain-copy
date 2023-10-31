@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import PricingPlanCard from 'components/cards/pricing-plan/pricing-page/pricing-page-plan-card'
 import SectionLayout from 'components/layouts/section'
 import Link from 'components/primitives/link'
@@ -88,7 +93,7 @@ const PricingPagePlansSection = ({
         >
           {blocks.map((b, i) => (
             <PricingPlanCard
-              key={b.name}
+              key={b.name as any}
               {...b}
               isMonthly={isMonthly}
               descriptionHeight={descriptionHeight}
@@ -327,7 +332,7 @@ const DesktopView = ({
           }}
         >
           {blocks.map((b, i) => (
-            <Fragment key={b.name}>
+            <Fragment key={b.name as any}>
               <PricingPlanCard
                 key={`${b?.name}_desktop`}
                 {...b}

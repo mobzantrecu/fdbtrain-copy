@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Grid, jsx, Container } from 'theme-ui'
 
 import PageLayout from 'components/layouts/page'

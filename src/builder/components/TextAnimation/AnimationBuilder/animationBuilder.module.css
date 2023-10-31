@@ -1,0 +1,25 @@
+@keyframes fly {
+  0% {
+    transform: translateY(0em);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+.text {
+  font-size: 65px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.animation {
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+.fly {
+  animation-name: fly;
+}

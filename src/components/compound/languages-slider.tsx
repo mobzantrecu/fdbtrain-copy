@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, SxStyleProp } from 'theme-ui'
 import Slider from 'components/primitives/slider'
 import { LogosCollectionFragment } from 'lib/contentful/generated'
@@ -27,7 +32,7 @@ const LanguagesSlider = ({ logosCollection, pushSx }: Props) => (
     >
       {logosCollection?.items.map((c) => (
         <Logo
-          key={c?.name}
+          key={c?.name as any}
           {...c}
           pushSx={{
             ...sx,
@@ -43,7 +48,7 @@ const LanguagesSlider = ({ logosCollection, pushSx }: Props) => (
     <Slider pushSx={{ display: ['block', null, null, 'none'] }} duration={1.5}>
       {logosCollection?.items.map((c) => (
         <Logo
-          key={c?.name}
+          key={c?.name as any}
           {...c}
           pushSx={{
             ...sx,

@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+.button {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 2px 12px;
+  height: 26px;
+  min-width:  52px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  background: transparent;
+  border: none;
+  color: white  ;
+}
+
+.button:disabled {
+  color: #9A97A0;
+  border: none;
+}

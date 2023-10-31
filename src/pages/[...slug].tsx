@@ -1,23 +1,27 @@
+import Hero from 'components/layouts/hero'
+import HeroSignupForm from 'components/layouts/hero-signup-form'
 import PageLayout from 'components/layouts/page'
+import Loader from 'components/primitives/loader'
+import Section from 'components/sections'
 import contentfulSdk from 'lib/contentful'
 import {
   GetStaticPaths,
   GetStaticPropsContext,
   InferGetStaticPropsType
 } from 'next'
-import Section from 'components/sections'
-import Hero from 'components/layouts/hero'
-import Loader from 'components/primitives/loader'
 import { useRouter } from 'next/router'
+import { getBuilderContent } from '../builder/utils'
 import Custom404 from './404'
-import HeroSignupForm from 'components/layouts/hero-signup-form'
 
 const TemplatePages = ({
   page,
   generalData,
+  builderContent,
   preview
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter()
+
+  const slug = page?.slug || ''
 
   if (router.isFallback) {
     return (
@@ -29,6 +33,7 @@ const TemplatePages = ({
           logo: generalData?.logo
         }}
         footerProps={{
+          darkBackground: page?.darkBackground,
           lists: generalData?.footerLinksListsCollection?.items,
           socialMedia: generalData?.socialMedia,
           logo: generalData?.logo,
@@ -61,6 +66,7 @@ const TemplatePages = ({
         logo: generalData?.logo
       }}
       footerProps={{
+        darkBackground: page?.darkBackground,
         lists: generalData?.footerLinksListsCollection?.items,
         socialMedia: generalData?.socialMedia,
         logo: generalData?.logo,
@@ -171,8 +177,8 @@ const TemplatePages = ({
             background: 'url(/images/backgrounds/features-background.png)',
             backgroundSize: 'cover',
             '@media screen and (min-width: 832px)': {
-              pb: page?.heroImage ? 50 : 18,
-              pt: page?.heroImage ? 50 : 0,
+              pb: page?.heroImage ? 0 : 18,
+              pt: page?.heroImage ? 0 : 0,
               overflowX: 'hidden'
             },
             marginLeft:
@@ -284,7 +290,12 @@ const TemplatePages = ({
       )}
 
       {page.sectionsCollection?.items.map((section, i) => (
-        <Section key={`section-${i}`} section={section} />
+        <Section
+          pageSlug={slug}
+          builderContent={builderContent}
+          key={`section-${i}`}
+          section={section}
+        />
       ))}
     </PageLayout>
   )
@@ -328,15 +339,18 @@ const getStaticProps = async (ctx: GetStaticPropsContext) => {
 
   const page = pageTemplateCollection?.items[0]
 
+  const builderContent = await getBuilderContent(page?.slug || '')
+
   return {
     props: {
       page: page ?? null,
       generalData: generalDataCollection?.items[0] ?? null,
-      preview: ctx.preview ?? false
+      preview: ctx.preview ?? false,
+      builderContent: builderContent ?? null
     },
     revalidate: 1
   }
 }
 
 export default TemplatePages
-export { getStaticProps, getStaticPaths }
+export { getStaticPaths, getStaticProps }

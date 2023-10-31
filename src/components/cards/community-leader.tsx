@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Heading, Text } from 'theme-ui'
 import SocialIcons from 'components/compound/social-icons'
 import { PersonFragment } from 'lib/contentful/generated'
@@ -11,18 +16,20 @@ const CommunityLeaderCard = ({
   socialMedia
 }: PersonFragment) => (
   <Box
-    sx={{
-      backgroundColor: 'background',
-      boxShadow: 'card',
-      borderRadius: '8px',
-      p: 0,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center',
-      overflow: 'visible',
-      mt: '56px'
-    }}
+    sx={
+      {
+        backgroundColor: 'background',
+        boxShadow: 'card',
+        borderRadius: '8px',
+        p: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        overflow: 'visible',
+        mt: '56px'
+      } as any
+    }
   >
     {avatar && (
       <CardImage

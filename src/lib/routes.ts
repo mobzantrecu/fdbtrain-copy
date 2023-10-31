@@ -1,5 +1,7 @@
 import { isDev } from './constants'
 
+// IMPORTANT
+// To test a bug in a local environment, change this to localhost
 const hostname = 'fauna.com'
 
 // IMPORTANT
@@ -15,6 +17,7 @@ const ROUTES = {
   about: '/about',
   clientServerless: '/client-serverless',
   blog: '/blog',
+  compare: '/compare',
   feed: '/blog/feed',
   customers: '/customers',
   careers: '/careers',
@@ -64,6 +67,11 @@ const resolveRoute = (
         case ROUTES.blog:
           return {
             href: `${ROUTES.blogPost(parts[1])}${search}${hash}`,
+            isExternal: false
+          }
+        case ROUTES.compare:
+          return {
+            href: `${ROUTES.compare}/${parts[1]}${search}${hash}`,
             isExternal: false
           }
         default:

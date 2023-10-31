@@ -25,7 +25,7 @@ const BoardMembersGridSection = ({
       <Grid variant="four" sx={{ mx: ['0', '25px', '50px', '50px', '150px'] }}>
         {blocksCollection?.items.map((block) => {
           if (block?.__typename === 'Person') {
-            return <BoardMemberCard key={block.name} {...block} />
+            return <BoardMemberCard key={block.name as any} {...block} />
           }
         })}
       </Grid>

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box } from 'theme-ui'
 import SectionLayout from 'components/layouts/section'
 import SectionBlockWithExternalIcon from 'components/sectionBlocks/with-external-icon'
@@ -32,17 +37,24 @@ const FeaturesGridSection = ({
       }}
     >
       <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          maxWidth: '1500px',
-          mx: 'auto'
-        }}
+        sx={
+          {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            maxWidth: '1500px',
+            mx: 'auto'
+          } as any
+        }
       >
         {blocksCollection?.items.map((item) => {
           if (item?.__typename === 'SectionBlock') {
-            return <SectionBlockWithExternalIcon key={item?.title} {...item} />
+            return (
+              <SectionBlockWithExternalIcon
+                key={item?.title as any}
+                {...item}
+              />
+            )
           }
           if (isDev) {
             throw new Error(`Unsupported block type, ${item?.__typename}`)

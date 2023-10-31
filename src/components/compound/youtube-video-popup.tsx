@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Embed, Box } from 'theme-ui'
 import Portal from 'components/primitives/portal'
 import { useEffect, useMemo } from 'react'
@@ -53,13 +58,15 @@ const YouTubeVideoPopUp = ({ url, handleClose }: Props) => {
         }}
       >
         <Box
-          sx={{
-            position: 'relative',
-            display: 'flex',
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center'
-          }}
+          sx={
+            {
+              position: 'relative',
+              display: 'flex',
+              width: '100%',
+              height: '100%',
+              justifyContent: 'center'
+            } as any
+          }
         >
           <button
             aria-label="close youtube popup"

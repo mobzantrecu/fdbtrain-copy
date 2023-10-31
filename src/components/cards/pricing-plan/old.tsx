@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import Link from 'components/primitives/link'
 import { PricingPlanFragment } from 'lib/contentful/generated'
 import defaultRenderer from 'lib/contentful/renderers'
@@ -49,14 +54,16 @@ const PricingPlanCardOld = ({
         }}
       />
       <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          zIndex: 'general',
-          position: 'relative',
-          height: '100%',
-          textAlign: 'center'
-        }}
+        sx={
+          {
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            zIndex: 'general',
+            position: 'relative',
+            height: '100%',
+            textAlign: 'center'
+          } as any
+        }
       >
         <div>
           <Heading variant="heading.base" sx={{ fontWeight: 600, mb: 3 }}>
@@ -79,14 +86,14 @@ const PricingPlanCardOld = ({
           )}
           <div sx={{ textAlign: 'left', mt: 4 }}>
             {listItemsCollection?.items.map((item) => (
-              <div key={item?.title} sx={{ mb: 3 }}>
+              <div key={item?.title as any} sx={{ mb: 3 }}>
                 <Text sx={{ fontSize: 1, fontWeight: 700, mb: 1 }}>
                   {item?.title}
                 </Text>
                 <ul>
                   {item?.items?.map((listItem) => (
                     <li
-                      key={listItem}
+                      key={listItem as any}
                       sx={{
                         pl: '16px',
                         variant: 'text.small',

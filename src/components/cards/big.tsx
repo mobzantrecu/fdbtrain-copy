@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Heading, Text } from 'theme-ui'
 import { SectionBlockFragment } from 'lib/contentful/generated'
 import defaultRenderer from 'lib/contentful/renderers'
@@ -15,18 +20,20 @@ const BigCard = ({
   return (
     <>
       <Box
-        sx={{
-          textAlign: ['center', null, 'left'],
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: [
-            'center',
-            'center',
-            'flex-start',
-            'flex-start',
-            'flex-start'
-          ]
-        }}
+        sx={
+          {
+            textAlign: ['center', null, 'left'],
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: [
+              'center',
+              'center',
+              'flex-start',
+              'flex-start',
+              'flex-start'
+            ]
+          } as any
+        }
       >
         <Heading
           as="h1"
@@ -50,7 +57,7 @@ const BigCard = ({
         </Text>
         <Link
           {...action}
-          key={action?.href}
+          key={action?.href as any}
           sx={{
             width: '150px',
             '@media screen and (max-width: 831px)': {
@@ -81,7 +88,7 @@ const BigCard = ({
       <div sx={{ textAlign: 'center' }}>
         <Link
           {...action}
-          key={action?.href}
+          key={action?.href as any}
           sx={{
             width: '105px',
             '@media screen and (min-width: 831px)': {

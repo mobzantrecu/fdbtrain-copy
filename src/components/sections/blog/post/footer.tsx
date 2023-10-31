@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Heading, Card, Text } from 'theme-ui'
 import Link from 'components/primitives/link'
 import Divider from 'components/primitives/divider'

@@ -45,6 +45,7 @@ query Sitemap($preview: Boolean) {
     preview: $preview
   ) {
     items {
+      darkBackground
       slug
       metadata {
         ...Metadata

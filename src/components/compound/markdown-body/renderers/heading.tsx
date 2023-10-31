@@ -54,15 +54,17 @@ const HeadingRenderer = ({ level, children }: any) => {
       {children}
       <Box
         className="anchor-icon"
-        sx={{
-          display: 'inline-flex',
-          p: 0,
-          opacity: 0,
-          transition: 'all .2s',
-          fontSize: 4,
-          pointerEvents: 'none',
-          ml: 2
-        }}
+        sx={
+          {
+            display: 'inline-flex',
+            p: 0,
+            opacity: 0,
+            transition: 'all .2s',
+            fontSize: 4,
+            pointerEvents: 'none',
+            ml: 2
+          } as any
+        }
       >
         <FiLink />
       </Box>

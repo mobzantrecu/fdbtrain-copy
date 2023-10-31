@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Text, Box } from 'theme-ui'
 import Link from 'components/primitives/link'
 import withHighlightedText from 'lib/contentful/renderers/highlight'
@@ -22,19 +27,21 @@ const IntegrationsCard = ({
     }}
   >
     <Box
-      sx={{
-        position: 'relative',
-        maxWidth: '1172px',
-        display: 'flex',
-        flexDirection: ['column', 'column', 'column', 'column', 'row', 'row'],
-        gap: ['50px', '50px', '50px', '50px', '20px', '20px'],
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        textAlign: ['center', 'left'],
-        backgroundPosition: 'center',
-        backgroundSize: 'cover'
-      }}
+      sx={
+        {
+          position: 'relative',
+          maxWidth: '1172px',
+          display: 'flex',
+          flexDirection: ['column', 'column', 'column', 'column', 'row', 'row'],
+          gap: ['50px', '50px', '50px', '50px', '20px', '20px'],
+          width: '100%',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          textAlign: ['center', 'left'],
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        } as any
+      }
     >
       <Box
         sx={{
@@ -61,7 +68,7 @@ const IntegrationsCard = ({
         {actionsCollection?.items.map((action) => (
           <Link
             {...action}
-            key={action?.href}
+            key={action?.href as any}
             sx={{
               height: '35px',
               fontWeight: 600,

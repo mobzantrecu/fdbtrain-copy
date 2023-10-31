@@ -18,14 +18,16 @@ const PrefooterLight = ({
   actionsCollection
 }: SectionFragment) => (
   <Box
-    sx={{
-      zIndex: 'general2',
-      position: 'relative',
-      background:
-        'linear-gradient(147deg,#320d86 24%, #4c299c 54%,#937fe5 100%)',
-      height: '387px'
-      // mt: '100px'
-    }}
+    sx={
+      {
+        zIndex: 'general2',
+        position: 'relative',
+        background:
+          'linear-gradient(147deg,#320d86 24%, #4c299c 54%,#937fe5 100%)',
+        height: '387px'
+        // mt: '100px'
+      } as any
+    }
   >
     <Container
       sx={{

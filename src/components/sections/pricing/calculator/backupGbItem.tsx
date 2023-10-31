@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { formatPrice } from 'lib/util'
 import { useCallback, useEffect, useState } from 'react'
 import { Grid, Input, jsx, Label, Text } from 'theme-ui'

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Heading, Text } from 'theme-ui'
 import Link from 'components/primitives/link'
 import { MediaBlockFragment } from 'lib/contentful/generated'

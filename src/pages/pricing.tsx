@@ -2,14 +2,25 @@ import PageLayout from 'components/layouts/page'
 import Section from 'components/sections'
 import contentfulSdk from 'lib/contentful'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import HeroHome from '../components/layouts/hero-home'
+import { getBuilderContent } from '../builder/utils'
 
 const FeaturesPage = ({
   page,
   generalData,
+  builderContent,
   preview
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
+    <Head>
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'optimize.pricing-activate-1'});`
+        }}
+      />
+    </Head>
     <PageLayout
       navProps={{
         topNotification: generalData?.topNotification,
@@ -157,6 +168,7 @@ const FeaturesPage = ({
             pageSlug="pricing"
             key={`section-${i}`}
             section={section}
+            builderContent={builderContent}
             generalData={generalData}
           />
         )
@@ -175,11 +187,14 @@ const getStaticProps = async (ctx: GetStaticPropsContext) => {
     ctx.preview
   ).GeneralData({ preview: ctx.preview })
 
+  const builderContent = await getBuilderContent('pricing' || '')
+
   return {
     props: {
       page: pagePricingCollection?.items[0] ?? null,
       generalData: generalDataCollection?.items[0] ?? null,
-      preview: ctx.preview ?? false
+      preview: ctx.preview ?? false,
+      builderContent: builderContent ?? null
     },
     revalidate: 1
   }

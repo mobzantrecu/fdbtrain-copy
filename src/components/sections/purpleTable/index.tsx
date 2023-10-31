@@ -1,6 +1,12 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Text } from 'theme-ui'
 import Image from 'next/image'
+
 import SectionLayout from 'components/layouts/section'
 import { ColumnFragment, SectionFragment } from 'lib/contentful/generated'
 import defaultRenderer from 'lib/contentful/renderers'
@@ -133,7 +139,7 @@ const PurpleTableSection = ({
                 {columns.map((c) => {
                   return (
                     <th
-                      key={c.head}
+                      key={c.head as any}
                       sx={{
                         textAlign: 'center',
                         verticalAlign: 'middle',
@@ -242,7 +248,7 @@ const PurpleTableSection = ({
           {actionsCollection?.items.map((action) => (
             <Link
               {...action}
-              key={action?.href}
+              key={action?.href as any}
               sx={{ ':not(:last-of-type)': { mr: 3 } }}
               variant="accent"
               arrow

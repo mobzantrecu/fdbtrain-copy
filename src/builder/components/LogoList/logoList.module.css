@@ -1,0 +1,38 @@
+.sectionLayout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 1150px;
+  gap: 25px;
+}
+
+.image {
+  width: 174px;
+  height: 87px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  opacity: 0.7;
+  background-size: contain;
+}
+
+.slider {
+  display: none;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1150px) {
+  .container {
+    display: none;
+  }
+
+  .slider {
+    display: block;
+  }
+}

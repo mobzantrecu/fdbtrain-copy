@@ -34,15 +34,17 @@ const LogosCardSection = ({
       </Heading>
       <Box
         variant="layout.sectionContent"
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap'
-        }}
+        sx={
+          {
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          } as any
+        }
       >
         {logosCollection?.logosCollection?.items.map((logo) => (
           <Box
-            key={logo?.name}
+            key={logo?.name as any}
             sx={{
               width: '250px',
               maxHeight: '82px',
@@ -59,7 +61,7 @@ const LogosCardSection = ({
             }}
           >
             <Logo
-              key={logo?.name}
+              key={logo?.name as any}
               {...logo}
               pushSx={{ width: '100%', height: '100%' }}
             />

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Card, Heading, Text, Flex } from 'theme-ui'
 import { CustomerFragment } from 'lib/contentful/generated'
 import Logo from 'components/primitives/logo'
@@ -48,11 +53,13 @@ const CustomerCard = ({
         </Box>
       )}
       <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%'
-        }}
+        sx={
+          {
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%'
+          } as any
+        }
       >
         {name || description ? (
           <Box sx={{ p: 24, pb: 0 }}>
@@ -77,7 +84,7 @@ const CustomerCard = ({
             <Flex sx={{ justifyContent: 'flex-start', mt: '16px' }}>
               {actionsCollection.items.map((action) => (
                 <Link
-                  key={action?.href}
+                  key={action?.href as any}
                   {...action}
                   sx={{ ':not(:last-of-type)': { mr: 3 } }}
                   variant="accent"

@@ -133,14 +133,21 @@ const PageLayout: React.FC<Props> = ({
         )}
       </Head>
       <Nav {...navProps} />
-      <Box as="main" sx={{ position: 'relative', ...pushContentSx }}>
+      <Box as="main" sx={{ position: 'relative', ...pushContentSx } as any}>
         {children}
       </Box>
       <Footer {...footerProps} />
       <CookieDisclaimer />
       {preview && (
         <Box
-          sx={{ position: 'fixed', bottom: 4, right: 4, zIndex: 'general2' }}
+          sx={
+            {
+              position: 'fixed',
+              bottom: 4,
+              right: 4,
+              zIndex: 'general2'
+            } as any
+          }
         >
           <PreviewButtons />
         </Box>

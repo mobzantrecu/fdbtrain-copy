@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Flex, Text, SxStyleProp, Box, Grid } from 'theme-ui'
 import { TweetFragment } from 'lib/contentful/generated'
 import { FiTwitter } from 'react-icons/fi'

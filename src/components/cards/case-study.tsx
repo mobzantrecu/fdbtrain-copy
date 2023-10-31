@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Card, Text } from 'theme-ui'
 import { QuoteFragment } from 'lib/contentful/generated'
 import Link from 'components/primitives/link'

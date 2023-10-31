@@ -1,8 +1,14 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { SectionBlockFragment } from 'lib/contentful/generated'
 import { resolveDescription } from 'lib/contentful/renderers'
 import withHighlightedText from 'lib/contentful/renderers/highlight'
 import Image from 'next/image'
+
 import { jsx, Heading } from 'theme-ui'
 
 type Props = {

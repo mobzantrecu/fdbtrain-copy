@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Heading, jsx, SxStyleProp } from 'theme-ui'
 import Slider from 'components/primitives/slider'
 import { LogosCollectionFragment } from 'lib/contentful/generated'
@@ -50,7 +55,7 @@ const DevelopmentStackSlider = ({
       {logosCollection?.items.map((s) => (
         <Logo
           {...s}
-          key={s?.name}
+          key={s?.name as any}
           pushSx={{
             ...sx,
             flexWrap: 'wrap',
@@ -76,7 +81,7 @@ const DevelopmentStackSlider = ({
     >
       {logosCollection?.items.map((s) => (
         <Logo
-          key={s?.name}
+          key={s?.name as any}
           {...s}
           pushSx={{
             ...sx,

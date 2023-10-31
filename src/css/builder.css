@@ -1,0 +1,33 @@
+.monoFamily * {
+  font-family: 'DM Mono regular';
+}
+
+.remove-scroll::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media screen and (min-width: 2000px) {
+  .home-image {
+    max-height: 500px !important;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .home-image {
+    max-height: 1400px !important;
+  }
+}
+
+@media screen and (min-width: 1450px) and (max-width: 1500px) {
+  .home-image {
+    max-height: 600px !important;
+  }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1800px) {
+  .home-image {
+    max-height: 600px !important;
+  }
+}

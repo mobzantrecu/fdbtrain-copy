@@ -34,7 +34,7 @@ const MediaCardsSection = ({
               case 'BlogPost':
                 return (
                   <MediaCard
-                    key={item?.slug}
+                    key={item?.slug as any}
                     title={item.title}
                     image={item.thumbnailImage ?? item.coverImage}
                     action={{
@@ -50,7 +50,7 @@ const MediaCardsSection = ({
                 }
                 return (
                   <MediaCard
-                    key={item?.title}
+                    key={item?.title as any}
                     title={item.title}
                     image={item.media}
                     action={{ children: 'Read More', href: link?.href }}
@@ -62,7 +62,7 @@ const MediaCardsSection = ({
                 if (!link && isDev) {
                   throw new Error(`${item?.__typename} must have an action`)
                 }
-                return <MediaCard key={item?.title} {...item} />
+                return <MediaCard key={item?.title as any} {...item} />
               }
               default:
                 if (isDev) {

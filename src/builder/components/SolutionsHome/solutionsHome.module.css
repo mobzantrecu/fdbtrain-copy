@@ -1,0 +1,91 @@
+.sectionLayout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.withoutImageBackground {
+  background-image: url(/images/backgrounds/dark-light-curve-no-blue.png);
+  background-position: bottom;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.withImageBackground {
+  background-image: url(/images/backgrounds/solutions-hero-big.png);
+  height: 950px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  color: #fff;
+  font-weight: 600;
+  line-height: 67px;
+  font-size: 65px;
+  margin-bottom: 22px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;  
+}
+
+@media screen and (min-width: 640px) {
+  .title {
+    font-size: 55px;
+  }
+}
+
+@media screen and (min-width: 832px) {
+  .title {
+    font-size: 55px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .title {
+    font-size: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 65px;
+  }
+}
+
+@media screen and (min-width: 1442px) {
+  .title {
+    font-size: 65px;
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 832px) {
+  .title {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .title {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .title {
+    font-size: 34px;
+  }
+}

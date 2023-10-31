@@ -21,10 +21,12 @@ const TrustLogos = ({ title, subtitle, logosCollection }: SectionFragment) => {
         }}
       >
         <Flex
-          sx={{
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}
+          sx={
+            {
+              justifyContent: 'center',
+              flexWrap: 'wrap'
+            } as any
+          }
         >
           {logosCollection?.logosCollection?.items.map((logo, idx) => (
             <Box key={idx} sx={{ my: '25px' }}>

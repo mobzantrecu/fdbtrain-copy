@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import PricingPlanCardOld from 'components/cards/pricing-plan/old'
 import SectionLayout from 'components/layouts/section'
 import Link from 'components/primitives/link'
@@ -45,7 +50,7 @@ const PricingPlansSectionOld = ({
         }}
       >
         {blocks.map((b) => (
-          <PricingPlanCardOld key={b.name} {...b} />
+          <PricingPlanCardOld key={b.name as any} {...b} />
         ))}
       </Grid>
       {customPlansBlock && (

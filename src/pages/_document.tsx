@@ -1,6 +1,9 @@
+import GoDlGlobal from 'lib/scripts/google-optimize/go-dl-global'
+import GoogleOptimizeScript from 'lib/scripts/google-optimize/go-script'
 import ZendeskSnippetScript from 'lib/scripts/zendesk-snippet'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import dynamic from 'next/dynamic'
+import VwoSnippetScript from '../lib/scripts/vwo'
 
 const GAScript = dynamic(() => import('lib/scripts/ga'))
 const FontAwesomeScript = dynamic(() => import('lib/scripts/fontawesome'))
@@ -18,10 +21,13 @@ export default class MyDocument extends Document {
             href="https://p.typekit.net"
             crossOrigin="true"
           />
-          <script
-            src="https://dev.visualwebsiteoptimizer.com/lib/685475.js"
-            id="vwoCode"
+          <link
+            rel="preconnect"
+            href="https://dev.visualwebsiteoptimizer.com"
           />
+          <VwoSnippetScript />
+          <GoogleOptimizeScript />
+          <GoDlGlobal />
         </Head>
         <body>
           <PardotScript />

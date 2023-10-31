@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import SectionLayout from 'components/layouts/section'
 import WithVerticalImage from 'components/sectionBlocks/with-vertical-image'
 import { SectionBlockFragment } from 'lib/contentful/generated'

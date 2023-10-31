@@ -5,6 +5,7 @@ fragment TemplatePage on PageTemplate {
     ...Metadata
   }
   heroTitle
+  darkBackground
   heroSubtitle {
     json
   }

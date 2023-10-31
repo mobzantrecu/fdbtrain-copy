@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+.button {
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background: #6742f1;
+  text-transform: uppercase;
+  transition: background .2s;
+  
+}
+
+.button:hover {
+  background: #3A1AB6;
+  outline: solid;
+  outline-color: #3a1ab6;
+}
+
+
+
+.selectedButton {
+  background: white;
+  color: #6742f1;
+  
+}
+
+.selectedButton:hover {
+  color: #3A1AB6;
+  background: white;
+
+  }
+
+
+.selectedButtonLight {
+  background: #1F1244;
+  color: #896BFF;
+}

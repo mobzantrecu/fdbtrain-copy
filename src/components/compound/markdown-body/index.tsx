@@ -1,4 +1,10 @@
+/** @jsxRuntime classic */
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import Link from 'components/primitives/link'
 import ReactMarkdown from 'react-markdown'
 import { Box, Container, Text, jsx } from 'theme-ui'

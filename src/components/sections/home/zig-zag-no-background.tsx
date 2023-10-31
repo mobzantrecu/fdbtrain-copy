@@ -17,22 +17,24 @@ const ZigZagNoBackgroundSection = ({
   <Box sx={{ backgroundColor: 'gray2' }}>
     {isFixed ? (
       <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          mx: 'auto',
-          maxWidth: '1400px',
-          px: 4,
-          pb: 5
-        }}
+        sx={
+          {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            mx: 'auto',
+            maxWidth: '1400px',
+            px: 4,
+            pb: 5
+          } as any
+        }
       >
         {blocksCollection?.items.map((item) => {
           if (item?.__typename === 'SectionBlock') {
             return (
               <SectionBlockWithIllustration
                 noBackground
-                key={item?.title}
+                key={item?.title as any}
                 {...item}
                 toTheRight={true}
                 stripDown={true}
@@ -53,7 +55,7 @@ const ZigZagNoBackgroundSection = ({
             return (
               <SectionBlockWithIllustration
                 noBackground
-                key={item?.title}
+                key={item?.title as any}
                 {...item}
                 toTheRight={isFixed ? true : isAlt ? i % 2 !== 0 : i % 2 === 0}
                 isHome={true}

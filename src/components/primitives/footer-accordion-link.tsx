@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Box, jsx, SxStyleProp } from 'theme-ui'
 import { useCallback, useRef } from 'react'
 import { DropdownLinkFragment } from 'lib/contentful/generated'
@@ -30,13 +35,15 @@ const FooterAccordionLink = ({
       <Box
         as="button"
         aria-label="open accordion"
-        sx={{
-          userSelect: 'none',
-          cursor: 'default',
-          display: 'inline-flex',
-          alignItems: 'center',
-          '&:focus': { color: 'primary', outline: 'none' }
-        }}
+        sx={
+          {
+            userSelect: 'none',
+            cursor: 'default',
+            display: 'inline-flex',
+            alignItems: 'center',
+            '&:focus': { color: 'primary', outline: 'none' }
+          } as any
+        }
         ref={anchorRef}
         onClick={handleClick}
       >
@@ -47,7 +54,7 @@ const FooterAccordionLink = ({
         <div>
           {dropdownLinksCollection?.items.map((link) => (
             <Link
-              key={link?.children}
+              key={link?.children as any}
               {...link}
               icon={null}
               sx={{

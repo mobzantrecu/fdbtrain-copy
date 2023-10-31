@@ -1,0 +1,34 @@
+.button {
+  border-radius: 4px;
+  min-width: 100px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  transition: background .2s;
+}
+
+.whiteButton {
+  background: #fff;
+  color: #6742f1;
+}
+
+.whiteButton:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  outline: solid;
+  outline-color: #3a1ab6;
+  color: #3a1ab6;
+}
+
+.purpleButton {
+  background: #6742f1;
+  color: #fff;
+}
+
+.purpleButton:hover {
+  background: #3a1ab6;
+}

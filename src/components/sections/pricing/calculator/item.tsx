@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { UsageRateFragment } from 'lib/contentful/generated'
 import { formatPrice } from 'lib/util'
 import { useCallback, useEffect, useState } from 'react'

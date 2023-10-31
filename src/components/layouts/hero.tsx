@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, SxStyleProp, Button, Grid } from 'theme-ui'
 import { Document } from '@contentful/rich-text-types'
 import Link from 'components/primitives/link'
@@ -115,11 +120,13 @@ const Hero = ({
             {isHome && (
               <div>
                 <Box
-                  sx={{
-                    position: 'absolute',
-                    right: 0,
-                    top: '62px'
-                  }}
+                  sx={
+                    {
+                      position: 'absolute',
+                      right: 0,
+                      top: '62px'
+                    } as any
+                  }
                 >
                   <img
                     src="/images/backgrounds/console-mockup.png"
@@ -132,11 +139,13 @@ const Hero = ({
                   />
                 </Box>
                 <Box
-                  sx={{
-                    position: 'absolute',
-                    right: [390, 390, 170, 340, 390, 471],
-                    top: ['75px']
-                  }}
+                  sx={
+                    {
+                      position: 'absolute',
+                      right: [390, 390, 170, 340, 390, 471],
+                      top: ['75px']
+                    } as any
+                  }
                 >
                   <img
                     src="/images/backgrounds/header-console.svg"
@@ -146,12 +155,14 @@ const Hero = ({
                   />
                 </Box>
                 <Box
-                  sx={{
-                    position: 'absolute',
-                    right: [0, 0, -225, 0, 0, 0],
-                    top: '78px',
-                    overflowX: 'hidden'
-                  }}
+                  sx={
+                    {
+                      position: 'absolute',
+                      right: [0, 0, -225, 0, 0, 0],
+                      top: '78px',
+                      overflowX: 'hidden'
+                    } as any
+                  }
                 >
                   <img
                     src="/images/backgrounds/table.svg"
@@ -176,11 +187,13 @@ const Hero = ({
                   </Button>
                 </Box>
                 <Box
-                  sx={{
-                    position: 'absolute',
-                    right: [0, 0, -225, 0, 0, 0],
-                    top: [300, 300, 295, 273, 300, 335]
-                  }}
+                  sx={
+                    {
+                      position: 'absolute',
+                      right: [0, 0, -225, 0, 0, 0],
+                      top: [300, 300, 295, 273, 300, 335]
+                    } as any
+                  }
                 >
                   <img
                     src="/images/backgrounds/graph.svg"
@@ -190,11 +203,13 @@ const Hero = ({
                   />
                 </Box>
                 <Box
-                  sx={{
-                    position: 'absolute',
-                    right: [390, 390, 150, 340, 390, 460],
-                    top: ['90px', '90px', '90px', '78px', '78px', '78px']
-                  }}
+                  sx={
+                    {
+                      position: 'absolute',
+                      right: [390, 390, 150, 340, 390, 460],
+                      top: ['90px', '90px', '90px', '78px', '78px', '78px']
+                    } as any
+                  }
                 >
                   <img
                     src="/images/backgrounds/cellphone.svg"
@@ -210,21 +225,23 @@ const Hero = ({
             )}
             {children && isFeatures && (
               <Box
-                sx={{
-                  pt: '11px',
-                  textAlign: 'center',
-                  backgroundColor: isHome ? '#f9f9f9' : '',
-                  '&>div>div:nth-of-type(2)': {
-                    marginTop: '50px',
-                    paddingBottom: '30px'
-                  },
-                  '&>div>div>a': {
-                    backgroundColor: isHome ? '#fff' : '',
-                    '&>img': {
-                      height: '120%'
+                sx={
+                  {
+                    pt: '11px',
+                    textAlign: 'center',
+                    backgroundColor: isHome ? '#f9f9f9' : '',
+                    '&>div>div:nth-of-type(2)': {
+                      marginTop: '50px',
+                      paddingBottom: '30px'
+                    },
+                    '&>div>div>a': {
+                      backgroundColor: isHome ? '#fff' : '',
+                      '&>img': {
+                        height: '120%'
+                      }
                     }
-                  }
-                }}
+                  } as any
+                }
               >
                 {children}
               </Box>
@@ -234,14 +251,16 @@ const Hero = ({
 
         {image && (
           <Box
-            sx={{
-              display: ['none', 'none', 'block', 'block', 'block'],
-              maxWidth: 'none',
-              height: '30rem',
-              width: 778,
-              position: 'relative',
-              margin: '64px auto 0'
-            }}
+            sx={
+              {
+                display: ['none', 'none', 'block', 'block', 'block'],
+                maxWidth: 'none',
+                height: '30rem',
+                width: 778,
+                position: 'relative',
+                margin: '64px auto 0'
+              } as any
+            }
           >
             <Image
               src={image.url ?? 'images/backgrounds/HeroImage.png'}
@@ -265,21 +284,23 @@ const Hero = ({
       )}
       {children && !isFeatures && (
         <Box
-          sx={{
-            pt: [2, 5],
-            textAlign: 'center',
-            backgroundColor: isHome ? '#f9f9f9' : '',
-            '&>div>div:nth-of-type(2)': {
-              marginTop: '50px',
-              paddingBottom: '30px'
-            },
-            '&>div>div>a': {
-              backgroundColor: isHome ? '#fff' : '',
-              '&>img': {
-                height: '120%'
+          sx={
+            {
+              pt: [2, 5],
+              textAlign: 'center',
+              backgroundColor: isHome ? '#f9f9f9' : '',
+              '&>div>div:nth-of-type(2)': {
+                marginTop: '50px',
+                paddingBottom: '30px'
+              },
+              '&>div>div>a': {
+                backgroundColor: isHome ? '#fff' : '',
+                '&>img': {
+                  height: '120%'
+                }
               }
-            }
-          }}
+            } as any
+          }
         >
           {children}
         </Box>

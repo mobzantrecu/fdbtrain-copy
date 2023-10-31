@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Text, jsx } from 'theme-ui'
 
 export const hasBulletPoint = (children: unknown) => {

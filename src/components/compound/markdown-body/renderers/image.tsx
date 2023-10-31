@@ -1,8 +1,13 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Card } from 'theme-ui'
 
 const ImageRenderer = (props: any) => (
-  <Box sx={{ position: 'relative', my: '72px' }}>
+  <Box sx={{ position: 'relative', my: '72px' } as any}>
     <div
       sx={{
         position: 'absolute',
@@ -20,7 +25,7 @@ const ImageRenderer = (props: any) => (
     />
     <Card p={0} sx={{ width: 'fit-content', mx: 'auto' }}>
       <img
-        loading="lazy"
+        loading={'lazy' as any}
         sx={{ width: '100%', objectFit: 'cover' }}
         src={props.src}
         alt={props.alt ?? 'blog post image'}

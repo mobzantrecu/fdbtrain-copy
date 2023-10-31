@@ -3,6 +3,9 @@ window.zESettings = {
   webWidget: {
     color: { 
       theme: '#604BE9',
+    },
+    chat: {
+      connectOnPageLoad: false
     }
   }
 };

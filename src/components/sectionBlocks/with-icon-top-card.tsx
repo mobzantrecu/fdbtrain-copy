@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Heading, Text } from 'theme-ui'
 import {
   CallToAction,
@@ -23,7 +28,7 @@ const SectionBlockWithIconTopCard = ({
   actionsCollection,
   icon
 }: Props) => {
-  const Icon = getIcon(icon)
+  const Icon = getIcon(icon) as any
   return (
     <div
       sx={{

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx } from 'theme-ui'
 import { isDev } from 'lib/constants'
 import { SectionFragment } from 'lib/contentful/generated'
@@ -8,19 +13,21 @@ import { Fragment } from 'react'
 
 const TwoInlineCards = ({ blocksCollection }: SectionFragment) => (
   <Box
-    sx={{
-      minHeight: '223px',
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      textAlign: 'center',
-      px: ['32px', '100px', '100px', '192px', '192px'],
-      background: '#f9f9f9',
-      paddingBottom: ['50px', '40px', '40px', '40px', 0, 0],
-      marginTop: ['-26px', '-26px', '-26px', '-26px', 0, 0]
-    }}
+    sx={
+      {
+        minHeight: '223px',
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        px: ['32px', '100px', '100px', '192px', '192px'],
+        background: '#f9f9f9',
+        paddingBottom: ['50px', '40px', '40px', '40px', 0, 0],
+        marginTop: ['-26px', '-26px', '-26px', '-26px', 0, 0]
+      } as any
+    }
   >
     <Box
       sx={{

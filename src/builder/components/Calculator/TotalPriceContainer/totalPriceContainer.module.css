@@ -1,0 +1,45 @@
+.container {
+  line-height: 1.5;
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  justify-content: right;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.label {
+  line-height: 1.72;
+  font-weight: 400;
+  color: #64696c;
+  font-size: 14px;
+  margin-right: 32px;
+}
+
+
+.priceContainer {
+  line-height: 1.5;
+  color: #363a3d;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 200px;
+  margin-right: 6px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 639px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .priceContainer {
+    margin-right: 0px;
+  }
+
+  .label {
+    margin-right: 0px;
+  }
+}

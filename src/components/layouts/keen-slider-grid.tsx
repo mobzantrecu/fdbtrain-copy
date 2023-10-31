@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, SxStyleProp, Box, IconButton, Flex } from 'theme-ui'
 import { useKeenSlider } from 'keen-slider/react'
 import { TOptionsEvents } from 'keen-slider'
@@ -49,12 +54,14 @@ const KeenSliderGrid: React.FC<Props> = ({
       <Box
         className="keen-slider"
         ref={sliderRef as React.RefObject<HTMLDivElement>}
-        sx={{
-          position: 'relative',
-          overflow: 'visible',
-          width: '90%',
-          ...pushSx
-        }}
+        sx={
+          {
+            position: 'relative',
+            overflow: 'visible',
+            width: '90%',
+            ...pushSx
+          } as any
+        }
       >
         {Children.map(children, (child) => {
           // Add the keen-slider__slide className to children

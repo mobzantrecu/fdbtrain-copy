@@ -36,7 +36,7 @@ const PreviewButtons = () => {
   }, [copied])
 
   return (
-    <Flex sx={{ flexDirection: 'column', alignItems: 'flex-end' }}>
+    <Flex sx={{ flexDirection: 'column', alignItems: 'flex-end' } as any}>
       <Button
         as="a"
         aria-label="exit preview"

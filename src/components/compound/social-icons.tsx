@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, SxStyleProp } from 'theme-ui'
 import Link from 'components/primitives/link'
 import { SocialMediaFragment } from 'lib/contentful/generated'
@@ -12,6 +17,7 @@ const linkSx: SxStyleProp = {
 type SocialIconsProps = {
   pushSx?: SxStyleProp
   width?: string
+  allWhite?: boolean | null
   youtubeChannel?: string
   discord?: string
   write?: string
@@ -38,6 +44,7 @@ const SocialIcons = ({
   gitHub,
   write,
   color,
+  allWhite,
   pushSx,
   width = '18px'
 }: SocialIconsProps) => (
@@ -55,7 +62,11 @@ const SocialIcons = ({
     {discord && (
       <Link
         aria-label="Discord"
-        sx={{ ...linkSx, fontSize: width, color: '#5965F2' }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF' : '#5965F2'
+        }}
         href={resolveTag(discord, 'https://discord.com/invite')}
       >
         <i className="fa-brands fa-discord"></i>
@@ -64,7 +75,11 @@ const SocialIcons = ({
     {devTo && (
       <Link
         aria-label="Dev"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : 'unset'
+        }}
         href={resolveTag(devTo, 'https://dev.to')}
       >
         <i className="fa-brands fa-dev"></i>
@@ -73,7 +88,11 @@ const SocialIcons = ({
     {twitter && (
       <Link
         aria-label="Twitter"
-        sx={{ ...linkSx, fontSize: width, color: color ? '#55ACEE' : '' }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: color ? '#55ACEE' : allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(twitter, 'https://twitter.com')}
       >
         <i className="fa-brands fa-twitter"></i>
@@ -83,7 +102,11 @@ const SocialIcons = ({
     {gitHub && (
       <Link
         aria-label="GitHub"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(gitHub, 'https://github.com')}
       >
         <i className="fa-brands fa-github"></i>
@@ -92,7 +115,11 @@ const SocialIcons = ({
     {youTube && (
       <Link
         aria-label="YouTube"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(youTube, 'https://youtube.com/watch?v=')}
       >
         <i className="fa-brands fa-youtube"></i>
@@ -101,7 +128,11 @@ const SocialIcons = ({
     {youtubeChannel && (
       <Link
         aria-label="YouTube"
-        sx={{ ...linkSx, fontSize: width, color: '#FF0000' }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : '#FF0000'
+        }}
         href={resolveTag(youtubeChannel, 'https://youtube.com/channel')}
       >
         <i className="fa-brands fa-youtube"></i>
@@ -110,7 +141,11 @@ const SocialIcons = ({
     {linkedIn && (
       <Link
         aria-label="LinkedIn"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(linkedIn, 'https://www.linkedin.com/company')}
       >
         <i className="fa-brands fa-linkedin-in"></i>
@@ -119,7 +154,11 @@ const SocialIcons = ({
     {facebook && (
       <Link
         aria-label="Facebook"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(facebook, 'https://facebook.com')}
       >
         <i className="fa-brands fa-facebook"></i>
@@ -128,7 +167,11 @@ const SocialIcons = ({
     {write && (
       <Link
         aria-label="Facebook"
-        sx={{ ...linkSx, fontSize: width }}
+        sx={{
+          ...linkSx,
+          fontSize: width,
+          color: allWhite ? '#FFF !important' : ''
+        }}
         href={resolveTag(write, 'https://www2.fauna.com')}
       >
         <i className="fa-solid fa-comment-lines"></i>

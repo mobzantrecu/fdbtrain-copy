@@ -24,7 +24,13 @@ const BoardMembersWithoutAvatarGridSection = ({
       <Grid variant="three" sx={{ mx: ['0', '25px', '50px', '50px', '145px'] }}>
         {blocksCollection?.items.map((block) => {
           if (block?.__typename === 'Person') {
-            return <BoardMemberCard key={block.name} {...block} avatar={null} />
+            return (
+              <BoardMemberCard
+                key={block.name as any}
+                {...block}
+                avatar={null}
+              />
+            )
           }
         })}
       </Grid>

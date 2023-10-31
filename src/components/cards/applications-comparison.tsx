@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Card, Heading, Text } from 'theme-ui'
 import { Fragment } from 'react'
 import { ListBlockFragment } from 'lib/contentful/generated'
@@ -19,7 +24,7 @@ const ApplicationsComparisonCard = ({ blocks }: Props) => (
     }}
   >
     {blocks.map((item, i) => (
-      <Fragment key={item.title}>
+      <Fragment key={item.title as any}>
         <div sx={{ textAlign: 'center', maxWidth: 'lg', mx: 'auto' }}>
           <Heading sx={{ fontWeight: 600, fontSize: 3, mb: 3 }}>
             {item.title}
@@ -30,7 +35,7 @@ const ApplicationsComparisonCard = ({ blocks }: Props) => (
               const Icon = getIcon(item.icon)
               return (
                 <Text
-                  key={listItem}
+                  key={listItem as any}
                   as="span"
                   sx={{
                     display: 'inline-flex',

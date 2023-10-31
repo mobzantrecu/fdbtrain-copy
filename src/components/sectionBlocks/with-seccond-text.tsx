@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Heading, Text } from 'theme-ui'
 import Link from 'components/primitives/link'
 import { SectionBlockFragment } from 'lib/contentful/generated'
@@ -59,7 +64,7 @@ const TextComponent = ({
         action?.children?.includes('|') ? (
           <Link
             {...action}
-            key={action?.href}
+            key={action?.href as any}
             sx={{
               height: '34px',
               fontWeight: 600,
@@ -79,7 +84,7 @@ const TextComponent = ({
         ) : (
           <Link
             {...action}
-            key={action?.href}
+            key={action?.href as any}
             sx={{
               ':not(:last-of-type)': { mr: 3 },
               fontWeight: '600',

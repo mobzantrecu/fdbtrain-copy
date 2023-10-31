@@ -15,6 +15,3 @@ The objective of this boilerplate is to set up everything the developer will nee
 ---
 
 Let's go 🚀
-Let's go 🚀
-Let's go 🚀
-Let's go 🚀

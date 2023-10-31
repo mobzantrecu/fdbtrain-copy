@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import {
   Box,
   Card,
@@ -150,47 +155,49 @@ const BlogPage = ({
               author={renderAuthors(featuredPost.authorsCollection?.items)}
             />
             <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '56.4%',
-                '@media screen and (max-width: 1492px)': {
-                  width: '66%'
-                },
-                '@media screen and (max-width: 1400px)': {
-                  width: '70%'
-                },
-                '@media screen and (max-width: 1367px)': {
-                  width: '75%'
-                },
-                '@media screen and (max-width: 1330px)': {
-                  width: '80%'
-                },
-                '@media screen and (max-width: 1296px)': {
-                  width: '85%'
-                },
-                '@media screen and (max-width: 1266px)': {
-                  width: '90%'
-                },
-                '@media screen and (max-width: 1238px)': {
-                  width: '95%'
-                },
-                '@media screen and (max-width: 1180px)': {
-                  width: '100%'
-                },
-                '@media screen and (max-width: 1132px)': {
-                  width: '105%'
-                },
-                '@media screen and (max-width: 1090px)': {
-                  width: '115%'
-                },
-                '@media screen and (max-width: 1052px)': {
-                  width: '130%'
-                },
-                '@media screen and (max-width: 1024px)': {
-                  width: '100%'
-                }
-              }}
+              sx={
+                {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '56.4%',
+                  '@media screen and (max-width: 1492px)': {
+                    width: '66%'
+                  },
+                  '@media screen and (max-width: 1400px)': {
+                    width: '70%'
+                  },
+                  '@media screen and (max-width: 1367px)': {
+                    width: '75%'
+                  },
+                  '@media screen and (max-width: 1330px)': {
+                    width: '80%'
+                  },
+                  '@media screen and (max-width: 1296px)': {
+                    width: '85%'
+                  },
+                  '@media screen and (max-width: 1266px)': {
+                    width: '90%'
+                  },
+                  '@media screen and (max-width: 1238px)': {
+                    width: '95%'
+                  },
+                  '@media screen and (max-width: 1180px)': {
+                    width: '100%'
+                  },
+                  '@media screen and (max-width: 1132px)': {
+                    width: '105%'
+                  },
+                  '@media screen and (max-width: 1090px)': {
+                    width: '115%'
+                  },
+                  '@media screen and (max-width: 1052px)': {
+                    width: '130%'
+                  },
+                  '@media screen and (max-width: 1024px)': {
+                    width: '100%'
+                  }
+                } as any
+              }
             >
               <Card
                 sx={{
@@ -385,7 +392,10 @@ const BlogPage = ({
             >
               <option value="all">Show all</option>
               {categories.map((category) => (
-                <option key={category.slug} value={category.slug as string}>
+                <option
+                  key={category.slug as string}
+                  value={category.slug as string}
+                >
                   {category.title}
                 </option>
               ))}

@@ -1,4 +1,8 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
 
 import TeamMemberCard from 'components/cards/team-member'
 import SectionLayout from 'components/layouts/section'
@@ -30,7 +34,7 @@ const TeamGridSection = ({
         >
           {blocksCollection?.items.map((block) => {
             if (block?.__typename === 'Person') {
-              return <TeamMemberCard key={block.name} {...block} />
+              return <TeamMemberCard key={block.name as any} {...block} />
             }
           })}
         </Grid>

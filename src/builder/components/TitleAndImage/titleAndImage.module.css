@@ -1,0 +1,46 @@
+.sectionLayout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  color: #363a3d;
+  font-weight: 600;
+  line-height: 67px;
+  font-size: 48px;
+  margin-bottom: 22px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.image {
+  height: 580px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+}
+
+@media screen and (max-width: 831px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 32px;
+  }
+}

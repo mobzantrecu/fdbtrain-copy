@@ -5,6 +5,7 @@ import {
   SectionFragment
 } from 'lib/contentful/generated'
 import Image from 'next/image'
+
 import { useEffect, useState } from 'react'
 import { Box, Heading, Text } from 'theme-ui'
 import defaultRenderer from '../../../lib/contentful/renderers'
@@ -62,12 +63,14 @@ const DetailCard = ({
       }}
     >
       <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flexStart',
-          textAlign: 'left'
-        }}
+        sx={
+          {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flexStart',
+            textAlign: 'left'
+          } as any
+        }
       >
         <Heading
           sx={{
@@ -161,31 +164,35 @@ const LinkAndCardDetailSection = ({
 
   return (
     <Box
-      sx={{
-        minHeight: '430px',
-        display: 'flex',
-        width: '100%',
-        alignItems: 'center',
-        flexDirection: 'column',
-        textAlign: 'center',
-        px: ['32px', '100px', '100px', '192px', '192px'],
-        py: ['64px', null, '80px'],
-        background: '#1F1244',
-        paddingTop: isHome ? '170px !important' : 'inherit'
-      }}
+      sx={
+        {
+          minHeight: '430px',
+          display: 'flex',
+          width: '100%',
+          alignItems: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          px: ['32px', '100px', '100px', '192px', '192px'],
+          py: ['64px', null, '80px'],
+          background: '#1F1244',
+          paddingTop: isHome ? '170px !important' : 'inherit'
+        } as any
+      }
     >
       <Heading as="h1" variant="heading.4" sx={{ mb: '40px', color: 'white' }}>
         {withHighlightedText(title)}
       </Heading>
       <Box
-        sx={{
-          gap: ['30px', '30px', '30px', '30px', '30px', '100px'],
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          width: '100%',
-          maxWidth: '1172px'
-        }}
+        sx={
+          {
+            gap: ['30px', '30px', '30px', '30px', '30px', '100px'],
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            width: '100%',
+            maxWidth: '1172px'
+          } as any
+        }
       >
         <Box
           sx={{

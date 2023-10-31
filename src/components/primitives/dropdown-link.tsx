@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import TopNotification from 'components/sections/nav/top-notification'
 import useLifecycleId from 'hooks/use-lifecycle-id'
 import { DropdownLinkFragment, LinkFragment } from 'lib/contentful/generated'
@@ -172,7 +177,7 @@ const DropdownLink = ({
                 </Text>
                 {link.children.map((children) => {
                   return (
-                    <Box key={children.children}>
+                    <Box key={children.children as any}>
                       <Link
                         key={link?.category}
                         {...children}

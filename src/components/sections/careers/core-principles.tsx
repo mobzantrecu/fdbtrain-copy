@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, IconButton, Flex } from 'theme-ui'
 import { useKeenSlider } from 'keen-slider/react'
 import SectionLayout from 'components/layouts/section'
@@ -111,24 +116,28 @@ const CorePrinciples = ({
 
       {/* SLIDER */}
       <Box
-        sx={{
-          overflowX: 'hidden',
-          backgroundImage: `url(${backgroundImage?.url})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundColor: 'gray2',
-          paddingBlock: '130px 95px'
-        }}
+        sx={
+          {
+            overflowX: 'hidden',
+            backgroundImage: `url(${backgroundImage?.url})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundColor: 'gray2',
+            paddingBlock: '130px 95px'
+          } as any
+        }
       >
         <SectionLayout>
           <Box
             className="keen-slider"
             ref={sliderRef as React.RefObject<HTMLDivElement>}
-            sx={{
-              position: 'relative',
-              overflow: 'visible',
-              width: '100%'
-            }}
+            sx={
+              {
+                position: 'relative',
+                overflow: 'visible',
+                width: '100%'
+              } as any
+            }
           >
             {blocksCollection?.items.map((card, i) => {
               if (card?.__typename === 'SectionBlock') {
@@ -177,7 +186,9 @@ const CorePrinciples = ({
                   <button
                     aria-label={`to ${index}`}
                     key={
-                      item?.__typename === 'SectionBlock' ? item.title : index
+                      item?.__typename === 'SectionBlock'
+                        ? (item.title as any)
+                        : (index as any)
                     }
                     onClick={() => {
                       slider.moveToSlideRelative(index)

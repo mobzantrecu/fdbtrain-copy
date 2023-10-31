@@ -10,7 +10,7 @@ const Prefooter = ({
   image,
   actionsCollection
 }: SectionFragment) => (
-  <Box sx={{ px: [3, 4], zIndex: 'general2', position: 'relative' }}>
+  <Box sx={{ px: [3, 4], zIndex: 'general2', position: 'relative' } as any}>
     <Container
       sx={{
         backgroundImage: `url(${image?.url})`,

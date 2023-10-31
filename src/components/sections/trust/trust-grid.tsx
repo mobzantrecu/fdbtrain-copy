@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Card, Text } from 'theme-ui'
 import SectionLayout from 'components/layouts/section'
 import { SectionFragment } from 'lib/contentful/generated'
@@ -58,7 +63,7 @@ const TrustGrid = ({ blocksCollection, title, subtitle }: SectionFragment) => (
                 </Text>
               </div>
               <Link
-                key={card.actionsCollection?.items[0]?.href}
+                key={card.actionsCollection?.items[0]?.href as any}
                 href={card.actionsCollection?.items[0]?.href}
                 sx={{ mt: ['22px', '32px'] }}
                 variant="accent"

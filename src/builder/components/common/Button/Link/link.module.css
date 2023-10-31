@@ -1,0 +1,18 @@
+.link {
+  color: #896bff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.arrowIcon {
+  margin-left: 8px;
+}

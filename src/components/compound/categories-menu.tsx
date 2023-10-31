@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx } from 'theme-ui'
 import { SectionType } from 'components/sections'
 import { SectionFragment } from 'lib/contentful/generated'

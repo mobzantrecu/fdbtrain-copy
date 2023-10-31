@@ -13,22 +13,26 @@ const AspectRatio = forwardRef<HTMLDivElement, Props>(
       <Box
         {...restProps}
         ref={ref}
-        sx={{
-          position: 'relative',
-          height: 0,
-          overflow: 'hidden',
-          pb: `${100 / ratio}%`,
-          ...pushSx
-        }}
+        sx={
+          {
+            position: 'relative',
+            height: 0,
+            overflow: 'hidden',
+            pb: `${100 / ratio}%`,
+            ...pushSx
+          } as any
+        }
       >
         <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }}
+          sx={
+            {
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            } as any
+          }
         >
           {children}
         </Box>

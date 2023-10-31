@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Container, Grid, Text } from 'theme-ui'
 import Link from 'components/primitives/link'
 import Divider from 'components/primitives/divider'
@@ -20,6 +25,7 @@ type Props = {
   statusLink: LinkFragment | null | undefined
   copyRightMessage: string | null | undefined
   rightSideLinks: (LinkFragment | null)[] | null | undefined
+  darkBackground?: boolean | null | undefined
 }
 
 const Footer = ({
@@ -28,12 +34,13 @@ const Footer = ({
   logo,
   statusLink,
   copyRightMessage,
-  rightSideLinks
+  rightSideLinks,
+  darkBackground
 }: Props) => {
   return (
     <footer
       sx={{
-        bg: 'footer'
+        bg: darkBackground ? '#1F1244' : 'footer'
       }}
     >
       <Container
@@ -58,7 +65,8 @@ const Footer = ({
             <div
               sx={{
                 width: 'fit-content',
-                mx: ['auto', null, null, 'unset']
+                mx: ['auto', null, null, 'unset'],
+                opacity: darkBackground ? '0' : '1'
               }}
             >
               <FaunaLogo logo={logo} />
@@ -70,9 +78,13 @@ const Footer = ({
                 fontSize: 14
               }}
             >
-              <Text>400 S El Camino Real Ste 1250</Text>
-              <Text>San Mateo, CA 94402</Text>
-              <Text>(855) 432-8623</Text>
+              <Text color={darkBackground ? '#FFF' : ''}>
+                400 S El Camino Real Ste 1250
+              </Text>
+              <Text color={darkBackground ? '#FFF' : ''}>
+                San Mateo, CA 94402
+              </Text>
+              <Text color={darkBackground ? '#FFF' : ''}>(855) 432-8623</Text>
             </div>
             <div
               sx={{
@@ -84,6 +96,7 @@ const Footer = ({
               <SocialIcons
                 {...socialMedia}
                 width="25px"
+                allWhite={darkBackground}
                 sx={{
                   maxWidth: 'none'
                 }}
@@ -112,7 +125,7 @@ const Footer = ({
             {lists?.map((list) => {
               if (!list) return null
               return (
-                <div key={list.children}>
+                <div key={list.children as any}>
                   <div
                     sx={{
                       display: ['none', null, null, 'block']
@@ -120,6 +133,7 @@ const Footer = ({
                   >
                     <Text
                       sx={{
+                        color: darkBackground ? '#896BFF' : 'unset',
                         textTransform: 'capitalize',
                         fontSize: 1,
                         fontWeight: 700,
@@ -133,10 +147,17 @@ const Footer = ({
                         if (!item) return null
                         return (
                           <li
-                            key={item.href}
+                            key={item.href as any}
                             sx={{ '&:not(:last-of-type)': { mb: 3 } }}
                           >
-                            <Link {...item} variant="nav" icon={null} />
+                            <Link
+                              sx={{
+                                color: darkBackground ? '#FFF' : 'unset'
+                              }}
+                              {...item}
+                              variant="nav"
+                              icon={null}
+                            />
                           </li>
                         )
                       })}
@@ -157,13 +178,15 @@ const Footer = ({
                           justifyContent: 'space-between',
                           width: '100%',
                           fontSize: 2,
-                          fontWeight: 600
+                          fontWeight: 600,
+                          color: darkBackground ? '#FFF' : 'unset'
                         },
                         a: {
                           fontSize: 1,
                           height: '24px',
                           mb: '10px',
-                          '&:hover': { textDecoration: 'none' }
+                          '&:hover': { textDecoration: 'none' },
+                          color: darkBackground ? '#FFF' : 'unset'
                         }
                       }}
                     />
@@ -190,7 +213,15 @@ const Footer = ({
             mt: [4, 4, 0]
           }}
         >
-          <Text sx={{ flex: '1 1', mt: [2, 2, 0] }}>{copyRightMessage}</Text>
+          <Text
+            sx={{
+              color: darkBackground ? '#896BFF' : 'unset',
+              flex: '1 1',
+              mt: [2, 2, 0]
+            }}
+          >
+            {copyRightMessage}
+          </Text>
           <div
             sx={{ flex: '1 1', display: 'flex', justifyContent: 'flex-end' }}
           >
@@ -199,7 +230,11 @@ const Footer = ({
                 <Link
                   href={link?.href}
                   key={idx}
-                  sx={{ mr: 3, ':last-child': { mr: 0 } }}
+                  sx={{
+                    color: darkBackground ? '#896BFF' : 'unset',
+                    mr: 3,
+                    ':last-child': { mr: 0 }
+                  }}
                   variant="nav"
                 >
                   {link?.children}

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import SectionLayout from 'components/layouts/section'
 import {
   PricingPlanFragment,
@@ -211,7 +216,7 @@ const PriceCalculatorSection = ({
                   }}
                 >
                   {blocks.map((plan) => (
-                    <option key={plan.name} value={plan.name as string}>
+                    <option key={plan.name as any} value={plan.name as string}>
                       {plan.name}
                     </option>
                   ))}

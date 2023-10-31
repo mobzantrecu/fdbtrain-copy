@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, SxStyleProp, Text } from 'theme-ui'
 import Logo from 'components/primitives/logo'
 import { LogosCollectionFragment } from 'lib/contentful/generated'
@@ -74,7 +79,7 @@ const CompaniesSlider = ({
       >
         {items?.map((logo) => (
           <Logo
-            key={logo?.name}
+            key={logo?.name as any}
             {...logo}
             pushSx={{
               ...sx,
@@ -96,7 +101,7 @@ const CompaniesSlider = ({
       >
         {items?.map((logo) => (
           <Logo
-            key={logo?.name}
+            key={logo?.name as any}
             {...logo}
             pushSx={{
               ...sx,

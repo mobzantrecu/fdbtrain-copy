@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx } from 'theme-ui'
 import ApplicationsComparisonCard from 'components/cards/applications-comparison'
 import SectionLayout from 'components/layouts/section'

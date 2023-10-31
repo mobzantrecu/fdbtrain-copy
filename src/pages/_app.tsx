@@ -6,11 +6,19 @@ import 'css/global.css'
 import 'css/markdown.scss'
 import { useEffect } from 'react'
 import { forcePreview, isDev } from 'lib/constants'
+import declareBuilderComponents from '../builder'
+import builder from '@builder.io/react'
 
 function setVw() {
   const vw = document.documentElement.clientWidth / 100
   document.documentElement.style.setProperty('--vw', `${vw}px`)
 }
+
+builder.init(
+  process.env.BUILDER_SPACE_API_KEY || '72fd2c7b8b5d42b39d102460089f9251'
+)
+
+declareBuilderComponents()
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {

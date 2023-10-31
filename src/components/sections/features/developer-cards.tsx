@@ -42,7 +42,7 @@ const DeveloperCardsSection = ({
               const link = item.actionsCollection?.items[0]
               return (
                 <MediaCard
-                  key={item?.title}
+                  key={item?.title as any}
                   title={item?.title}
                   description={item.subtitle}
                   image={item.media}

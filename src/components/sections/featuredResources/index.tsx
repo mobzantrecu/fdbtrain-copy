@@ -37,7 +37,7 @@ const FeaturedResourcesSection = ({
               const resolvedDescription = resolveDescription(item.subtitle)
               return (
                 <Box
-                  key={item.title}
+                  key={item.title as any}
                   sx={
                     index === 0
                       ? {

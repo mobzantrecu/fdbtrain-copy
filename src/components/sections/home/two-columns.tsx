@@ -28,7 +28,7 @@ const TwoColumnsSection = ({ blocksCollection }: SectionFragment) => (
     >
       {blocksCollection?.items.map((item) => {
         if (item?.__typename === 'SectionBlock') {
-          return <SectionBlockOnlyText key={item?.title} {...item} />
+          return <SectionBlockOnlyText key={item?.title as any} {...item} />
         }
         if (isDev) {
           throw new Error(`Unsupported block type, ${item?.__typename}`)

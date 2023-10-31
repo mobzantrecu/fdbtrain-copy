@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { keyframes } from '@emotion/core'
 import useLifecycleId from 'hooks/use-lifecycle-id'
 import theme from 'lib/theme'

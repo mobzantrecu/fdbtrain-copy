@@ -6,16 +6,18 @@ import SectionBlockWithIcon from '../sectionBlocks/with-icon'
 
 const LargeCardsSection = ({ blocksCollection, title }: SectionFragment) => (
   <Box
-    sx={{
-      minHeight: '430px',
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      textAlign: 'center',
-      py: ['64px', null, '80px']
-    }}
+    sx={
+      {
+        minHeight: '430px',
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        py: ['64px', null, '80px']
+      } as any
+    }
   >
     <Heading as="h1" variant="heading.4" sx={{ mb: '40px' }}>
       {withHighlightedText(title)}
@@ -34,7 +36,9 @@ const LargeCardsSection = ({ blocksCollection, title }: SectionFragment) => (
     >
       {blocksCollection?.items.map((item) => {
         if (item?.__typename === 'SectionBlock') {
-          return <SectionBlockWithIcon key={item?.title} {...item} isLarge />
+          return (
+            <SectionBlockWithIcon key={item?.title as any} {...item} isLarge />
+          )
         }
         if (isDev) {
           throw new Error(`Unsupported block type, ${item?.__typename}`)

@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.font {
+  font-size: 14px;
+  color: #64696c;
+  font-weight: 600;
+}
+
+.input {
+  font-size: 14px;
+  width: 154.4px;
+  height: 36px;
+  border: 1px solid #797e80;
+  border-radius: 4px;
+  padding: 0px 0px 0px 8px;
+
+}
+
+.icon {
+  margin: 0;
+  min-width: 0;
+  margin-left: -28px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  pointer-events: none;
+}
+
+.label {
+  padding-right: 16px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #604be9;
+  box-shadow: 0 0 0 4px rgb(149 63 255 / 0.15);
+}
+
+
+
+@media screen and (max-width: 639px) {
+  .container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .inputContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px !important;
+  }
+}

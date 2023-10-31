@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Grid, jsx } from 'theme-ui'
 import SectionLayout from 'components/layouts/section'
 import SectionBlockWithImage from 'components/sectionBlocks/with-image'
@@ -24,7 +29,7 @@ const ZigZagCareersSection = ({
         if (item?.__typename === 'SectionBlock') {
           return (
             <SectionBlockWithImage
-              key={item?.title}
+              key={item?.title as any}
               {...item}
               invert={i % 2 === 1}
               wideImage={wide}

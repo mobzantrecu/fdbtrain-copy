@@ -29,7 +29,9 @@ const Portal: React.FC<Props> = ({
     if (isMounted && onMount) onMount()
   }, [isMounted, onMount])
 
-  return isMounted && ref.current ? createPortal(children, ref.current) : null
+  return isMounted && ref.current
+    ? createPortal(children as any, ref.current)
+    : null
 }
 
 export default Portal

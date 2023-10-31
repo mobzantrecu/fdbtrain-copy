@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Box, jsx, SxStyleProp } from 'theme-ui'
 import { MediaFragment } from 'lib/contentful/generated'
 import NextImageMedia from './next-image-media'
@@ -30,14 +35,16 @@ const CardCover = ({
 
   return (
     <Box
-      sx={{
-        img: {
-          objectFit: 'cover',
-          ...pushImageSx
-        },
-        position: 'relative',
-        ...pushSx
-      }}
+      sx={
+        {
+          img: {
+            objectFit: 'cover',
+            ...pushImageSx
+          },
+          position: 'relative',
+          ...pushSx
+        } as any
+      }
     >
       <NextImageMedia
         {...image}

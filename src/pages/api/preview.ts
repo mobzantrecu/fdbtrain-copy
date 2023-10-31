@@ -48,8 +48,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.setPreviewData({})
 
     res.redirect(route)
-  } catch (error: any) {
+  } catch (error) {
     console.error(error)
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: (error as any).message })
   }
 }

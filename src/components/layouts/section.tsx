@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Container, Heading, SxStyleProp, Text } from 'theme-ui'
 import { forwardRef, ReactNode, useEffect, useState } from 'react'
 import defaultRenderer from 'lib/contentful/renderers'
@@ -94,12 +99,14 @@ const SectionLayout = forwardRef<HTMLDivElement, Props>(
 
     return (
       <Box
-        sx={{
-          position: 'relative',
-          zIndex: 'general',
-          width: isAlt ? '100% !important' : '100% !important',
-          backgroundColor: backgroundColor ? backgroundColor : 'unset'
-        }}
+        sx={
+          {
+            position: 'relative',
+            zIndex: 'general',
+            width: isAlt ? '100% !important' : '100% !important',
+            backgroundColor: backgroundColor ? backgroundColor : 'unset'
+          } as any
+        }
         id={anchorId ?? undefined}
       >
         <Container
@@ -115,12 +122,14 @@ const SectionLayout = forwardRef<HTMLDivElement, Props>(
         >
           {(title?.text || subtitle) && (
             <Box
-              sx={{
-                zIndex: 'general',
-                position: 'relative',
-                mb: isIconCardsGrid ? '16px' : '24px',
-                ...headingContainerPushSx
-              }}
+              sx={
+                {
+                  zIndex: 'general',
+                  position: 'relative',
+                  mb: isIconCardsGrid ? '16px' : '24px',
+                  ...headingContainerPushSx
+                } as any
+              }
             >
               {title && (
                 <Heading

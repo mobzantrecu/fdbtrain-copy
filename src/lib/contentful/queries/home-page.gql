@@ -8,6 +8,7 @@ query HomePage($preview: Boolean) {
       metadata {
         ...Metadata
       }
+      useBuilder
       heroTitle
       heroSubtitle {
         json

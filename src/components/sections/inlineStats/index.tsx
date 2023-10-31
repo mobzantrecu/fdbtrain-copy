@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { isDev } from 'lib/constants'
 import { jsx } from 'theme-ui'
 
@@ -36,7 +41,7 @@ const InlineStats = ({ blocksCollection }: SectionFragment) => (
         if (item?.__typename === 'SectionBlock') {
           return (
             <Fragment key={`${item?.title}_${i}`}>
-              <SectionBlockWithPurpleTitle key={item?.title} {...item} />
+              <SectionBlockWithPurpleTitle key={item?.title as any} {...item} />
               {i !== blocksCollection?.items.length - 1 && (
                 <div
                   style={{
@@ -82,7 +87,7 @@ const InlineStats = ({ blocksCollection }: SectionFragment) => (
       {blocksCollection?.items.map((item) => {
         if (item?.__typename === 'SectionBlock') {
           return (
-            <div key={item?.title} sx={{ boxShadow: 'card' }}>
+            <div key={item?.title as any} sx={{ boxShadow: 'card' }}>
               <SectionBlockWithPurpleTitle {...item} />
             </div>
           )

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Heading, Text } from 'theme-ui'
 import { SectionBlockFragment } from 'lib/contentful/generated'
 import defaultRenderer from 'lib/contentful/renderers'

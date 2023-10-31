@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import FaunaLogo from 'components/compound/fauna-logo'
 import AccordionLink from 'components/primitives/accordion-link'
 import DropdownLink from 'components/primitives/dropdown-link'
@@ -63,16 +68,18 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
   return (
     <>
       <Box
-        sx={{
-          bg: 'background',
-          color: 'gray10',
-          position: 'sticky',
-          top: 0,
-          width: '100%',
-          zIndex: mobileMenuIsOpen ? '101' : 'header',
-          transition: 'box-shadow .3s, top .3s',
-          boxShadow: hasScrolled ? 'magical' : 'border'
-        }}
+        sx={
+          {
+            bg: 'background',
+            color: 'gray10',
+            position: 'sticky',
+            top: 0,
+            width: '100%',
+            zIndex: mobileMenuIsOpen ? '101' : 'header',
+            transition: 'box-shadow .3s, top .3s',
+            boxShadow: hasScrolled ? 'magical' : 'border'
+          } as any
+        }
       >
         {topNotification && !mobileMenuIsOpen && (
           <TopNotification {...topNotification} ref={topNotificationRef} />
@@ -119,7 +126,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                     const isActive = isInRoute(router.pathname, link.href)
                     return (
                       <Link
-                        key={link.children}
+                        key={link.children as any}
                         {...link}
                         isNav={true}
                         variant="nav"
@@ -132,7 +139,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                   case 'NavLink':
                     return (
                       <DropdownLink
-                        key={link.children}
+                        key={link.children as any}
                         {...link}
                         sx={{ fontSize: 1 }}
                         topNotification={topNotification}
@@ -214,7 +221,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                   const isActive = isInRoute(router.pathname, link.href)
                   return (
                     <Link
-                      key={link.children}
+                      key={link.children as any}
                       {...link}
                       variant={variant}
                       sx={{
@@ -229,7 +236,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                 case 'NavLink':
                   return (
                     <DropdownLink
-                      key={link.children}
+                      key={link.children as any}
                       {...link}
                       sx={{ fontSize: 1, ...sx }}
                     />
@@ -256,19 +263,21 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
         {/* Mobile menu */}
 
         <Box
-          sx={{
-            bg: 'background',
-            color: 'gray10',
-            position: 'fixed',
-            top: 0,
-            height: mobileMenuIsOpen ? '100vh' : 0,
-            maxHeight: '100vh',
-            transition: 'height .5s',
-            overflowX: 'hidden',
-            width: '100%',
-            zIndex: 'dropdown',
-            visibility: mobileMenuIsOpen ? 'visible' : 'hidden'
-          }}
+          sx={
+            {
+              bg: 'background',
+              color: 'gray10',
+              position: 'fixed',
+              top: 0,
+              height: mobileMenuIsOpen ? '100vh' : 0,
+              maxHeight: '100vh',
+              transition: 'height .5s',
+              overflowX: 'hidden',
+              width: '100%',
+              zIndex: 'dropdown',
+              visibility: mobileMenuIsOpen ? 'visible' : 'hidden'
+            } as any
+          }
         >
           <Container
             sx={{
@@ -298,19 +307,21 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
             }}
           >
             <Flex
-              sx={{
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                '& > a:not(:last-child)': { mb: 3 },
-                '& > div:not(:last-child)': { mb: 3 }
-              }}
+              sx={
+                {
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  '& > a:not(:last-child)': { mb: 3 },
+                  '& > div:not(:last-child)': { mb: 3 }
+                } as any
+              }
             >
               {centerLinks?.map((link) => {
                 switch (link?.__typename) {
                   case 'CallToAction':
                     return (
                       <Link
-                        key={link.children}
+                        key={link.children as any}
                         {...link}
                         sx={{
                           color: 'gray10',
@@ -323,7 +334,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                   case 'NavLink':
                     return (
                       <AccordionLink
-                        key={link.children}
+                        key={link.children as any}
                         {...link}
                         pushSx={{
                           button: {
@@ -343,7 +354,11 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
               })}
             </Flex>
 
-            <Flex sx={{ flexDirection: 'column', mt: 3, alignItems: 'center' }}>
+            <Flex
+              sx={
+                { flexDirection: 'column', mt: 3, alignItems: 'center' } as any
+              }
+            >
               {rightLinks?.map((link, i, { length }) => {
                 let variant = undefined
                 switch (i) {
@@ -362,7 +377,7 @@ const Nav = ({ topNotification, centerLinks, rightLinks, logo }: Props) => {
                 }
                 return (
                   <Link
-                    key={link?.children}
+                    key={link?.children as any}
                     {...link}
                     variant={variant}
                     sx={{

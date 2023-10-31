@@ -24,7 +24,7 @@ const EventsGridSection = ({ upcomingEvents, pastEvents }: Props) => {
         >
           {/* Dispaly all upcoming events  */}
           {upcomingEvents.map((item) => (
-            <EventCard key={item?.eventTitle} isPast={false} {...item} />
+            <EventCard key={item?.eventTitle as any} isPast={false} {...item} />
           ))}
         </Grid>
       </SectionLayout>
@@ -42,7 +42,7 @@ const EventsGridSection = ({ upcomingEvents, pastEvents }: Props) => {
         >
           {/* Display all past events */}
           {pastEvents.map((item) => (
-            <EventCard key={item?.eventTitle} isPast={true} {...item} />
+            <EventCard key={item?.eventTitle as any} isPast={true} {...item} />
           ))}
         </Grid>
       </SectionLayout>

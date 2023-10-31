@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { Box, jsx, Link as A, LinkProps as AProps, Text } from 'theme-ui'
 import NextLink, { LinkProps } from 'next/link'
 import { FiExternalLink } from 'react-icons/fi'
@@ -46,17 +51,19 @@ const Link = forwardRef<HTMLAnchorElement, Props>(
     const { href: resolvedHref, isExternal } = resolveRoute(href)
 
     const target = getAnchorTarget(resolvedHref)
-    const Icon = getIcon(icon)
+    const Icon = getIcon(icon) as any
 
     return isNav ? (
       <Box
-        sx={{
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          mb: labelDescription ? '24px' : ''
-        }}
+        sx={
+          {
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            mb: labelDescription ? '24px' : ''
+          } as any
+        }
       >
         <NextLink
           href={resolvedHref}

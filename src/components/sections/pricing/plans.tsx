@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import PricingPlanCard from 'components/cards/pricing-plan'
 import SectionLayout from 'components/layouts/section'
 import Link from 'components/primitives/link'
@@ -203,7 +208,7 @@ Props) => {
         >
           {blocks.map((b, i) => (
             <PricingPlanCard
-              key={b.name}
+              key={b.name as any}
               {...b}
               isMonthly={isMonthly}
               descriptionHeight={descriptionHeight}

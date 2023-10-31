@@ -42,21 +42,23 @@ const ZigZagSection = ({
       )}
       {isFixed ? (
         <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            mx: 'auto',
-            maxWidth: '1400px',
-            px: 4,
-            pb: 5
-          }}
+          sx={
+            {
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              mx: 'auto',
+              maxWidth: '1400px',
+              px: 4,
+              pb: 5
+            } as any
+          }
         >
           {blocksCollection?.items.map((item) => {
             if (item?.__typename === 'SectionBlock') {
               return (
                 <SectionBlockWithIllustration
-                  key={item?.title}
+                  key={item?.title as any}
                   {...item}
                   isAlt={isAlt}
                   toTheRight={true}
@@ -76,7 +78,7 @@ const ZigZagSection = ({
             if (item?.__typename === 'SectionBlock') {
               return (
                 <SectionBlockWithIllustration
-                  key={item?.title}
+                  key={item?.title as any}
                   {...item}
                   toTheRight={isFixed ? true : i % 2 === 0}
                   isHome={true}

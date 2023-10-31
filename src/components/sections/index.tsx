@@ -1,81 +1,83 @@
+import { BuilderComponent, BuilderContent } from '@builder.io/react'
 import { isDev } from 'lib/constants'
-import { SectionFragment, GeneralDataFragment } from 'lib/contentful/generated'
+import { GeneralDataFragment, SectionFragment } from 'lib/contentful/generated'
 import dynamic from 'next/dynamic'
 import FeaturedResourcesSection from './featuredResources'
 import TwoColumnsSection from './home/two-columns'
 import InlineStats from './inlineStats'
-import PricingPagePlansSection from './pricing/pricing-page-plans'
-import SmallTitleAndLinkCard from './smallTitleAndLinkCard'
-import TwoInlineCards from './twoInlineCards'
-import LargeCardsSection from './large-cards'
 import IntegrationsCard from './integrations'
-import PurpleTableSection from './purpleTable'
+import LargeCardsSection from './large-cards'
 import LinkAndCardDetailSection from './linkAndCardDetail'
 import PrefooterWithLinks from './prefooter/withLink'
+import PricingPagePlansSection from './pricing/pricing-page-plans'
+import PurpleTableSection from './purpleTable'
+import SmallTitleAndLinkCard from './smallTitleAndLinkCard'
+import TwoInlineCards from './twoInlineCards'
+import { Suspense } from 'react'
 
-const ApplicationsComparisonSection = dynamic(
-  () => import('components/sections/home/applications-comparison')
+const ApplicationsComparisonSection = dynamic(() =>
+  import('components/sections/home/applications-comparison')
 )
 const OnlyZag = dynamic(() => import('components/sections/home/only-zag'))
-const CaseStudiesSection = dynamic(
-  () => import('components/sections/home/case-studies')
+const CaseStudiesSection = dynamic(() =>
+  import('components/sections/home/case-studies')
 )
-const IconCardsGridSection = dynamic(
-  () => import('components/sections/home/icon-cards-grid')
+const IconCardsGridSection = dynamic(() =>
+  import('components/sections/home/icon-cards-grid')
 )
-const IconCardsGridLogosSection = dynamic(
-  () => import('components/sections/home/icon-cards-grid-logos')
+const IconCardsGridLogosSection = dynamic(() =>
+  import('components/sections/home/icon-cards-grid-logos')
 )
 const ZigZagSection = dynamic(() => import('components/sections/home/zig-zag'))
-const ZigZagNoBackgroundSection = dynamic(
-  () => import('components/sections/home/zig-zag-no-background')
+const ZigZagNoBackgroundSection = dynamic(() =>
+  import('components/sections/home/zig-zag-no-background')
 )
 
-const MediaCardsSection = dynamic(
-  () => import('components/sections/home/media-cards')
+const MediaCardsSection = dynamic(() =>
+  import('components/sections/home/media-cards')
 )
-const FeaturesGridSection = dynamic(
-  () => import('components/sections/features/features-grid')
+const FeaturesGridSection = dynamic(() =>
+  import('components/sections/features/features-grid')
 )
-const VerifiedByJepsenSection = dynamic(
-  () => import('components/sections/features/verified-by-jepsen')
+const VerifiedByJepsenSection = dynamic(() =>
+  import('components/sections/features/verified-by-jepsen')
 )
-const DeveloperCardsSection = dynamic(
-  () => import('components/sections/features/developer-cards')
+const DeveloperCardsSection = dynamic(() =>
+  import('components/sections/features/developer-cards')
 )
-const VerticalImagesSection = dynamic(
-  () => import('components/sections/features/vertical-images')
+const VerticalImagesSection = dynamic(() =>
+  import('components/sections/features/vertical-images')
 )
-const RegionsSection = dynamic(
-  () => import('components/sections/features/regions')
+const RegionsSection = dynamic(() =>
+  import('components/sections/features/regions')
 )
 const Prefooter = dynamic(() => import('components/sections/prefooter'))
-const PrefooterLight = dynamic(
-  () => import('components/sections/prefooter/light')
+const PrefooterLight = dynamic(() =>
+  import('components/sections/prefooter/light')
 )
-const PrefooterDark = dynamic(
-  () => import('components/sections/prefooter/dark')
+const PrefooterDark = dynamic(() =>
+  import('components/sections/prefooter/dark')
 )
 const CompanyVisionSection = dynamic(() => import('./company/company-vision'))
 const TeamGridSection = dynamic(() => import('./company/team-grid'))
-const BoardMembersGridSection = dynamic(
-  () => import('./company/board-members-grid')
+const BoardMembersGridSection = dynamic(() =>
+  import('./company/board-members-grid')
 )
 const LogosCardSection = dynamic(() => import('./company/logos-card'))
-const BoardMembersWithoutAvatarGridSection = dynamic(
-  () => import('./company/board-members-without-avatar-grid')
+const BoardMembersWithoutAvatarGridSection = dynamic(() =>
+  import('./company/board-members-without-avatar-grid')
 )
 const TwoBigCardsSection = dynamic(() => import('./community/two-big-cards'))
-const CommunityLeadersGridSection = dynamic(
-  () => import('./community/community-leaders-grid')
+const CommunityLeadersGridSection = dynamic(() =>
+  import('./community/community-leaders-grid')
 )
 const MediaSection = dynamic(() => import('./learn/media'))
 const TweetsSliderSection = dynamic(() => import('./community/tweets-slider'))
 const CustomersGridSection = dynamic(() => import('./customers/customers-grid'))
 const MarkdownBodySection = dynamic(() => import('./blog/markdown-body'))
 const ZigZagCareersSection = dynamic(() => import('./careers/zig-zag-careers'))
-const CareerPerksGridSection = dynamic(
-  () => import('./careers/career-perks-grid')
+const CareerPerksGridSection = dynamic(() =>
+  import('./careers/career-perks-grid')
 )
 const JobListingsSection = dynamic(() => import('./careers/job-listings'))
 const PricingPlansSection = dynamic(() => import('./pricing/plans'))
@@ -84,11 +86,11 @@ const PriceCalculatorSection = dynamic(() => import('./pricing/calculator'))
 const TwoQuotes = dynamic(() => import('./other/two-quotes'))
 const CardLinks = dynamic(() => import('./other/card-links'))
 const OneBigQuote = dynamic(() => import('./careers/one-big-quote'))
-const CorePrinciples = dynamic(
-  () => import('../sections/careers/core-principles')
+const CorePrinciples = dynamic(() =>
+  import('../sections/careers/core-principles')
 )
-const WideVerticalImages = dynamic(
-  () => import('../sections/other/wide-vertical-images')
+const WideVerticalImages = dynamic(() =>
+  import('../sections/other/wide-vertical-images')
 )
 const Ctas = dynamic(() => import('./ctas'))
 const PricingPlansSectionOld = dynamic(() => import('./pricing/plans-old'))
@@ -98,6 +100,7 @@ const TrustLogos = dynamic(() => import('./trust/trust-logos'))
 
 export enum SectionType {
   ZigZag = 'Zig Zag',
+  Builder = 'Builder',
   TwoColumns = 'Two Columns',
   LargeCards2X2 = '2X2 Large Cards',
   TwoInlineCards = 'Two Inline Card',
@@ -165,6 +168,7 @@ type Props = {
   isHome?: boolean
   isAlt?: boolean
   pageSlug?: string
+  builderContent?: any
 }
 
 const Section = ({
@@ -172,6 +176,7 @@ const Section = ({
   smallHeading,
   generalData,
   comingSoonText,
+  builderContent,
   pageSlug,
   isHome,
   isAlt
@@ -182,6 +187,32 @@ const Section = ({
     return null
   }
   switch (section.type as SectionType) {
+    case SectionType.Builder:
+      if (!builderContent) {
+        return <div></div>
+      }
+      return (
+        <Suspense fallback={<p>Loading</p>}>
+          <BuilderContent
+            options={{ includeRefs: true }}
+            model="builder-section"
+          >
+            {() => {
+              return (
+                <Suspense fallback={<p>Loading</p>}>
+                  <div>
+                    <BuilderComponent
+                      model="builder-section"
+                      content={builderContent}
+                      options={{ includeRefs: true }}
+                    />
+                  </div>
+                </Suspense>
+              )
+            }}
+          </BuilderContent>
+        </Suspense>
+      )
     case SectionType.ZigZag:
       return <ZigZagSection {...section} isHome={isHome} isAlt={isAlt} />
     case SectionType.TwoColumns:

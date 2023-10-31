@@ -47,7 +47,7 @@ const OnlyZag = ({
           return (
             <SectionBlockWithIllustration
               noBackground
-              key={item?.title}
+              key={item?.title as any}
               {...item}
               isAlt={isAlt}
               isHome={true}

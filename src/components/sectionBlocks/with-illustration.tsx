@@ -1,9 +1,15 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Heading, Text, Grid } from 'theme-ui'
 import { Asset, Maybe, SectionBlockFragment } from 'lib/contentful/generated'
 import defaultRenderer from 'lib/contentful/renderers'
 import Link from 'components/primitives/link'
 import Image from 'next/image'
+
 import CaseStudyCard from '../cards/case-study'
 import CommunityLeaderCard from '../cards/community-leader'
 import TweetCard from '../cards/tweet'
@@ -170,7 +176,7 @@ const SectionBlockWithIllustration = ({
         {actionsCollection?.items.map((action) => (
           <Link
             {...action}
-            key={action?.href}
+            key={action?.href as any}
             sx={{
               ':not(:last-of-type)': { mr: 3 },
               fontWeight: '600'
@@ -256,7 +262,7 @@ const SectionBlockWithIllustration = ({
           action?.children?.includes('|') ? (
             <Link
               {...action}
-              key={action?.href}
+              key={action?.href as any}
               sx={{
                 zIndex: 'general',
                 position: 'relative',
@@ -278,7 +284,7 @@ const SectionBlockWithIllustration = ({
           ) : (
             <Link
               {...action}
-              key={action?.href}
+              key={action?.href as any}
               sx={{
                 ':not(:last-of-type)': { mr: 3 },
                 fontWeight: '600',
@@ -335,7 +341,7 @@ const SectionBlockWithIllustration = ({
             action?.children?.includes('|') ? (
               <Link
                 {...action}
-                key={action?.href}
+                key={action?.href as any}
                 sx={{
                   zIndex: 'general',
                   position: 'relative',
@@ -354,7 +360,7 @@ const SectionBlockWithIllustration = ({
             ) : (
               <Link
                 {...action}
-                key={action?.href}
+                key={action?.href as any}
                 sx={{
                   ':not(:last-of-type)': { mr: 3 },
                   fontWeight: '600',

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, Heading, Text, Flex } from 'theme-ui'
 import Link from 'components/primitives/link'
 import defaultRenderer from 'lib/contentful/renderers'
@@ -122,13 +127,15 @@ const EventCard = ({
     />
 
     <Flex
-      sx={{
-        py: 40,
-        p: 24,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: '100%'
-      }}
+      sx={
+        {
+          py: 40,
+          p: 24,
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '100%'
+        } as any
+      }
     >
       <Box>
         {eventTitle && (

@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { Suspense } from 'react'
+React
+
 import { jsx } from 'theme-ui'
 import Link from 'next/link'
 import ROUTES from 'lib/routes'
@@ -12,6 +17,7 @@ type Props = {
 
 const FaunaLogo = ({ isLink = true, logo }: Props) => {
   if (!logo) return null
+  if (!logo.url) return null
   if (!isLink) {
     return (
       <Image
@@ -23,16 +29,19 @@ const FaunaLogo = ({ isLink = true, logo }: Props) => {
       />
     )
   }
+
   return (
     <Link href={ROUTES.home} passHref>
       <a>
-        <Image
-          src={logo.url ?? ''}
-          alt="Fauna logo"
-          width={logo.width ?? 136}
-          height={logo.height ?? 36}
-          layout="fixed"
-        />
+        <Suspense fallback={null}>
+          <Image
+            src={logo.url ?? ''}
+            alt="Fauna logo"
+            width={logo.width ?? 136}
+            height={logo.height ?? 36}
+            layout="fixed"
+          />
+        </Suspense>
       </a>
     </Link>
   )

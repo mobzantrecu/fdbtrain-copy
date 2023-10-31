@@ -52,7 +52,7 @@ const IconCardsGridSection = ({
       >
         {blocksCollection?.items.map((item) => {
           if (item?.__typename === 'SectionBlock') {
-            return <SectionBlockWithIcon key={item?.title} {...item} />
+            return <SectionBlockWithIcon key={item?.title as any} {...item} />
           }
           if (isDev) {
             throw new Error(`Unsupported block type, ${item?.__typename}`)

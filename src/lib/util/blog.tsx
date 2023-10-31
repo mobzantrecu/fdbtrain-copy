@@ -23,7 +23,7 @@ const renderAuthors = (
         const withComma = i < length - 2
         const withAmper = i === length - 2
         return (
-          <span key={author.name}>
+          <span key={author.name as any}>
             <span>{author.name}</span>
             {withComma && ', '}
             {withAmper && <>&nbsp;&&nbsp;</>}

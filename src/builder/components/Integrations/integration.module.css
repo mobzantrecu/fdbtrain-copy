@@ -1,0 +1,55 @@
+.sectionLayout {
+  background: transparent;
+}
+
+.image {
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 576px;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  max-width: 1172px;
+  margin: auto;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.textContainer {
+  max-width: 473px;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .image {
+    margin: auto;
+  }
+
+  .textContainer {
+    max-width: none;
+    min-height: 0px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .container {
+    gap: 10px;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .textContainer {
+    text-align: center;
+  }
+}

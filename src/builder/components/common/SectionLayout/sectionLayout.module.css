@@ -1,0 +1,28 @@
+.sectionLayout {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+@media screen and (min-width: 1025px) {
+  .sectionLayout {
+    padding-left: 234px;
+    padding-right: 234px;
+  }
+}
+
+@media screen and (max-width: 831px) {
+  .sectionLayout {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .sectionLayout {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}

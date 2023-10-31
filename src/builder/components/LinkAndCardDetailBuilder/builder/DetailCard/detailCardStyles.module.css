@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 32px;
+}
+
+@media screen and (min-width: 0px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: unset;
+    max-height: unset;
+    height: 420px;
+  }
+
+  .subtitleContainer {
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 832px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: unset;
+    max-height: unset;
+    height: 420px;
+  }
+
+  .subtitleContainer {
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: unset;
+    max-height: unset;
+    height: 420px;
+  }
+
+  .subtitleContainer {
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    flex-wrap: wrap;
+    min-height: unset;
+    justify-content: space-between;
+    max-height: unset;
+    height: 251px;
+  }
+
+  .subtitleContainer {
+    max-width: 544px;
+  }
+}
+
+@media screen and (min-width: 1442px) {
+  .container {
+    min-height: 287px;
+    flex-wrap: initial;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .subtitleContainerWithBackground {
+    max-width: 344px !important;
+  }
+
+  .subtitleContainer {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .container {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .container {
+    height: 560px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .container {
+    height: 650px;
+  }
+}

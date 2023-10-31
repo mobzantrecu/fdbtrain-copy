@@ -1,4 +1,7 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
 import { jsx, Box, SxStyleProp, Grid } from 'theme-ui'
 import { Document } from '@contentful/rich-text-types'
 import Link from 'components/primitives/link'
@@ -126,7 +129,7 @@ const HeroHome = ({
               quality={100}
               priority
               draggable={false}
-              loading="eager"
+              loading={'eager' as any}
             />
           </Box>
 
@@ -265,27 +268,29 @@ const HeroHome = ({
       )}
       {children && !isFeatures && (
         <Box
-          sx={{
-            backgroundColor: 'transparent',
-            pt: [2, 3, 3, 3, 3, 4],
-            mt: [5, 0, 0, 0, 0, 0],
-            position: 'relative',
-            textAlign: 'center',
-            '&>div': {
-              '@media screen and (max-width: 449px)': {
-                pb: 0
+          sx={
+            {
+              backgroundColor: 'transparent',
+              pt: [2, 3, 3, 3, 3, 4],
+              mt: [5, 0, 0, 0, 0, 0],
+              position: 'relative',
+              textAlign: 'center',
+              '&>div': {
+                '@media screen and (max-width: 449px)': {
+                  pb: 0
+                }
+              },
+              '&>div>div:nth-of-type(2)': {
+                marginTop: isAlt
+                  ? '30px'
+                  : ['90px', '37px', '30px', '30px', '0px'],
+                paddingBottom: '0px'
+              },
+              '&>div>div>a': {
+                backgroundColor: isHome ? '#fff' : ''
               }
-            },
-            '&>div>div:nth-of-type(2)': {
-              marginTop: isAlt
-                ? '30px'
-                : ['90px', '37px', '30px', '30px', '0px'],
-              paddingBottom: '0px'
-            },
-            '&>div>div>a': {
-              backgroundColor: isHome ? '#fff' : ''
-            }
-          }}
+            } as any
+          }
         >
           {children}
         </Box>

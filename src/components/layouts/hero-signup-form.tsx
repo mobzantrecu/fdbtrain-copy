@@ -1,4 +1,9 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+React
+
 import { jsx, Box, SxStyleProp, Grid } from 'theme-ui'
 import { Document } from '@contentful/rich-text-types'
 import Link from 'components/primitives/link'
@@ -193,21 +198,23 @@ const HeroSignupForm = ({
             </Box>
             {children && isFeatures && (
               <Box
-                sx={{
-                  pt: '11px',
-                  textAlign: 'center',
-                  backgroundColor: isHome ? '#f9f9f9' : '',
-                  '&>div>div:nth-of-type(2)': {
-                    marginTop: '50px',
-                    paddingBottom: '30px'
-                  },
-                  '&>div>div>a': {
-                    backgroundColor: isHome ? '#fff' : '',
-                    '&>img': {
-                      height: '120%'
+                sx={
+                  {
+                    pt: '11px',
+                    textAlign: 'center',
+                    backgroundColor: isHome ? '#f9f9f9' : '',
+                    '&>div>div:nth-of-type(2)': {
+                      marginTop: '50px',
+                      paddingBottom: '30px'
+                    },
+                    '&>div>div>a': {
+                      backgroundColor: isHome ? '#fff' : '',
+                      '&>img': {
+                        height: '120%'
+                      }
                     }
-                  }
-                }}
+                  } as any
+                }
               >
                 {children}
               </Box>
@@ -216,14 +223,16 @@ const HeroSignupForm = ({
         </Box>
 
         <Box
-          sx={{
-            display: 'block',
-            maxWidth: 'none',
-            position: 'relative',
-            margin: ['0px auto 64px', '15px auto 64px', '64px auto 64px'],
-            paddingLeft: '15px',
-            paddingRight: '15px'
-          }}
+          sx={
+            {
+              display: 'block',
+              maxWidth: 'none',
+              position: 'relative',
+              margin: ['0px auto 64px', '15px auto 64px', '64px auto 64px'],
+              paddingLeft: '15px',
+              paddingRight: '15px'
+            } as any
+          }
         >
           <SignUpForm
             apiUrl={apiUrl ? apiUrl : ''}
@@ -240,27 +249,29 @@ const HeroSignupForm = ({
       {!withoutLines && (
         <ViewportWidthBox>
           <Box>
-            <HeroDots pushSx={{ mt: 64 }} ref={svgRef} />
+            <HeroDots pushSx={{ mt: 64 } as any} ref={svgRef} />
           </Box>
         </ViewportWidthBox>
       )}
       {children && !isFeatures && (
         <Box
-          sx={{
-            pt: [2, 5],
-            textAlign: 'center',
-            backgroundColor: isHome ? '#f9f9f9' : '',
-            '&>div>div:nth-of-type(2)': {
-              marginTop: '50px',
-              paddingBottom: '30px'
-            },
-            '&>div>div>a': {
-              backgroundColor: isHome ? '#fff' : '',
-              '&>img': {
-                height: '120%'
+          sx={
+            {
+              pt: [2, 5],
+              textAlign: 'center',
+              backgroundColor: isHome ? '#f9f9f9' : '',
+              '&>div>div:nth-of-type(2)': {
+                marginTop: '50px',
+                paddingBottom: '30px'
+              },
+              '&>div>div>a': {
+                backgroundColor: isHome ? '#fff' : '',
+                '&>img': {
+                  height: '120%'
+                }
               }
-            }
-          }}
+            } as any
+          }
         >
           {children}
         </Box>
